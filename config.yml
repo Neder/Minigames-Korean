@@ -1,0 +1,51 @@
+treasurehunt:
+  findtime: 60
+  # Time players have to find the treasure (minutes)
+  waittime: 60
+  # Time to wait before spawning a new treasure after the time was up (minutes)
+
+multiplayer:
+  waitforplayers: 10
+  # Time to wait for players before starting
+  startcountdown: 5
+  # Time before game actually starts
+  timerMessageInterval:
+    - 900
+    - 600
+    - 300
+    - 60
+    - 30
+    - 10
+    - 5
+    - 4
+    - 3
+    - 2
+    - 1
+  floordegenerator:
+    time: 30
+  ctf:
+    flagrespawntime: 60
+  broadcastwin: true
+  
+singleplayer:
+  broadcastcompletion: true
+
+disabledCommands:
+  - home
+  - warp
+  - spawn
+  
+updateChecker: true
+# Whether the plugin should check for updates
+  
+use-sql: false
+sql-host: localhost
+sql-port: 3306
+sql-database: database
+sql-username: root
+sql-password: root
+
+outputCMDToFile: false
+
+minigames:
+  {}
