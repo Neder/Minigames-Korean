@@ -297,7 +297,7 @@ public class CTFType extends ScoreType{
 			}
 		}
 		else if(event.getMinigame() == null) {
-			Bukkit.getLogger().servere("----------------Problem Detected!----------------\n NULL Minigame! \n Player responsible: " + event.getPlayer() + 
+			Bukkit.getLogger().severe("----------------Problem Detected!----------------\n NULL Minigame! \n Player responsible: " + event.getPlayer() + 
 					"\n Please report the info leading up to this message from the logs!"); //TODO: Debug message
 		}
 	}
