@@ -50,6 +50,7 @@ public class CommandDispatcher implements CommandExecutor{
 		registerCommand(new GlobalLoadoutCommand());
 		registerCommand(new SpectateCommand());
 		registerCommand(new TeleportCommand());
+		registerCommand(new PlayerCommand());
 		
 		if(plugin.getConfig().getBoolean("outputCMDToFile")){
 			try {
