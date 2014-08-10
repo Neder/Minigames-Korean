@@ -55,7 +55,9 @@ public abstract class MinigameType implements Listener{
 					pdata.minigameTeleport(player, minigame.getQuitPosition());
 				}
 				else{
-					pdata.addRespawnPosition(player.getName(), minigame.getQuitPosition());
+//					pdata.addRespawnPosition(player.getPlayer(), mgm.getEndPosition());
+					player.setQuitPos(minigame.getEndPosition());
+					player.setRequiredQuit(true);
 				}
 			}
 		});

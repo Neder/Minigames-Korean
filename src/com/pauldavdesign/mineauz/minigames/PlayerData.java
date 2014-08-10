@@ -45,7 +45,6 @@ public class PlayerData {
 	
 	private boolean partyMode = false;
 	
-	private Map<String, Location> resPos = new HashMap<String, Location>();
 	private List<String> deniedCommands = new ArrayList<String>();
 	
 
@@ -359,15 +358,18 @@ public class PlayerData {
 				}
 	
 				minigame.removePlayersLoadout(player);
+				
 				final MinigamePlayer ply = player;
-				Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-					
-					public void run() {
-						if(ply.getPlayer().isOnline() && !ply.getPlayer().isDead()){
-							ply.restorePlayerData();
+				if(!player.getPlayer().isDead()) {
+					Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+						
+						public void run() {
+							if(ply.getPlayer().isOnline() && !ply.getPlayer().isDead()){
+								ply.restorePlayerData();
+							}
 						}
-					}
-				});
+					});
+				}
 
 				player.removeMinigame();
 				minigame.removePlayer(player);
@@ -712,7 +714,7 @@ public class PlayerData {
 	}
 	
 	public void addOfflineMinigamePlayer(MinigamePlayer player){
-		offlineMinigamePlayers.put(player.getName(), new OfflineMinigamePlayer(player.getName(), player.getStoredItems(), player.getStoredArmour(), player.getFood(), player.getHealth(), player.getSaturation(), player.getLastGamemode(), player.getMinigame().getQuitPosition()));
+		offlineMinigamePlayers.put(player.getName(), new OfflineMinigamePlayer(player.getName(), player.getStoredItems(), player.getStoredArmour(), player.getFood(), player.getHealth(), player.getSaturation(), player.getLastGamemode(), player.getQuitPos()));
 	}
 	
 	public void addOfflineMinigamePlayer(OfflineMinigamePlayer player){
@@ -732,10 +734,10 @@ public class PlayerData {
 	}
 	
 
-	public void storePlayerInventory(String player, ItemStack[] items, ItemStack[] armour, Integer health, Integer food, Float saturation){
-		OfflineMinigamePlayer oply = new OfflineMinigamePlayer(player, items, armour, food, health, saturation, GameMode.SURVIVAL, resPos.get(player));
-		offlineMinigamePlayers.put(player, oply);
-	}
+//	public void storePlayerInventory(String player, ItemStack[] items, ItemStack[] armour, Integer health, Integer food, Float saturation){
+//		OfflineMinigamePlayer oply = new OfflineMinigamePlayer(player, items, armour, food, health, saturation, GameMode.SURVIVAL, resPos.get(player));
+//		offlineMinigamePlayers.put(player, oply);
+//	}
 	
 
 	public List<String> checkRequiredFlags(MinigamePlayer player, String minigame){
@@ -786,44 +788,6 @@ public class PlayerData {
 			fwm.setPower(0);
 			firework.setFireworkMeta(fwm);
 		}
-	}
-	
-	public void addRespawnPosition(Player player, Location location){
-		resPos.put(player.getName(), location);
-	}
-	
-	public void addRespawnPosition(String player, Location location){
-		resPos.put(player, location);
-	}
-	
-	public Location getRespawnPosition(Player player){
-		return resPos.get(player.getName());
-	}
-	
-	public boolean hasRespawnPosition(Player player){
-		return resPos.containsKey(player.getName());
-	}
-	
-	public void removeRespawnPosition(Player player){
-		resPos.remove(player.getName());
-	}
-	
-	public void saveDCPlayers(){
-		MinigameSave save = new MinigameSave("dcPlayers");
-		for(String player : resPos.keySet()){
-			mdata.minigameSetLocations(player, resPos.get(player), "rejoin", save.getConfig());
-		}
-		save.saveConfig();
-	}
-	
-	public void loadDCPlayers(){
-		MinigameSave save = new MinigameSave("dcPlayers");
-		for(String player : save.getConfig().getKeys(false)){
-			addRespawnPosition(player, mdata.minigameLocations(player, "rejoin", save.getConfig()));
-			save.getConfig().set(player, null);
-		}
-		save.saveConfig();
-		save.deleteFile();
 	}
 
 	public List<String> getDeniedCommands() {
