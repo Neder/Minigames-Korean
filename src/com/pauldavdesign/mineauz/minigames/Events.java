@@ -405,6 +405,7 @@ public class Events implements Listener{
 				if(sb.getShooter() instanceof Player){
 					MinigamePlayer shooter = pdata.getMinigamePlayer((Player) sb.getShooter());
 					Minigame mgm = ply.getMinigame();
+					if(shooter == null) return;
 					if(shooter.isInMinigame() && shooter.getMinigame().equals(ply.getMinigame())){
 						int plyTeam = -1;
 						int atcTeam = -2;
@@ -444,6 +445,7 @@ public class Events implements Listener{
 			Egg egg = (Egg) event.getEntity();
 			if(egg.getShooter() != null && egg.getShooter() instanceof Player){
 				MinigamePlayer ply = pdata.getMinigamePlayer((Player) egg.getShooter());
+				if(shooter == null) return;
 				if(ply.isInMinigame() && ply.getMinigame().hasUnlimitedAmmo()){
 					ply.getPlayer().getInventory().addItem(new ItemStack(Material.EGG));
 				}
