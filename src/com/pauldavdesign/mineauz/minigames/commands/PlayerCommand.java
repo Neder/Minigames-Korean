@@ -92,7 +92,7 @@ public class PlayerCommand implements ICommand {
 						sender.sendMessage(ChatColor.GREEN + "데스: " + ChatColor.GRAY + pl.getDeaths());
 						sender.sendMessage(ChatColor.GREEN + "체크포인트로 돌아옴: " + ChatColor.GRAY + pl.getReverts());
 						sender.sendMessage(ChatColor.GREEN + "플레이 시간: " + ChatColor.GRAY + 
-								MinigameUtils.convertTime((int)((Calendar.getInstance().getTimeInMillis() - pl.getStartTime()) / 1000)));
+								MinigameUtils.convertTime((int)((Calendar.getInstance().getTimeInMillis() - pl.getStartTime() + pl.getStoredTime()) / 1000)));
 					}
 					else{
 						sender.sendMessage(ChatColor.GREEN + "미니게임: " + ChatColor.RED + "미니게임 안에 없음");
