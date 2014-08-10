@@ -189,15 +189,14 @@ public class PlayerData {
 		}
 	}
 	
-	public void startMPMinigame(String minigame){
+	public void startMPMinigame(Minigame minigame){
 		List<MinigamePlayer> players = new ArrayList<MinigamePlayer>();
-		players.addAll(mdata.getMinigame(minigame).getPlayers());
+		players.addAll(minigame.getPlayers());
 		
 		Collections.shuffle(players);
 		
-		Minigame mgm = mdata.getMinigame(minigame);
-		if(mgm.getType().equals("teamdm") && ScoreTypes.getScoreType(mgm.getScoreType()) != null){
-			ScoreTypes.getScoreType(mgm.getScoreType()).balanceTeam(players, mgm);
+		if(minigame.getType().equals("teamdm") && ScoreTypes.getScoreType(minigame.getScoreType()) != null){
+			ScoreTypes.getScoreType(minigame.getScoreType()).balanceTeam(players, minigame);
 		}
 		
 		Location start = null;
@@ -206,23 +205,23 @@ public class PlayerData {
 		int redpos = 0;
 		
 		for(MinigamePlayer ply : players){
-			if(!mgm.getType().equals("teamdm")){
-				if(pos < mgm.getStartLocations().size()){
-					start = mgm.getStartLocations().get(pos);
+			if(!minigame.getType().equals("teamdm")){
+				if(pos < minigame.getStartLocations().size()){
+					start = minigame.getStartLocations().get(pos);
 					minigameTeleport(ply, start);
 					ply.setCheckpoint(start);
-					if(mgm.getMaxScore() != 0 && mgm.getType().equals("dm") && !mgm.getScoreType().equals("none")){
-						ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "승리까지 남은 스코어: " + mgm.getMaxScorePerPlayer(mgm.getPlayers().size()));
+					if(minigame.getMaxScore() != 0 && minigame.getType().equals("dm") && !minigame.getScoreType().equals("none")){
+						ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "승리까지 남은 스코어: " + minigame.getMaxScorePerPlayer(minigame.getPlayers().size()));
 					}
 				} 
 				else{
 					pos = 0;
-					if(!mgm.getStartLocations().isEmpty()){
-						start = mgm.getStartLocations().get(0);
+					if(!minigame.getStartLocations().isEmpty()){
+						start = minigame.getStartLocations().get(0);
 						minigameTeleport(ply, start);
 						ply.setCheckpoint(start);
-						if(mgm.getMaxScore() != 0 && mgm.getType().equals("dm") && !mgm.getScoreType().equals("none")){
-							ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "승리까지 남은 스코어: " + mgm.getMaxScorePerPlayer(mgm.getPlayers().size()));
+						if(minigame.getMaxScore() != 0 && minigame.getType().equals("dm") && !minigame.getScoreType().equals("none")){
+							ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "승리까지 남은 스코어: " + minigame.getMaxScorePerPlayer(minigame.getPlayers().size()));
 						}
 					}
 					else {
@@ -233,46 +232,46 @@ public class PlayerData {
 			}
 			else{
 				int team = -1;
-				if(mgm.getBlueTeam().contains(ply.getPlayer())){
+				if(minigame.getBlueTeam().contains(ply.getPlayer())){
 					team = 1;
 				}
-				else if(mgm.getRedTeam().contains(ply.getPlayer())){
+				else if(minigame.getRedTeam().contains(ply.getPlayer())){
 					team = 0;
 				}
-				if(!mgm.getStartLocationsRed().isEmpty() && !mgm.getStartLocationsBlue().isEmpty()){
-					if(team == 0 && redpos < mgm.getStartLocationsRed().size()){
-						start = mgm.getStartLocationsRed().get(redpos);
+				if(!minigame.getStartLocationsRed().isEmpty() && !minigame.getStartLocationsBlue().isEmpty()){
+					if(team == 0 && redpos < minigame.getStartLocationsRed().size()){
+						start = minigame.getStartLocationsRed().get(redpos);
 						redpos++;
 					}
-					else if(team == 1 && bluepos < mgm.getStartLocationsBlue().size()){
-						start = mgm.getStartLocationsBlue().get(bluepos);
+					else if(team == 1 && bluepos < minigame.getStartLocationsBlue().size()){
+						start = minigame.getStartLocationsBlue().get(bluepos);
 						bluepos++;
 					}
-					else if(team == 0 && !mgm.getStartLocationsRed().isEmpty()){
+					else if(team == 0 && !minigame.getStartLocationsRed().isEmpty()){
 						redpos = 0;
-						start = mgm.getStartLocationsRed().get(redpos);
+						start = minigame.getStartLocationsRed().get(redpos);
 						redpos++;
 					}
-					else if(team == 1 && !mgm.getStartLocationsBlue().isEmpty()){
+					else if(team == 1 && !minigame.getStartLocationsBlue().isEmpty()){
 						bluepos = 0;
-						start = mgm.getStartLocationsBlue().get(bluepos);
+						start = minigame.getStartLocationsBlue().get(bluepos);
 						bluepos++;
 					}
-					else if(mgm.getStartLocationsBlue().isEmpty() || mgm.getStartLocationsRed().isEmpty()){
+					else if(minigame.getStartLocationsBlue().isEmpty() || minigame.getStartLocationsRed().isEmpty()){
 						ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "시작 지점이 제대로 설정되지 않았습니다!");
 						quitMinigame(ply, false);
 					}
 				}
 				else{
-					if(pos <= mgm.getStartLocations().size()){
-						start = mgm.getStartLocations().get(pos);
+					if(pos <= minigame.getStartLocations().size()){
+						start = minigame.getStartLocations().get(pos);
 						minigameTeleport(ply, start);
 						ply.setCheckpoint(start);
 					} 
 					else{
 						pos = 1;
-						if(!mgm.getStartLocations().isEmpty()){
-							start = mgm.getStartLocations().get(0);
+						if(!minigame.getStartLocations().isEmpty()){
+							start = minigame.getStartLocations().get(0);
 							minigameTeleport(ply, start);
 							ply.setCheckpoint(start);
 						}
@@ -286,39 +285,39 @@ public class PlayerData {
 				if(start != null){
 					minigameTeleport(ply, start);
 					ply.setCheckpoint(start);
-					if(mgm.getMaxScore() != 0 && !mgm.getScoreType().equals("none")){
-						ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "승리까지 남은 스코어: " + mgm.getMaxScorePerPlayer(mgm.getPlayers().size()));
+					if(minigame.getMaxScore() != 0 && !minigame.getScoreType().equals("none")){
+						ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "승리까지 남은 스코어: " + minigame.getMaxScorePerPlayer(minigame.getPlayers().size()));
 					}
 				}
 				
-				if(mgm.getLives() > 0){
-					ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "남은 목숨: " + mgm.getLives());
+				if(minigame.getLives() > 0){
+					ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "남은 목숨: " + minigame.getLives());
 				}
 			}
 			pos++;
-			if(!mgm.getPlayersLoadout(ply).getItems().isEmpty()){
-				mgm.getPlayersLoadout(ply).equiptLoadout(ply);
+			if(!minigame.getPlayersLoadout(ply).getItems().isEmpty()){
+				minigame.getPlayersLoadout(ply).equiptLoadout(ply);
 			}
-			ply.getPlayer().setScoreboard(mgm.getScoreboardManager());
-			mgm.setScore(ply, 1);
-			mgm.setScore(ply, 0);
+			ply.getPlayer().setScoreboard(minigame.getScoreboardManager());
+			minigame.setScore(ply, 1);
+			minigame.setScore(ply, 0);
 		}
 		
-		if(mgm.hasPlayers()){
-			if(mgm.getSpleefFloor1() != null && mgm.getSpleefFloor2() != null){
-				mgm.addFloorDegenerator();
-				mgm.getFloorDegenerator().startDegeneration();
+		if(minigame.hasPlayers()){
+			if(minigame.getSpleefFloor1() != null && minigame.getSpleefFloor2() != null){
+				minigame.addFloorDegenerator();
+				minigame.getFloorDegenerator().startDegeneration();
 			}
 	
-			if(mgm.hasRestoreBlocks()){
-				for(RestoreBlock block : mgm.getRestoreBlocks().values()){
-					mgm.getBlockRecorder().addBlock(block.getLocation().getBlock(), null);
+			if(minigame.hasRestoreBlocks()){
+				for(RestoreBlock block : minigame.getRestoreBlocks().values()){
+					minigame.getBlockRecorder().addBlock(block.getLocation().getBlock(), null);
 				}
 			}
 			
-			if(mgm.getTimer() > 0){
-				mgm.setMinigameTimer(new MinigameTimer(mgm, mgm.getTimer()));
-				mdata.sendMinigameMessage(mgm, MinigameUtils.convertTime(mgm.getTimer()) + " 초 남음.", null, null);
+			if(minigame.getTimer() > 0){
+				minigame.setMinigameTimer(new MinigameTimer(minigame, minigame.getTimer()));
+				mdata.sendMinigameMessage(minigame, MinigameUtils.convertTime(minigame.getTimer()) + " 초 남음.", null, null);
 			}
 		}
 	}
@@ -335,12 +334,12 @@ public class PlayerData {
 	}
 	
 	public void quitMinigame(MinigamePlayer player, boolean forced){
-		Minigame mgm = player.getMinigame();
+		Minigame minigame = player.getMinigame();
 
-		QuitMinigameEvent event = new QuitMinigameEvent(player, mgm, forced);
+		QuitMinigameEvent event = new QuitMinigameEvent(player, minigame, forced);
 		Bukkit.getServer().getPluginManager().callEvent(event);
 		if(!event.isCancelled()){
-			if(!mgm.isSpectator(player)){
+			if(!minigame.isSpectator(player)){
 				player.setAllowTeleport(true);
 				
 				if(player.getPlayer().getVehicle() != null){
@@ -353,13 +352,13 @@ public class PlayerData {
 				MinigameUtils.removePlayerArrows(player);
 				
 				if(!forced){
-					mdata.sendMinigameMessage(mgm, player.getName() + " 님이 " + mgm + " 에서 나가셨습니다.", "error", player);
+					mdata.sendMinigameMessage(minigame, player.getName() + " 님이 " + minigame + " 에서 나가셨습니다.", "error", player);
 				}
 				else{
-					mdata.sendMinigameMessage(mgm, player.getName() + " 님이 " + mgm + " 에서 나가지셨습니다.", "error", player);
+					mdata.sendMinigameMessage(minigame, player.getName() + " 님이 " + minigame + " 에서 나가지셨습니다.", "error", player);
 				}
 	
-				mgm.removePlayersLoadout(player);
+				minigame.removePlayersLoadout(player);
 				final MinigamePlayer ply = player;
 				Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 					
@@ -371,8 +370,8 @@ public class PlayerData {
 				});
 
 				player.removeMinigame();
-				mgm.removePlayer(player);
-				mdata.minigameType(mgm.getType()).quitMinigame(player, mgm, forced);
+				minigame.removePlayer(player);
+				mdata.minigameType(minigame.getType()).quitMinigame(player, minigame, forced);
 				
 				for(PotionEffect potion : player.getPlayer().getActivePotionEffects()){
 					player.getPlayer().removePotionEffect(potion.getType());
@@ -394,29 +393,29 @@ public class PlayerData {
 				player.resetScore();
 				player.removeCheckpoint();
 				
-				plugin.getLogger().info(player.getName() + " 님이 " + mgm + " 에서 나가셨습니다.");
-				if(mgm.getPlayers().size() == 0){
-					if(mgm.getMinigameTimer() != null){
-						mgm.getMinigameTimer().stopTimer();
-						mgm.setMinigameTimer(null);
+				plugin.getLogger().info(player.getName() + " 님이 " + minigame + " 에서 나가셨습니다.");
+				if(minigame.getPlayers().size() == 0){
+					if(minigame.getMinigameTimer() != null){
+						minigame.getMinigameTimer().stopTimer();
+						minigame.setMinigameTimer(null);
 					}
 					
-					if(mgm.getFloorDegenerator() != null){
-						mgm.getFloorDegenerator().stopDegenerator();
+					if(minigame.getFloorDegenerator() != null){
+						minigame.getFloorDegenerator().stopDegenerator();
 					}
 					
-					if(mgm.getBlockRecorder().hasData()){
-						mgm.getBlockRecorder().restoreBlocks();
-						mgm.getBlockRecorder().restoreEntities();
+					if(minigame.getBlockRecorder().hasData()){
+						minigame.getBlockRecorder().restoreBlocks();
+						minigame.getBlockRecorder().restoreEntities();
 					}
 					
-					if(mgm.getMpBets() != null){
-						mgm.setMpBets(null);
+					if(minigame.getMpBets() != null){
+						minigame.setMpBets(null);
 					}
 				}
-				mgm.getScoreboardManager().resetScores(player.getPlayer());
+				minigame.getScoreboardManager().resetScores(player.getPlayer());
 				
-				for(MinigamePlayer pl : mgm.getSpectators()){
+				for(MinigamePlayer pl : minigame.getSpectators()){
 					player.getPlayer().showPlayer(pl.getPlayer());
 				}
 				
@@ -450,15 +449,15 @@ public class PlayerData {
 					}
 				});
 				
-				minigameTeleport(player, mgm.getQuitPosition());
+				minigameTeleport(player, minigame.getQuitPosition());
 				player.removeMinigame();
-				mgm.removeSpectator(player);
+				minigame.removeSpectator(player);
 				
 				for(PotionEffect potion : player.getPlayer().getActivePotionEffects()){
 					player.getPlayer().removePotionEffect(potion.getType());
 				}
 				
-				for(MinigamePlayer pl : mgm.getPlayers()){
+				for(MinigamePlayer pl : minigame.getPlayers()){
 					pl.getPlayer().showPlayer(player.getPlayer());
 				}
 				
@@ -466,16 +465,16 @@ public class PlayerData {
 				ply.setAllowTeleport(true);
 				ply.setAllowGamemodeChange(true);
 				
-				player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + mgm + " 미니게임을 더이상 구경하지 않습니다.");
-				mdata.sendMinigameMessage(mgm, player.getName() + " 님은 이제 " + mgm + " 미니게임을 더이상 구경하지 않습니다.", "error", player);
+				player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + minigame + " 미니게임을 더이상 구경하지 않습니다.");
+				mdata.sendMinigameMessage(minigame, player.getName() + " 님은 이제 " + minigame + " 미니게임을 더이상 구경하지 않습니다.", "error", player);
 			}
 		}
 	}
 	
 	public void endMinigame(final MinigamePlayer player){
-		Minigame mgm = player.getMinigame();
+		Minigame minigame = player.getMinigame();
 		
-		EndMinigameEvent event = new EndMinigameEvent(player, mgm);
+		EndMinigameEvent event = new EndMinigameEvent(player, minigame);
 		Bukkit.getServer().getPluginManager().callEvent(event);
 		
 		if(!event.isCancelled()){
@@ -492,10 +491,10 @@ public class PlayerData {
 			MinigameUtils.removePlayerArrows(player);
 			
 			player.removeMinigame();
-			mgm.removePlayer(player);
-			mgm.removePlayersLoadout(player);
+			minigame.removePlayer(player);
+			minigame.removePlayersLoadout(player);
 			player.getPlayer().setFallDistance(0);
-			mdata.minigameType(mgm.getType()).endMinigame(player, mgm);
+			mdata.minigameType(minigame.getType()).endMinigame(player, minigame);
 			
 			for(PotionEffect potion : player.getPlayer().getActivePotionEffects()){
 				player.getPlayer().removePotionEffect(potion.getType());
@@ -511,109 +510,109 @@ public class PlayerData {
 				player.resetScore();
 			}
 			
-			if(mgm.getMinigameTimer() != null){
-				mgm.getMinigameTimer().stopTimer();
-				mgm.setMinigameTimer(null);
+			if(minigame.getMinigameTimer() != null){
+				minigame.getMinigameTimer().stopTimer();
+				minigame.setMinigameTimer(null);
 			}
 			
-			if(mgm.getFloorDegenerator() != null && mgm.getPlayers().size() == 0){
-				mgm.getFloorDegenerator().stopDegenerator();
+			if(minigame.getFloorDegenerator() != null && minigame.getPlayers().size() == 0){
+				minigame.getFloorDegenerator().stopDegenerator();
 			}
 			
-			if(mgm.getMpBets() != null && mgm.getPlayers().size() == 0){
-				mgm.setMpBets(null);
+			if(minigame.getMpBets() != null && minigame.getPlayers().size() == 0){
+				minigame.setMpBets(null);
 			}
 			
-			if(mgm.getBlockRecorder().hasData()){
-				if(!mgm.getType().equalsIgnoreCase("sp") || mgm.getPlayers().isEmpty()){
-					mgm.getBlockRecorder().restoreBlocks();
-					mgm.getBlockRecorder().restoreEntities();
+			if(minigame.getBlockRecorder().hasData()){
+				if(!minigame.getType().equalsIgnoreCase("sp") || minigame.getPlayers().isEmpty()){
+					minigame.getBlockRecorder().restoreBlocks();
+					minigame.getBlockRecorder().restoreEntities();
 				}
-				else if(mgm.getPlayers().isEmpty()){
-					mgm.getBlockRecorder().restoreBlocks(player);
-					mgm.getBlockRecorder().restoreEntities(player);
+				else if(minigame.getPlayers().isEmpty()){
+					minigame.getBlockRecorder().restoreBlocks(player);
+					minigame.getBlockRecorder().restoreEntities(player);
 				}
 			}
 			
-			for(MinigamePlayer pl : mgm.getSpectators()){
+			for(MinigamePlayer pl : minigame.getSpectators()){
 				player.getPlayer().showPlayer(pl.getPlayer());
 			}
 			
 			player.setAllowTeleport(true);
 			player.setAllowGamemodeChange(true);
 
-			plugin.getLogger().info(player.getName() + " 님이 " + mgm + " 를 완료하셨습니다.");
-			mgm.getScoreboardManager().resetScores(player.getPlayer());
+			plugin.getLogger().info(player.getName() + " 님이 " + minigame + " 를 완료하셨습니다.");
+			minigame.getScoreboardManager().resetScores(player.getPlayer());
 		}
 	}
 	
-	public void endTeamMinigame(int teamnum, Minigame mgm){
+	public void endTeamMinigame(int teamnum, Minigame minigame){
 		
 		List<MinigamePlayer> losers = new ArrayList<MinigamePlayer>();
 		List<MinigamePlayer> winners = new ArrayList<MinigamePlayer>();
 		
 		if(teamnum == 1){
 			//Blue team
-			for(OfflinePlayer ply : mgm.getRedTeam()){
+			for(OfflinePlayer ply : minigame.getRedTeam()){
 				losers.add(getMinigamePlayer(ply.getName()));
 			}
-			for(OfflinePlayer ply : mgm.getBlueTeam()){
+			for(OfflinePlayer ply : minigame.getBlueTeam()){
 				winners.add(getMinigamePlayer(ply.getName()));
 			}
 		}
 		else{
 			//Red team
-			for(OfflinePlayer ply : mgm.getRedTeam()){
+			for(OfflinePlayer ply : minigame.getRedTeam()){
 				winners.add(getMinigamePlayer(ply.getName()));
 			}
-			for(OfflinePlayer ply : mgm.getBlueTeam()){
+			for(OfflinePlayer ply : minigame.getBlueTeam()){
 				losers.add(getMinigamePlayer(ply.getName()));
 			}
 		}
 		
 
-		EndTeamMinigameEvent event = new EndTeamMinigameEvent(losers, winners, mgm, teamnum);
+		EndTeamMinigameEvent event = new EndTeamMinigameEvent(losers, winners, minigame, teamnum);
 		Bukkit.getServer().getPluginManager().callEvent(event);
 		
 		if(!event.isCancelled()){
 			if(event.getWinningTeamInt() == 1){
 				if(plugin.getConfig().getBoolean("multiplayer.broadcastwin")){
 					String score = "";
-					if(mgm.getRedTeamScore() != 0 && mgm.getBlueTeamScore() != 0){
-						score = ", " + ChatColor.BLUE + mgm.getBlueTeamScore() + ChatColor.WHITE + " 대 " + ChatColor.RED + mgm.getRedTeamScore();
+					if(minigame.getRedTeamScore() != 0 && minigame.getBlueTeamScore() != 0){
+						score = ", " + ChatColor.BLUE + minigame.getBlueTeamScore() + ChatColor.WHITE + " 대 " + ChatColor.RED + minigame.getRedTeamScore();
 					}
-					plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.BLUE + "블루 팀" + ChatColor.WHITE + " 이 " + mgm.getName() + "에서" + score + "으로 승리하셨습니다.");
+					plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.BLUE + "블루 팀" + ChatColor.WHITE + " 이 " + minigame.getName() + "에서" + score + "으로 승리하셨습니다.");
 				}
 			}
 			else{
 				if(plugin.getConfig().getBoolean("multiplayer.broadcastwin")){
 					String score = "";
-					if(mgm.getRedTeamScore() != 0 && mgm.getBlueTeamScore() != 0){
-						score = ", " + ChatColor.RED + mgm.getRedTeamScore() + ChatColor.WHITE + " 대 " + ChatColor.BLUE + mgm.getBlueTeamScore();
+					if(minigame.getRedTeamScore() != 0 && minigame.getBlueTeamScore() != 0){
+						score = ", " + ChatColor.RED + minigame.getRedTeamScore() + ChatColor.WHITE + " 대 " + ChatColor.BLUE + minigame.getBlueTeamScore();
 					}
-					plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.RED + "레드 팀" + ChatColor.WHITE + " 이 " + mgm.getName() + "에서" + score + "으로 승리하셨습니다.");
+					plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.RED + "레드 팀" + ChatColor.WHITE + " 이 " + minigame.getName() + "에서" + score + "으로 승리하셨습니다.");
 				}
 			}
 			
-			mgm.setRedTeamScore(0);
-			mgm.setBlueTeamScore(0);
+			minigame.setRedTeamScore(0);
+			minigame.setBlueTeamScore(0);
 			
-			mgm.getMpTimer().setStartWaitTime(0);
+			minigame.getMpTimer().setStartWaitTime(0);
 			
 			List<MinigamePlayer> winplayers = new ArrayList<MinigamePlayer>();
 			winplayers.addAll(event.getWinnningPlayers());
 	
 			if(plugin.getSQL() != null){
-				new SQLCompletionSaver(mgm.getName(), winplayers, mdata.minigameType(mgm.getType()));
+				new SQLCompletionSaver(minigame.getName(), winplayers, mdata.minigameType(minigame.getType()));
 			}
 			
-			if(mgm.getMpBets() != null){
-				if(mgm.getMpBets().hasMoneyBets()){
+			if(minigame.getMpBets() != null){
+				if(minigame.getMpBets().hasMoneyBets()){
 					List<MinigamePlayer> plys = new ArrayList<MinigamePlayer>();
 					plys.addAll(event.getWinnningPlayers());
 					
 					if(!plys.isEmpty()){
-						double bets = mgm.getMpBets().claimMoneyBets() / (double) plys.size();
+						double bets = minigame.getMpBets().claimMoneyBets() / (double) plys.size();
 						BigDecimal roundBets = new BigDecimal(bets);
 						roundBets = roundBets.setScale(2, BigDecimal.ROUND_HALF_UP);
 						bets = roundBets.doubleValue();
@@ -623,7 +622,7 @@ public class PlayerData {
 						}
 					}
 				}
-				mgm.setMpBets(null);
+				minigame.setMpBets(null);
 			}
 			
 			if(!event.getLosingPlayers().isEmpty()){
@@ -645,9 +644,9 @@ public class PlayerData {
 						loseplayers.remove(i);
 					}
 				}
-				mgm.setMpTimer(null);
+				minigame.setMpTimer(null);
 				for(MinigamePlayer pl : loseplayers){
-					mgm.getPlayers().remove(pl);
+					minigame.getPlayers().remove(pl);
 				}
 			}
 			
@@ -666,7 +665,7 @@ public class PlayerData {
 				}
 			}
 			
-			mgm.setMpTimer(null);
+			minigame.setMpTimer(null);
 		}
 	}
 	

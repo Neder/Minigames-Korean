@@ -105,10 +105,10 @@ public class TeamDMMinigame extends MinigameType{
 					player.sendMessage(ChatColor.GREEN + "팀데스매치 미니게임을 시작하셨습니다. /quit 으로 나가실 수 있습니다.");
 				
 					if(mgm.getMpTimer() == null && mgm.getPlayers().size() >= mgm.getMinPlayers()){
-						mgm.setMpTimer(new MultiplayerTimer(mgm.getName()));
+						mgm.setMpTimer(new MultiplayerTimer(mgm));
 						mgm.getMpTimer().startTimer();
 						if(mgm.getPlayers().size() == mgm.getMaxPlayers()){
-							mgm.setMpTimer(new MultiplayerTimer(mgm.getName()));
+							mgm.setMpTimer(new MultiplayerTimer(mgm));
 							mgm.getMpTimer().startTimer();
 							mgm.getMpTimer().setPlayerWaitTime(0);
 							mdata.sendMinigameMessage(mgm, "미니게임이 꽉 찼습니다. 기다리지 않고 바로 시작합니다.", "info", null);
