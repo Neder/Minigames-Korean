@@ -65,6 +65,7 @@ public class PlayerData {
 		if(!event.isCancelled()){
 			if(mdata.getMinigameTypes().contains(gametype)){
 				player.setAllowTeleport(true);
+				player.getPlayer().setFallDistance(0);
 				if(mdata.minigameType(gametype).joinMinigame(player, minigame)){
 					plugin.getLogger().info(player.getName() + " 님이 " + minigame.getName() + " 를 시작하셨습니다.");
 					mdata.sendMinigameMessage(minigame, player.getName() + " 님이 " + minigame.getName() + " 에 들어오셨습니다.", null, player);
@@ -492,12 +493,12 @@ public class PlayerData {
 			player.removeMinigame();
 			mgm.removePlayer(player);
 			mgm.removePlayersLoadout(player);
+			player.getPlayer().setFallDistance(0);
 			mdata.minigameType(mgm.getType()).endMinigame(player, mgm);
 			
 			for(PotionEffect potion : player.getPlayer().getActivePotionEffects()){
 				player.getPlayer().removePotionEffect(potion.getType());
 			}
-			player.getPlayer().setFallDistance(0);
 			player.getPlayer().setFireTicks(0);
 			player.getPlayer().setNoDamageTicks(60);
 			
