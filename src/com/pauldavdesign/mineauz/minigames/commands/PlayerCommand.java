@@ -1,6 +1,7 @@
 package com.pauldavdesign.mineauz.minigames.commands;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.bukkit.ChatColor;
@@ -9,6 +10,7 @@ import org.bukkit.entity.Player;
 
 import com.pauldavdesign.mineauz.minigames.Minigame;
 import com.pauldavdesign.mineauz.minigames.MinigamePlayer;
+import com.pauldavdesign.mineauz.minigames.MinigameUtils;
 import com.pauldavdesign.mineauz.minigames.Minigames;
 
 public class PlayerCommand implements ICommand {
@@ -88,6 +90,9 @@ public class PlayerCommand implements ICommand {
 						sender.sendMessage(ChatColor.GREEN + "스코어: " + ChatColor.GRAY + pl.getScore());
 						sender.sendMessage(ChatColor.GREEN + "킬: "  + ChatColor.GRAY + pl.getKills());
 						sender.sendMessage(ChatColor.GREEN + "데스: " + ChatColor.GRAY + pl.getDeaths());
+						sender.sendMessage(ChatColor.GREEN + "체크포인트로 돌아옴: " + ChatColor.GRAY + pl.getReverts());
+						sender.sendMessage(ChatColor.GREEN + "플레이 시간: " + ChatColor.GRAY + 
+								MinigameUtils.convertTime((int)((Calendar.getInstance().getTimeInMillis() - pl.getStartTime()) / 1000)));
 					}
 					else{
 						sender.sendMessage(ChatColor.GREEN + "미니게임: " + ChatColor.RED + "미니게임 안에 없음");

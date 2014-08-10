@@ -60,7 +60,7 @@ public class Events implements Listener{
 			event.setDroppedExp(0);
 			
 			ply.addDeath();
-			
+			ply.addRevert();
 			pdata.partyMode(ply);
 			
 			if(ply.getPlayer().getKiller() != null){
