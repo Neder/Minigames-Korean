@@ -44,6 +44,13 @@ public class FinishSign implements MinigameSign {
 	
 	public boolean signCreate(SignChangeEvent event) {
 		event.setLine(1, ChatColor.GREEN + "완료");
+		if(!event.getLine(2).isEmpty() && plugin.mdata.hasMinigame(event.getLine(2))){
+			event.setLine(2, plugin.mdata.getMinigame(event.getLine(2)).getName());
+		}
+		else if(!event.getLine(2).isEmpty()){
+			event.getPlayer().sendMessage(ChatColor.RED + "그런 미니게임은 존재하지 않습니다!");
+			return false;
+		}
 		return true;
 	}
 
@@ -60,8 +67,10 @@ public class FinishSign implements MinigameSign {
 				if(((LivingEntity)player.getPlayer()).isOnGround()){
 					
 					if(plugin.pdata.checkRequiredFlags(player, minigame.getName()).isEmpty()){
-						plugin.pdata.endMinigame(player);
-						plugin.pdata.partyMode(player);
+						if(sign.getLine(2).isEmpty() || sign.getLine(2).equals(player.getMinigame().getName())){
+							plugin.pdata.endMinigame(player);
+							plugin.pdata.partyMode(player);
+						}
 					}
 					else{
 						List<String> requiredFlags = plugin.pdata.checkRequiredFlags(player, minigame.getName());
