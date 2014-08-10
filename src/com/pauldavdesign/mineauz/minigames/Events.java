@@ -148,7 +148,7 @@ public class Events implements Listener{
 		}
 	}
 	
-	@EventHandler
+	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerConnect(PlayerJoinEvent event){
 		pdata.addMinigamePlayer(event.getPlayer());
 		if(event.getPlayer().isOp() && plugin.getConfig().getBoolean("updateChecker")){
