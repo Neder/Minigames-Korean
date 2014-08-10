@@ -445,7 +445,7 @@ public class Events implements Listener{
 			Egg egg = (Egg) event.getEntity();
 			if(egg.getShooter() != null && egg.getShooter() instanceof Player){
 				MinigamePlayer ply = pdata.getMinigamePlayer((Player) egg.getShooter());
-				if(shooter == null) return;
+				if(ply == null) return;
 				if(ply.isInMinigame() && ply.getMinigame().hasUnlimitedAmmo()){
 					ply.getPlayer().getInventory().addItem(new ItemStack(Material.EGG));
 				}
