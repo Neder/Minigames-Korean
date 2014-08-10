@@ -289,6 +289,13 @@ public class InfoCommand implements ICommand{
 						lines.add(ChatColor.GRAY + "무한 총알: " + ChatColor.RED + "아니오");
 					}
 					
+					if(mgm.isAllowedEnderpearls()) {
+						lines.add(ChatColor.GRAY + "엔더 진주 사용 여부:" + ChatColor.GREEN + "네");
+					}
+					else {
+						lines.add(ChatColor.GRAY + "엔더 진주 사용 여부:" + ChatColor.RED + "아니오");
+					}
+					
 					if(mgm.getType().equals("sp")){
 						if(mgm.canSaveCheckpoint()){
 							lines.add(ChatColor.GRAY + "체크포인트 저장: " + ChatColor.GREEN + "네");
