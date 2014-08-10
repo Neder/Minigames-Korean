@@ -66,16 +66,16 @@ public class CommandDispatcher implements CommandExecutor{
 		
 		if(plugin.getConfig().getBoolean("outputCMDToFile")){
 			try {
-				cmdFile.write("Ä¿¸Çµå: " + command.getName());
+				cmdFile.write("ëª…ë ¹ì–´: " + command.getName());
 				cmdFile.newLine();
 				if(command.getDescription() != null){
-					cmdFile.write("¼³¸í:");
+					cmdFile.write("ì„¤ëª…:");
 					cmdFile.newLine();
 					cmdFile.write(command.getDescription());
 					cmdFile.newLine();
 				}
 				if(command.getParameters() != null){
-					cmdFile.write("°ª:");
+					cmdFile.write("ê°’:");
 					cmdFile.newLine();
 					for(String par : command.getParameters()){
 						cmdFile.write(par + ", ");
@@ -83,7 +83,7 @@ public class CommandDispatcher implements CommandExecutor{
 					cmdFile.newLine();
 				}
 				if(command.getUsage() != null){
-					cmdFile.write("»ç¿ë¹ı:");
+					cmdFile.write("ì‚¬ìš©ë²•:");
 					cmdFile.newLine();
 					for(String use : command.getUsage()){
 						cmdFile.write(use);
@@ -91,7 +91,7 @@ public class CommandDispatcher implements CommandExecutor{
 					}
 				}
 				if(command.getAliases() != null){
-					cmdFile.write("ÁÙÀÓ ¸í·É¾î:");
+					cmdFile.write("ë‹¨ì¶• ëª…ë ¹ì–´:");
 					cmdFile.newLine();
 					for(String alias : command.getAliases()){
 						cmdFile.write(alias + ", ");
@@ -99,7 +99,7 @@ public class CommandDispatcher implements CommandExecutor{
 					cmdFile.newLine();
 				}
 				if(command.getPermission() != null){
-					cmdFile.write("±ÇÇÑ:");
+					cmdFile.write("ê¶Œí•œ:");
 					cmdFile.newLine();
 					cmdFile.write(command.getPermission());
 					cmdFile.newLine();
@@ -149,8 +149,8 @@ AliasCheck:		for(ICommand com : commands.values()){
 					if(ply == null || (comd.getPermission() == null || ply.hasPermission(comd.getPermission()))){
 						boolean returnValue = comd.onCommand(sender, null, label, shortArgs);
 						if(!returnValue){
-							sender.sendMessage(ChatColor.GREEN + "------------------Ä¿¸Çµå Á¤º¸------------------");
-							sender.sendMessage(ChatColor.BLUE + "¼³¸í: " + ChatColor.WHITE + comd.getDescription());
+							sender.sendMessage(ChatColor.GREEN + "------------------ëª…ë ¹ì–´ ì •ë³´------------------");
+							sender.sendMessage(ChatColor.BLUE + "ì„¤ëª…: " + ChatColor.WHITE + comd.getDescription());
 							if(comd.getParameters() != null){
 								String parameters = "";
 								boolean switchColour = false;
@@ -170,9 +170,9 @@ AliasCheck:		for(ICommand com : commands.values()){
 										switchColour = true;
 									}
 								}
-								sender.sendMessage(ChatColor.BLUE + "°ª: " + parameters);
+								sender.sendMessage(ChatColor.BLUE + "ê°’: " + parameters);
 							}
-							sender.sendMessage(ChatColor.BLUE + "»ç¿ë¹ı: ");
+							sender.sendMessage(ChatColor.BLUE + "ì‚¬ìš©ë²•: ");
 							sender.sendMessage(comd.getUsage());
 							if(comd.getAliases() != null){
 								String aliases = "";
@@ -193,7 +193,7 @@ AliasCheck:		for(ICommand com : commands.values()){
 										switchColour = true;
 									}
 								}
-								sender.sendMessage(ChatColor.BLUE + "ÁÙÀÓ ¸í·É¾î: " + aliases);
+								sender.sendMessage(ChatColor.BLUE + "ë‹¨ì¶• ëª…ë ¹ì–´: " + aliases);
 							}
 						}
 					}
@@ -204,16 +204,16 @@ AliasCheck:		for(ICommand com : commands.values()){
 					return true;
 				}
 				else{
-					sender.sendMessage(ChatColor.RED + "ÀÌ ¸í·É¾î¸¦ »ç¿ëÇÏ·Á¸é ÇÃ·¹ÀÌ¾î¿©¾ß ÇÕ´Ï´Ù!");
+					sender.sendMessage(ChatColor.RED + "ì´ ëª…ë ¹ì–´ëŠ” ê²Œì„ ì•ˆì—ì„œë§Œ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤!");
 					return true;
 				}
 			}
 		}
 		else{
 			sender.sendMessage(ChatColor.GREEN + "Minigames");
-			sender.sendMessage(ChatColor.GRAY + "Á¦ÀÛÀÚ: " + plugin.getDescription().getAuthors().get(0));
-			sender.sendMessage(ChatColor.GRAY + "¹öÀü: " +  plugin.getDescription().getVersion());
-			sender.sendMessage(ChatColor.GRAY + "/¹Ì´Ï°ÔÀÓ µµ¿ò¸» À¸·Î µµ¿ò¸»À» º¸¼¼¿ä. ¼öÁ¤ ¹× ÇÑ±ÛÈ­: ÀÕ½ºÅ×ÀÌÅ©");
+			sender.sendMessage(ChatColor.GRAY + "ì œì‘ì: " + plugin.getDescription().getAuthors().get(0));
+			sender.sendMessage(ChatColor.GRAY + "ë²„ì „: " +  plugin.getDescription().getVersion());
+			sender.sendMessage(ChatColor.GRAY + "/ë¯¸ë‹ˆê²Œì„ ë„ì›€ë§ ìœ¼ë¡œ ë„ì›€ë§ì„ ë³´ì„¸ìš”. ìˆ˜ì • ë° í•œê¸€í™”: ì‡ìŠ¤í…Œì´í¬ | ê°ìˆ˜: Neder");
 			return true;
 		}
 		return false;
