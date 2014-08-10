@@ -82,6 +82,12 @@ public abstract class MinigameType implements Listener{
 					if(mgm.getMpTimer() == null || mgm.getMpTimer().getStartWaitTimeLeft() != 0){
 //						player.teleport(lobby);
 						pdata.minigameTeleport(player, lobby);
+						if(mgm.getMpTimer() == null && mgm.getPlayers().size() == mgm.getMaxPlayers()){
+							mgm.setMpTimer(new MultiplayerTimer(mgm.getName()));
+							mgm.getMpTimer().startTimer();
+							mgm.getMpTimer().setPlayerWaitTime(0);
+							mdata.sendMinigameMessage(mgm, "미니게임이 꽉 찼습니다. 기다리지 않고 바로 시작합니다.", "info", null);
+						}
 					}
 					else{
 						player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "5초후에 접속합니다...");
@@ -117,6 +123,8 @@ public abstract class MinigameType implements Listener{
 						mgm.setMpTimer(new MultiplayerTimer(mgm.getName()));
 						mgm.getMpTimer().startTimer();
 						if(mgm.getPlayers().size() == mgm.getMaxPlayers()){
+							mgm.setMpTimer(new MultiplayerTimer(mgm.getName()));
+							mgm.getMpTimer().startTimer();
 							mgm.getMpTimer().setPlayerWaitTime(0);
 							mdata.sendMinigameMessage(mgm, "미니게임이 꽉 찼습니다. 기다리지 않고 바로 시작합니다.", "info", null);
 						}
