@@ -66,8 +66,8 @@ public class PlayerData {
 			if(mdata.getMinigameTypes().contains(gametype)){
 				player.setAllowTeleport(true);
 				if(mdata.minigameType(gametype).joinMinigame(player, minigame)){
-					plugin.getLogger().info(player.getName() + " started " + minigame.getName());
-					mdata.sendMinigameMessage(minigame, player.getName() + " has joined " + minigame.getName(), null, player);
+					plugin.getLogger().info(player.getName() + " 님이 " + minigame.getName() + " 를 시작하셨습니다.");
+					mdata.sendMinigameMessage(minigame, player.getName() + " 님이 " + minigame.getName() + " 에 들어오셨습니다.", null, player);
 					
 					player.getPlayer().setGameMode(minigame.getDefaultGamemode());
 					player.setAllowGamemodeChange(false);
@@ -100,7 +100,7 @@ public class PlayerData {
 				}
 			}
 			else{
-				player.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "That gametype doesn't exist!");
+				player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "그런 게임타입은 존재하지 않습니다!");
 			}
 		}
 	}
@@ -128,9 +128,9 @@ public class PlayerData {
 			for(PotionEffect potion : player.getPlayer().getActivePotionEffects()){
 				player.getPlayer().removePotionEffect(potion.getType());
 			}
-			player.sendMessage(ChatColor.AQUA + "[Minigames] " + ChatColor.WHITE + "You have started spectating " + minigame + ".\n" +
-					"Type \"/minigame quit\" to leave spectator mode.");
-			mdata.sendMinigameMessage(minigame, player.getName() + " is now spectating " + minigame, null, player);
+			player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + minigame + " 미니게임을 구경하고 계십니다.\n" +
+					"/quit 으로 구경 모드에서 나가실 수 있습니다.");
+			mdata.sendMinigameMessage(minigame, player.getName() + " 님이 " + minigame + " 미니게임을 구경하고 계십니다.", null, player);
 		}
 	}
 	
@@ -150,7 +150,7 @@ public class PlayerData {
 						((money != 0 && pbet.canBet(player, money) && plugin.getEconomy().getBalance(player.getName()) >= money) || 
 								(pbet.canBet(player, item) && item.getType() != Material.AIR && pbet.betValue(item.getType()) > 0))){
 					if(minigame.getPlayers().isEmpty() || minigame.getPlayers().size() != minigame.getMaxPlayers()){
-						player.sendMessage(ChatColor.AQUA + "[Minigames] " + ChatColor.WHITE + "You've placed your bet! Good Luck!");
+						player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "베팅을 하셨군요! 행운을 빕니다!");
 						if(money == 0){
 							pbet.addBet(player, item);
 						}
@@ -162,27 +162,27 @@ public class PlayerData {
 						joinMinigame(player, minigame);
 					}
 					else{
-						player.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "Sorry, this minigame is full.");
+						player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "죄송합니다. 이 미니게임은 꽉 찼습니다.");
 					}
 				}
 				else if(item.getType() == Material.AIR && money == 0){
-					player.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "You can not bet nothing!");
+					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "아무것도 베팅할 수 없습니다!");
 				}
 				else if(money != 0 && !pbet.canBet(player, money)){
-					player.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "You haven't placed the correct bet amount for this round!");
-					player.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "You must bet $" + minigame.getMpBets().getHighestMoneyBet() + ".");
+					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "이번 라운드에서 알맞은 돈을 베팅하지 않았습니다!");
+					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + minigame.getMpBets().getHighestMoneyBet() + " 원을 베팅하셔야 합니다.");
 				}
 				else if(money != 0 && plugin.getEconomy().getBalance(player.getName()) < money){
-					player.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "You haven't got enough money!");
-					player.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "You must have $" + minigame.getMpBets().getHighestMoneyBet() + ".");
+					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "돈이 없습니다!");
+					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + minigame.getMpBets().getHighestMoneyBet() + " 원을 베팅하셔야 합니다.");
 				}
 				else{
-					player.sendMessage(ChatColor.RED + "You haven't bet the correct item for this round!");
-					player.sendMessage(ChatColor.RED + "You must bet a " + minigame.getMpBets().highestBetName() + ".");
+					player.sendMessage(ChatColor.RED + "이번 라운드에 알맞은 아이템을 베팅하지 않았습니다!");
+					player.sendMessage(ChatColor.RED + "" + minigame.getMpBets().highestBetName() + " 를 베팅하셔야 합니다.");
 				}
 			}
 			else if(minigame != null && minigame.getMpTimer() != null && minigame.getMpTimer().getPlayerWaitTimeLeft() == 0){
-				player.sendMessage(ChatColor.RED + "The game has already started. Please try again later.");
+				player.sendMessage(ChatColor.RED + "이 게임은 이미 시작했습니다. 나중에 다시 시도해 주세요.");
 			}
 		}
 	}
@@ -210,7 +210,7 @@ public class PlayerData {
 					minigameTeleport(ply, start);
 					ply.setCheckpoint(start);
 					if(mgm.getMaxScore() != 0 && mgm.getType().equals("dm") && !mgm.getScoreType().equals("none")){
-						ply.sendMessage(ChatColor.AQUA + "[Minigames] " + ChatColor.WHITE + "Score to win: " + mgm.getMaxScorePerPlayer(mgm.getPlayers().size()));
+						ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "승리까지 남은 스코어: " + mgm.getMaxScorePerPlayer(mgm.getPlayers().size()));
 					}
 				} 
 				else{
@@ -220,11 +220,11 @@ public class PlayerData {
 						minigameTeleport(ply, start);
 						ply.setCheckpoint(start);
 						if(mgm.getMaxScore() != 0 && mgm.getType().equals("dm") && !mgm.getScoreType().equals("none")){
-							ply.sendMessage(ChatColor.AQUA + "[Minigames] " + ChatColor.WHITE + "Score to win: " + mgm.getMaxScorePerPlayer(mgm.getPlayers().size()));
+							ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "승리까지 남은 스코어: " + mgm.getMaxScorePerPlayer(mgm.getPlayers().size()));
 						}
 					}
 					else {
-						ply.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "Starting positions are incorrectly configured!");
+						ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "시작 지점이 제대로 설정되지 않았습니다!");
 						quitMinigame(ply, false);
 					}
 				}
@@ -257,7 +257,7 @@ public class PlayerData {
 						bluepos++;
 					}
 					else if(mgm.getStartLocationsBlue().isEmpty() || mgm.getStartLocationsRed().isEmpty()){
-						ply.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "Starting positions are incorrectly configured!");
+						ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "시작 지점이 제대로 설정되지 않았습니다!");
 						quitMinigame(ply, false);
 					}
 				}
@@ -275,7 +275,7 @@ public class PlayerData {
 							ply.setCheckpoint(start);
 						}
 						else {
-							ply.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "Starting positions are incorrectly configured!");
+							ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "시작 지점이 제대로 설정되지 않았습니다!");
 							quitMinigame(ply, false);
 						}
 					}
@@ -285,12 +285,12 @@ public class PlayerData {
 					minigameTeleport(ply, start);
 					ply.setCheckpoint(start);
 					if(mgm.getMaxScore() != 0 && !mgm.getScoreType().equals("none")){
-						ply.sendMessage(ChatColor.AQUA + "[Minigames] " + ChatColor.WHITE + "Score to win: " + mgm.getMaxScorePerPlayer(mgm.getPlayers().size()));
+						ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "승리까지 남은 스코어: " + mgm.getMaxScorePerPlayer(mgm.getPlayers().size()));
 					}
 				}
 				
 				if(mgm.getLives() > 0){
-					ply.sendMessage(ChatColor.AQUA + "[Minigame] " + ChatColor.WHITE + "Lives left: " + mgm.getLives());
+					ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "남은 목숨: " + mgm.getLives());
 				}
 			}
 			pos++;
@@ -316,7 +316,7 @@ public class PlayerData {
 			
 			if(mgm.getTimer() > 0){
 				mgm.setMinigameTimer(new MinigameTimer(mgm, mgm.getTimer()));
-				mdata.sendMinigameMessage(mgm, MinigameUtils.convertTime(mgm.getTimer()) + " left.", null, null);
+				mdata.sendMinigameMessage(mgm, MinigameUtils.convertTime(mgm.getTimer()) + " 초 남음.", null, null);
 			}
 		}
 	}
@@ -328,7 +328,7 @@ public class PlayerData {
 		
 		if(!event.isCancelled()){
 			minigameTeleport(player, player.getCheckpoint());
-			player.sendMessage(ChatColor.AQUA + "[Minigames] " + ChatColor.WHITE + "You have been reverted to the checkpoint.");
+			player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "체크포인트로 되돌아 왔습니다.");
 		}
 	}
 	
@@ -351,10 +351,10 @@ public class PlayerData {
 				MinigameUtils.removePlayerArrows(player);
 				
 				if(!forced){
-					mdata.sendMinigameMessage(mgm, player.getName() + " has left " + mgm, "error", player);
+					mdata.sendMinigameMessage(mgm, player.getName() + " 님이 " + mgm + " 에서 나가셨습니다.", "error", player);
 				}
 				else{
-					mdata.sendMinigameMessage(mgm, player.getName() + " was removed from " + mgm, "error", player);
+					mdata.sendMinigameMessage(mgm, player.getName() + " 님이 " + mgm + " 에서 나가지셨습니다.", "error", player);
 				}
 	
 				mgm.removePlayersLoadout(player);
@@ -392,7 +392,7 @@ public class PlayerData {
 				player.resetScore();
 				player.removeCheckpoint();
 				
-				plugin.getLogger().info(player.getName() + " quit " + mgm);
+				plugin.getLogger().info(player.getName() + " 님이 " + mgm + " 에서 나가셨습니다.");
 				if(mgm.getPlayers().size() == 0){
 					if(mgm.getMinigameTimer() != null){
 						mgm.getMinigameTimer().stopTimer();
@@ -460,11 +460,12 @@ public class PlayerData {
 					pl.getPlayer().showPlayer(player.getPlayer());
 				}
 				
+				ply.getPlayer().setFlying(false);
 				ply.setAllowTeleport(true);
 				ply.setAllowGamemodeChange(true);
 				
-				player.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "You quit spectator mode in " + mgm);
-				mdata.sendMinigameMessage(mgm, player.getName() + " is no longer spectating " + mgm, "error", player);
+				player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + mgm + " 미니게임을 더이상 구경하지 않습니다.");
+				mdata.sendMinigameMessage(mgm, player.getName() + " 님은 이제 " + mgm + " 미니게임을 더이상 구경하지 않습니다.", "error", player);
 			}
 		}
 	}
@@ -539,7 +540,7 @@ public class PlayerData {
 			player.setAllowTeleport(true);
 			player.setAllowGamemodeChange(true);
 
-			plugin.getLogger().info(player.getName() + " completed " + mgm);
+			plugin.getLogger().info(player.getName() + " 님이 " + mgm + " 를 완료하셨습니다.");
 			mgm.getScoreboardManager().resetScores(player.getPlayer());
 		}
 	}
@@ -577,18 +578,18 @@ public class PlayerData {
 				if(plugin.getConfig().getBoolean("multiplayer.broadcastwin")){
 					String score = "";
 					if(mgm.getRedTeamScore() != 0 && mgm.getBlueTeamScore() != 0){
-						score = ", " + ChatColor.BLUE + mgm.getBlueTeamScore() + ChatColor.WHITE + " to " + ChatColor.RED + mgm.getRedTeamScore();
+						score = ", " + ChatColor.BLUE + mgm.getBlueTeamScore() + ChatColor.WHITE + " 대 " + ChatColor.RED + mgm.getRedTeamScore();
 					}
-					plugin.getServer().broadcastMessage(ChatColor.GREEN + "[Minigames] " + ChatColor.BLUE + "Blue Team" + ChatColor.WHITE + " won " + mgm.getName() + score);
+					plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.BLUE + "블루 팀" + ChatColor.WHITE + " 이 " + mgm.getName() + "에서" + score + "으로 승리하셨습니다.");
 				}
 			}
 			else{
 				if(plugin.getConfig().getBoolean("multiplayer.broadcastwin")){
 					String score = "";
 					if(mgm.getRedTeamScore() != 0 && mgm.getBlueTeamScore() != 0){
-						score = ", " + ChatColor.RED + mgm.getRedTeamScore() + ChatColor.WHITE + " to " + ChatColor.BLUE + mgm.getBlueTeamScore();
+						score = ", " + ChatColor.RED + mgm.getRedTeamScore() + ChatColor.WHITE + " 대 " + ChatColor.BLUE + mgm.getBlueTeamScore();
 					}
-					plugin.getServer().broadcastMessage(ChatColor.GREEN + "[Minigames] " + ChatColor.RED + "Red Team" + ChatColor.WHITE + " won " + mgm.getName() + score);
+					plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.RED + "레드 팀" + ChatColor.WHITE + " 이 " + mgm.getName() + "에서" + score + "으로 승리하셨습니다.");
 				}
 			}
 			
@@ -616,7 +617,7 @@ public class PlayerData {
 						bets = roundBets.doubleValue();
 						for(MinigamePlayer ply : plys){
 							plugin.getEconomy().depositPlayer(ply.getName(), bets);
-							ply.sendMessage(ChatColor.AQUA + "[Minigames] " + ChatColor.WHITE + "You won $" + bets);
+							ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "이겨서 " + bets + "원을 받으셨습니다.");
 						}
 					}
 				}
@@ -633,7 +634,7 @@ public class PlayerData {
 						Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 	
 							public void run() {
-								p.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "You have been beaten! Bad luck!");
+								p.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "졌습니다! 운이 나쁘시네요.");
 								quitMinigame(p, true);
 							}
 						});
