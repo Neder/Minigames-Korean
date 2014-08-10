@@ -135,7 +135,7 @@ public abstract class MinigameType implements Listener{
 							player.sendMessage(ChatColor.BLUE + "1 명의 플레이어를 더 기다립니다..");
 						}
 						else if((mgm.canLateJoin() && mgm.getMpTimer() != null && mgm.getMpTimer().getStartWaitTimeLeft() != 0)){
-							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "Please wait " + mgm.getMpTimer().getStartWaitTimeLeft() + " 초후 다시 시도하세요.");
+							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + mgm.getMpTimer().getStartWaitTimeLeft() + " 초후 다시 시도하세요.");
 							return false;
 						}
 						else if(neededPlayers > 1){
