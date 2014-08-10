@@ -55,6 +55,7 @@ public class StartCommand implements ICommand{
 			
 			if(mgm != null && mgm.getThTimer() == null && mgm.getType().equals("th")){
 				plugin.mdata.startGlobalMinigame(mgm.getName());
+				mgm.setEnabled(true);
 			}
 			else if(mgm == null || !mgm.getType().equals("th")){
 				sender.sendMessage(ChatColor.RED + "\"" + args[0] + "\" 라는 이름을 가진 보물찾기 미니게임은 없습니다!");
