@@ -72,7 +72,7 @@ public abstract class MinigameType implements Listener{
 			
 			Location lobby = mgm.getLobbyPosition();
 			if(/*!mgm.getPlayers().isEmpty() && */mdata.getMinigame(mgm.getName()).getPlayers().size() < mgm.getMaxPlayers()){
-				if(mgm.canLateJoin() || mgm.getMpTimer() == null || mgm.getMpTimer().getPlayerWaitTimeLeft() != 0){
+				if((mgm.canLateJoin() && mgm.getMpTimer() != null && mgm.getMpTimer().getStartWaitTimeLeft() == 0) || mgm.getMpTimer() == null || mgm.getMpTimer().getPlayerWaitTimeLeft() != 0){
 					//pdata.storePlayerData(player, mgm.getDefaultGamemode());
 					player.storePlayerData();
 					//pdata.addPlayerMinigame(player, mgm);
@@ -133,6 +133,10 @@ public abstract class MinigameType implements Listener{
 						int neededPlayers = mgm.getMinPlayers() - mgm.getPlayers().size();
 						if(neededPlayers == 1){
 							player.sendMessage(ChatColor.BLUE + "1 명의 플레이어를 더 기다립니다..");
+						}
+						else if((mgm.canLateJoin() && mgm.getMpTimer() != null && mgm.getMpTimer().getStartWaitTimeLeft() != 0)){
+							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "Please wait " + mgm.getMpTimer().getStartWaitTimeLeft() + " 초후 다시 시도하세요.");
+							return false;
 						}
 						else if(neededPlayers > 1){
 							player.sendMessage(ChatColor.BLUE + "" + neededPlayers + " 명의 플레이어를 더 기다립니다..");

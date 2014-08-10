@@ -40,7 +40,7 @@ public class TeamDMMinigame extends MinigameType{
 			Location lobby = mgm.getLobbyPosition();
 			
 			if(mgm.getPlayers().size() < mgm.getMaxPlayers()){
-				if(mgm.canLateJoin() || mgm.getMpTimer() == null || mgm.getMpTimer().getPlayerWaitTimeLeft() != 0){
+				if((mgm.canLateJoin() && mgm.getMpTimer() != null && mgm.getMpTimer().getStartWaitTimeLeft() == 0) || mgm.getMpTimer() == null || mgm.getMpTimer().getPlayerWaitTimeLeft() != 0){
 //					pdata.storePlayerData(player, mgm.getDefaultGamemode());
 					player.storePlayerData();
 //					pdata.addPlayerMinigame(player, mgm);
@@ -131,6 +131,10 @@ public class TeamDMMinigame extends MinigameType{
 					}
 					
 					return true;
+				}
+				else if((mgm.canLateJoin() && mgm.getMpTimer() != null && mgm.getMpTimer().getStartWaitTimeLeft() != 0)){
+					player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + mgm.getMpTimer().getStartWaitTimeLeft() + " 초후 다시 시도하세요.");
+					return false;
 				}
 				else if(mgm.getMpTimer().getPlayerWaitTimeLeft() == 0){
 					player.sendMessage(ChatColor.RED + "이 미니게임은 이미 시작했습니다. 나중에 다시 시도하세요.");
