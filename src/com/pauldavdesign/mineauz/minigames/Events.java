@@ -46,6 +46,7 @@ public class Events implements Listener{
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPlayerDeath(PlayerDeathEvent event){
 		final MinigamePlayer ply = pdata.getMinigamePlayer(event.getEntity().getPlayer());
+		if(ply == null) return;
 		if(ply.isInMinigame()){
 			Minigame mgm = ply.getMinigame();
 			if(!mgm.hasDeathDrops()){
@@ -225,6 +226,7 @@ public class Events implements Listener{
 	@EventHandler
 	public void playerInterract(PlayerInteractEvent event){
 		MinigamePlayer ply = pdata.getMinigamePlayer(event.getPlayer());
+		if(ply == null) return;
 		if(event.getAction() == Action.RIGHT_CLICK_BLOCK){
 			Block cblock = event.getClickedBlock();
 			if(cblock.getState() instanceof Chest){
@@ -397,6 +399,7 @@ public class Events implements Listener{
 	private void paintballHit(EntityDamageByEntityEvent event){
 		if(event.getEntity() instanceof Player && event.getDamager() instanceof Snowball){
 			MinigamePlayer ply = pdata.getMinigamePlayer((Player) event.getEntity());
+			if(ply == null) return;
 			Snowball sb = (Snowball) event.getDamager();
 			if(ply.isInMinigame() && ply.getMinigame().hasPaintBallMode()){
 				if(sb.getShooter() instanceof Player){
@@ -431,6 +434,7 @@ public class Events implements Listener{
 			Snowball snowball = (Snowball) event.getEntity();
 			if(snowball.getShooter() != null && snowball.getShooter() instanceof Player){
 				MinigamePlayer ply = pdata.getMinigamePlayer((Player) snowball.getShooter());
+				if(ply == null) return;
 				if(ply.isInMinigame() && ply.getMinigame().hasUnlimitedAmmo()){
 					ply.getPlayer().getInventory().addItem(new ItemStack(Material.SNOW_BALL));
 				}
@@ -451,6 +455,7 @@ public class Events implements Listener{
 	private void playerHurt(EntityDamageEvent event){
 		if(event.getEntity() instanceof Player){
 			MinigamePlayer ply = pdata.getMinigamePlayer((Player) event.getEntity());
+			if(ply == null) return;
 			if(ply.isInMinigame()){
 				Minigame mgm = ply.getMinigame();
 				if(mgm.isSpectator(ply)){
@@ -464,6 +469,7 @@ public class Events implements Listener{
 	private void spectatorAttack(EntityDamageByEntityEvent event){
 		if(event.getDamager() instanceof Player){
 			MinigamePlayer ply = pdata.getMinigamePlayer((Player) event.getDamager());
+			if(ply == null) return;
 			if(ply.isInMinigame() && ply.getMinigame().isSpectator(ply)){
 				event.setCancelled(true);
 			}
