@@ -1571,7 +1571,12 @@ public class Minigame {
 		}
 		
 		if(getType().equals("th") && isEnabled()) {
-			Minigames.plugin.mdata.startGlobalMinigame(getName());
+			Bukkit.getScheduler().scheduleSyncDelayedTask(Minigames.plugin, new Runnable() {
+				
+				public void run() {
+					Minigames.plugin.mdata.startGlobalMinigame(getName());
+				}
+			});
 		}
 		
 		saveMinigame();
