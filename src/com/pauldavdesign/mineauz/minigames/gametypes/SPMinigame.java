@@ -48,23 +48,23 @@ public class SPMinigame extends MinigameType{
 			mgm.addPlayer(player);
 			
 			player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + 
-					"´ç½ÅÀº ½Ì±Û ÇÃ·¹ÀÌ¾î ¹Ì´Ï°ÔÀÓÀ» ½ÃÀÛÇÏ¼Ì½À´Ï´Ù. /quit À¸·Î ³ª°¡½Ç ¼ö ÀÖ½À´Ï´Ù.");
+					"ì‹±ê¸€ í”Œë ˆì´ ë¯¸ë‹ˆê²Œì„ì„ ì‹œì‘í•˜ì…¨ìŠµë‹ˆë‹¤. /quit ìœ¼ë¡œ ë‚˜ê°€ì‹¤ ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
 			
 			//pdata.setPlayerCheckpoints(player, startpos);
 			player.setCheckpoint(startpos);
 			
 			if(mgm.getLives() > 0){
-				player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "³²Àº ¸ñ¼û: " + mgm.getLives());
+				player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ë‚¨ì€ ëª©ìˆ¨: " + mgm.getLives());
 			}
 			
 			mgm.getPlayersLoadout(player).equiptLoadout(player);
 			return true;
 		}
 		else if(mgm.getQuitPosition() == null){
-			player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ÀÌ ¹Ì´Ï°ÔÀÓÀº ¾ÆÁ÷ ÁØºñµÇÁö ¾Ê¾Ò½À´Ï´Ù!(ÆĞ¹èÀÚ ÀÌµ¿ ÁöÁ¡ ¾øÀ½)");
+			player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ì´ ë¯¸ë‹ˆê²Œì„ì€ ì•„ì§ ì¤€ë¹„ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!(íŒ¨ë°°ì ì´ë™ ì§€ì  ì—†ìŒ)");
 		}
 		else if(!mgm.isEnabled()){
-			player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ÀÌ ¹Ì´Ï°ÔÀÓÀº ¾ÆÁ÷ ÁØºñµÇÁö ¾Ê¾Ò½À´Ï´Ù!");
+			player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ì´ ë¯¸ë‹ˆê²Œì„ì€ ì•„ì§ ì¤€ë¹„ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!");
 		}
 		return false;
 	}
@@ -74,10 +74,10 @@ public class SPMinigame extends MinigameType{
 		boolean hascompleted = false;
 		Configuration completion = null;
 		
-		player.sendMessage(ChatColor.GREEN + "" + mgm + " ¹Ì´Ï°ÔÀÓÀ» ²£½À´Ï´Ù! ÃàÇÏÇÕ´Ï´Ù!");
+		player.sendMessage(ChatColor.GREEN + "" + mgm + " ë¯¸ë‹ˆê²Œì„ì„ í´ë¦¬ì–´í•˜ì˜€ìŠµë‹ˆë‹¤! ì¶•í•˜í•©ë‹ˆë‹¤!");
 		
 		if(plugin.getConfig().getBoolean("singleplayer.broadcastcompletion")){
-			plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.WHITE + player.getName() + " ´ÔÀÌ " + mgm.getName() + "¹Ì´Ï°ÔÀÓÀ» ²£½À´Ï´Ù.");
+			plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.WHITE + player.getName() + " ë‹˜ì´ " + mgm.getName() + "ë¯¸ë‹ˆê²Œì„ì„ í´ë¦¬ì–´í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		}
 		
 		if(mgm.getEndPosition() != null){
@@ -174,7 +174,7 @@ public class SPMinigame extends MinigameType{
 			Minigame mgm = player.getMinigame();
 			if(mgm.getType().equalsIgnoreCase("sp")){
 				event.setRespawnLocation(player.getCheckpoint());
-				event.getPlayer().sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "Á×¾ú½À´Ï´Ù! Ã¼Å©Æ÷ÀÎÆ®·Î µ¹¾Æ°©´Ï´Ù.");
+				event.getPlayer().sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì£½ì—ˆìŠµë‹ˆë‹¤! ì²´í¬í¬ì¸íŠ¸ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.");
 				
 				mgm.getPlayersLoadout(player).equiptLoadout(player);
 			}

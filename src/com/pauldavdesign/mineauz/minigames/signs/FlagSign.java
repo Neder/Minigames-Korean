@@ -13,7 +13,7 @@ public class FlagSign implements MinigameSign {
 
 	
 	public String getName() {
-		return "±ê¹ß";
+		return "ê¹ƒë°œ";
 	}
 
 	
@@ -23,7 +23,7 @@ public class FlagSign implements MinigameSign {
 
 	
 	public String getCreatePermissionMessage() {
-		return "´ç½ÅÀº ±ê¹ß Ç¥ÁöÆÇÀ» ¸¸µé ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë‹¹ì‹ ì€ ê¹ƒë°œ í‘œì§€íŒì„ ë§Œë“¤ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -38,31 +38,31 @@ public class FlagSign implements MinigameSign {
 
 	
 	public boolean signCreate(SignChangeEvent event) {
-		event.setLine(1, ChatColor.GREEN + "±ê¹ß");
-		if(event.getLine(2).equalsIgnoreCase("·¹µå")){
-			event.setLine(2, ChatColor.RED + "·¹µå");
+		event.setLine(1, ChatColor.GREEN + "ê¹ƒë°œ");
+		if(event.getLine(2).equalsIgnoreCase("ë ˆë“œ")){
+			event.setLine(2, ChatColor.RED + "ë ˆë“œ");
 		}
-		else if(event.getLine(2).equalsIgnoreCase("ºí·ç")){
-			event.setLine(2, ChatColor.BLUE + "ºí·ç");
+		else if(event.getLine(2).equalsIgnoreCase("ë¸”ë£¨")){
+			event.setLine(2, ChatColor.BLUE + "ë¸”ë£¨");
 		}
-		else if(event.getLine(2).equalsIgnoreCase("±âº»")){
-			event.setLine(2, ChatColor.GRAY + "±âº»");
+		else if(event.getLine(2).equalsIgnoreCase("ê¸°ë³¸")){
+			event.setLine(2, ChatColor.GRAY + "ê¸°ë³¸");
 		}
-		else if(event.getLine(2).equalsIgnoreCase("Ä¸ÃÄ") && !event.getLine(3).isEmpty()){
-			event.setLine(2, ChatColor.GREEN + "Ä¸ÃÄ");
-			if(event.getLine(3).equalsIgnoreCase("·¹µå")){
-				event.setLine(3, ChatColor.RED + "·¹µå");
+		else if(event.getLine(2).equalsIgnoreCase("ìº¡ì²˜") && !event.getLine(3).isEmpty()){
+			event.setLine(2, ChatColor.GREEN + "ìº¡ì²˜");
+			if(event.getLine(3).equalsIgnoreCase("ë ˆë“œ")){
+				event.setLine(3, ChatColor.RED + "ë ˆë“œ");
 			}
-			else if(event.getLine(3).equalsIgnoreCase("ºí·ç")){
-				event.setLine(3, ChatColor.BLUE + "ºí·ç");
+			else if(event.getLine(3).equalsIgnoreCase("ë¸”ë£¨")){
+				event.setLine(3, ChatColor.BLUE + "ë¸”ë£¨");
 			}
-			else if(event.getLine(3).equalsIgnoreCase("±âº»")){
-				event.setLine(3, ChatColor.GRAY + "±âº»");
+			else if(event.getLine(3).equalsIgnoreCase("ê¸°ë³¸")){
+				event.setLine(3, ChatColor.GRAY + "ê¸°ë³¸");
 			}
 			else{
 				event.getBlock().breakNaturally();
-				event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "Ç¥ÁöÆÇ ¾ç½ÄÀÌ ¾Ë¸ÂÁö ¾Ê½À´Ï´Ù!" +
-						" °¡´ÉÇÑ °ªÀº ·¹µå,ºí·ç,±âº»ÀÔ´Ï´Ù.");
+				event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "í‘œì§€íŒ ì–‘ì‹ì´ ë§ì§€ ì•ŠìŠµë‹ˆë‹¤!" +
+						" ê°€ëŠ¥í•œ ê°’ì€ ë ˆë“œ,ë¸”ë£¨,ê¸°ë³¸ì…ë‹ˆë‹¤.");
 				return false;
 			}
 		}
@@ -82,12 +82,12 @@ public class FlagSign implements MinigameSign {
 					!player.hasFlag(sign.getLine(2).replaceAll(ChatColor.RED.toString(), "").replaceAll(ChatColor.BLUE.toString(), ""))){
 				player.addFlag(sign.getLine(2).replaceAll(ChatColor.RED.toString(), "").replaceAll(ChatColor.BLUE.toString(), ""));
 				player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + 
-						ChatColor.WHITE + sign.getLine(2).replaceAll(ChatColor.RED.toString(), "").replaceAll(ChatColor.BLUE.toString(), "") + " ±ê¹ß °¡Á®°¨!");
+						ChatColor.WHITE + sign.getLine(2).replaceAll(ChatColor.RED.toString(), "").replaceAll(ChatColor.BLUE.toString(), "") + " ê¹ƒë°œ ê°€ì ¸ê°!");
 				return true;
 			}
 		}
 		else if(player.getPlayer().getItemInHand().getType() != Material.AIR)
-			player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ÀÌ Ç¥ÁöÆÇÀ» »ç¿ëÇÏ·Á¸é ¼ÕÀÌ ºñ¾îÀÖ¾î¾ß ÇÕ´Ï´Ù!");
+			player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì´ í‘œì§€íŒì„ ì‚¬ìš©í•˜ë ¤ë©´ ì†ì´ ë¹„ì–´ìˆì–´ì•¼ í•©ë‹ˆë‹¤!");
 		return false;
 	}
 

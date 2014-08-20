@@ -24,11 +24,11 @@ public class CreateCommand implements ICommand{
 	}
 
 	public String getDescription() {
-		return "¹Ì´Ï°ÔÀÓÀ» ¸¸µå´Âµ¥ »ç¿ëÇÕ´Ï´Ù.";
+		return "ë¯¸ë‹ˆê²Œì„ì„ ë§Œë“œëŠ”ë° ì‚¬ìš©í•©ë‹ˆë‹¤.";
 	}
 
 	public String[] getUsage() {
-		return new String[] {"/minigame create <¹Ì´Ï°ÔÀÓ> [Å¸ÀÔ]"};
+		return new String[] {"/minigame create <ë¯¸ë‹ˆê²Œì„> [íƒ€ì…]"};
 	}
 	
 	public String[] getParameters() {
@@ -36,7 +36,7 @@ public class CreateCommand implements ICommand{
 	}
 	
 	public String getPermissionMessage(){
-		return "´ç½ÅÀº ¹Ì´Ï°ÔÀÓÀ» ¸¸µé ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë¯¸ë‹ˆê²Œì„ì„ ë§Œë“¤ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 	
 	public String getPermission(){
@@ -54,12 +54,12 @@ public class CreateCommand implements ICommand{
 						type = args[1];
 					}
 					else{
-						player.sendMessage(ChatColor.RED + "There is no Minigame type by the name \"" + args[1] + "\"!");
+						player.sendMessage(ChatColor.RED + "\"" + args[1] + "\" ë¼ëŠ” ë¯¸ë‹ˆê²Œì„ íƒ€ì…ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤!");
 					}
 				}
 				Minigame mgm = new Minigame(mgmName, type, player.getLocation());
 				
-				player.sendMessage(ChatColor.GRAY + "The Minigame " + args[0] + " has been created.");
+				player.sendMessage(ChatColor.GRAY + "ë¯¸ë‹ˆê²Œì„ " + args[0] + " ë¥¼ ë§Œë“¤ì—ˆìŠµë‹ˆë‹¤.");
 				
 				List<String> mgs = null;
 				if(plugin.getConfig().contains("minigames")){
@@ -75,7 +75,7 @@ public class CreateCommand implements ICommand{
 				mgm.saveMinigame();
 				plugin.mdata.addMinigame(mgm);
 			}else{
-				sender.sendMessage(ChatColor.RED + "This Minigame already exists!");
+				sender.sendMessage(ChatColor.RED + "ê·¸ ì´ë¦„ì„ ê°€ì§„ ë¯¸ë‹ˆê²Œì„ì´ ì´ë¯¸ ì¡´ì¬í•©ë‹ˆë‹¤!");
 			}
 			return true;
 		}

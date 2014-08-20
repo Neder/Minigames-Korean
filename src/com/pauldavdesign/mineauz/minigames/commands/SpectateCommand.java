@@ -26,7 +26,7 @@ public class SpectateCommand implements ICommand {
 
 	
 	public String getDescription() {
-		return "¹Ì´Ï°ÔÀÓ¿¡¼­ °­Á¦·Î ±¸°æÇÏ°Ô ÇÕ´Ï´Ù.";
+		return "ë¯¸ë‹ˆê²Œì„ì„ ê°•ì œë¡œ êµ¬ê²½í•˜ë„ë¡ í•©ë‹ˆë‹¤.";
 	}
 
 	
@@ -36,12 +36,12 @@ public class SpectateCommand implements ICommand {
 
 	
 	public String[] getUsage() {
-		return new String[] {"/minigame spectate <¹Ì´Ï°ÔÀÓ>"};
+		return new String[] {"/minigame spectate <ë¯¸ë‹ˆê²Œì„>"};
 	}
 
 	
 	public String getPermissionMessage() {
-		return "´ç½ÅÀº ±¸°æ Ä¿¸Çµå¸¦ »ç¿ëÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë‹¹ì‹ ì€ êµ¬ê²½ ì»¤ë§¨ë“œë¥¼ ì‚¬ìš©í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -59,7 +59,7 @@ public class SpectateCommand implements ICommand {
 				plugin.pdata.spectateMinigame(ply, mgm);
 			}
 			else{
-				sender.sendMessage(ChatColor.RED + "" + args[0] + "¶ó´Â ÀÌ¸§À» °¡Áø ¹Ì´Ï°ÔÀÓÀº ¾ø½À´Ï´Ù!");
+				sender.sendMessage(ChatColor.RED + "" + args[0] + "ë¼ëŠ” ì´ë¦„ì„ ê°€ì§„ ë¯¸ë‹ˆê²Œì„ì€ ì—†ìŠµë‹ˆë‹¤!");
 			}
 			return true;
 		}

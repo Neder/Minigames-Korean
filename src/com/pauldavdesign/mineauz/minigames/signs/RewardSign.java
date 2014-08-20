@@ -23,7 +23,7 @@ public class RewardSign implements MinigameSign {
 
 	
 	public String getName() {
-		return "º¸»ó";
+		return "ë³´ìƒ";
 	}
 
 	
@@ -33,7 +33,7 @@ public class RewardSign implements MinigameSign {
 
 	
 	public String getCreatePermissionMessage() {
-		return "¹Ì´Ï°ÔÀÓ º¸»ó Ç¥ÁöÆÇÀ» ¸¸µé ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë¯¸ë‹ˆê²Œì„ ë³´ìƒ í‘œì§€íŒì„ ë§Œë“¤ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -43,14 +43,14 @@ public class RewardSign implements MinigameSign {
 
 	
 	public String getUsePermissionMessage() {
-		return "¹Ì´Ï°ÔÀÓ º¸»ó Ç¥ÁöÆÇÀ» »ç¿ëÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë¯¸ë‹ˆê²Œì„ ë³´ìƒ í‘œì§€íŒì„ ì‚¬ìš©í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
 	public boolean signCreate(SignChangeEvent event) {
-		event.setLine(1, ChatColor.GREEN + "º¸»ó");
+		event.setLine(1, ChatColor.GREEN + "ë³´ìƒ");
 		if(event.getLine(2).isEmpty()){
-			event.getPlayer().sendMessage(ChatColor.RED + "º¸»ó ÀÌ¸§À» 3¹øÂ° ÁÙ¿¡ ÀÛ¼ºÇØ¾ß ÇÕ´Ï´Ù!");
+			event.getPlayer().sendMessage(ChatColor.RED + "ë³´ìƒ ì´ë¦„ì„ 3ë²ˆì§¸ ì¤„ì— ì‘ì„±í•´ì•¼ í•©ë‹ˆë‹¤!");
 			return false;
 		}
 		String[] split = event.getLine(3).split(" ");
@@ -59,18 +59,18 @@ public class RewardSign implements MinigameSign {
 				if(Material.getMaterial(split[0].toUpperCase()) != null){
 					return true;
 				}
-				event.getPlayer().sendMessage(ChatColor.RED + "\"" + split[0] + "\", ¶ó´Â ÀÌ¸§À» °¡Áø ¾ÆÀÌÅÛÀº ¾ø½À´Ï´Ù. ID ¸¦ Àû¾î º¸¼¼¿ä.");
+				event.getPlayer().sendMessage(ChatColor.RED + "\"" + split[0] + "\", ë¼ëŠ” ì´ë¦„ì„ ê°€ì§„ ì•„ì´í…œì€ ì—†ìŠµë‹ˆë‹¤. ID ë¥¼ ì ì–´ ë³´ì„¸ìš”.");
 			}
 			else{
 				if(Material.getMaterial(Integer.parseInt(split[0].split(":")[0])) != null)
 					return true;
 				else
-					event.getPlayer().sendMessage(ChatColor.RED + "±×·± ID¸¦ »ç¿ëÇÏ´Â ¾ÆÀÌÅÛÀº ¾ø½À´Ï´Ù!");
+					event.getPlayer().sendMessage(ChatColor.RED + "ê·¸ëŸ° IDë¥¼ ì‚¬ìš©í•˜ëŠ” ì•„ì´í…œì€ ì—†ìŠµë‹ˆë‹¤!");
 			}
 		}
 		else{
-			event.getPlayer().sendMessage(ChatColor.BLUE + "[PMGO-L] " + ChatColor.WHITE + "º¸»óÀ¸·Î ÁÖ°í½ÍÀº ¾ÆÀÌÅÛÀ» ´ë°í" +
-					" Ç¥ÁöÆÇÀ» Å¬¸¯ÇÏ¼¼¿ä. (10ÃÊ ³²À½)");
+			event.getPlayer().sendMessage(ChatColor.BLUE + "[PMGO-L] " + ChatColor.WHITE + "ë³´ìƒìœ¼ë¡œ ì£¼ê³ ì‹¶ì€ ì•„ì´í…œì„ ëŒ€ê³ " +
+					" í‘œì§€íŒì„ í´ë¦­í•˜ì„¸ìš”. (10ì´ˆ ë‚¨ìŒ)");
 			final Location loc = event.getBlock().getLocation();
 			Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 				
@@ -150,7 +150,7 @@ public class RewardSign implements MinigameSign {
 				
 				if(item != null){
 					player.getPlayer().getInventory().addItem(item);
-					player.sendMessage("" + item.getAmount() + " °³ÀÇ " + MinigameUtils.getItemStackName(item) + "À» ¼º°øÀûÀ¸·Î ¹ŞÀ¸¼Ì½À´Ï´Ù!");
+					player.sendMessage("" + item.getAmount() + " ê°œì˜ " + MinigameUtils.getItemStackName(item) + "ì„ ë°›ìœ¼ì…¨ìŠµë‹ˆë‹¤!");
 					player.getPlayer().updateInventory();
 					return true;
 				}

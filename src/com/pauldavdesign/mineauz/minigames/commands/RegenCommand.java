@@ -24,7 +24,7 @@ public class RegenCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "±× ¹Ì´Ï°ÔÀÓ¿¡ ÀúÀåµÈ ¸ğµç ºí·°À» ÃÊ±âÈ­ ½ÃÅµ´Ï´Ù. ex: ½ºÇÃ¸®ÇÁ¿¡¼­ ÃÊ±âÈ­ µÇÁö ¾ÊÀº ´«";
+		return "ê·¸ ë¯¸ë‹ˆê²Œì„ì— ì €ì¥ëœ ëª¨ë“  ë¸”ëŸ­ì„ ì´ˆê¸°í™” ì‹œí‚µë‹ˆë‹¤. ex: ìŠ¤í”Œë¦¬í”„ì—ì„œ ì´ˆê¸°í™” ë˜ì§€ ì•Šì€ ëˆˆ";
 	}
 
 	
@@ -34,12 +34,12 @@ public class RegenCommand implements ICommand{
 
 	
 	public String[] getUsage() {
-		return new String[] {"/minigame regen <¹Ì´Ï°ÔÀÓ>"};
+		return new String[] {"/minigame regen <ë¯¸ë‹ˆê²Œì„>"};
 	}
 
 	
 	public String getPermissionMessage() {
-		return "´ç½ÅÀº ¹Ì´Ï°ÔÀÓÀ» ¸®Á¨ÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë‹¹ì‹ ì€ ë¯¸ë‹ˆê²Œì„ì„ ë¦¬ì  í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -57,16 +57,16 @@ public class RegenCommand implements ICommand{
 				if(mgm.getType().equals("spleef")){
 					//SpleefFloorGen floor = new SpleefFloorGen(mgm.getSpleefFloor1(), mgm.getSpleefFloor2());
 					//floor.regenFloor(mgm.getSpleefFloorMaterial(), true);
-					sender.sendMessage(ChatColor.GRAY + mgm.getName() + "¹Ì´Ï°ÔÀÓÀÇ ½ºÇÃ¸®ÇÁ ´«À» ¸®Á¨ÇÕ´Ï´Ù.");
+					sender.sendMessage(ChatColor.GRAY + mgm.getName() + "ë¯¸ë‹ˆê²Œì„ì˜ ìŠ¤í”Œë¦¬í”„ ëˆˆì„ ë¦¬ì  í•©ë‹ˆë‹¤.");
 				}
 				
 				if(mgm.hasRestoreBlocks()){
 					//mdata.restoreMinigameBlocks(mgm);
-					sender.sendMessage(ChatColor.GRAY + mgm.getName() + "¹Ì´Ï°ÔÀÓÀÇ ºí·ÏÀ» ¸®Á¨ÇÕ´Ï´Ù.");
+					sender.sendMessage(ChatColor.GRAY + mgm.getName() + "ë¯¸ë‹ˆê²Œì„ì˜ ë¸”ë¡ì„ ë¦¬ì  í•©ë‹ˆë‹¤.");
 				}
 			}
 			else{
-				sender.sendMessage(ChatColor.RED + "" + args[0] + " ¶ó´Â ÀÌ¸§À» °¡Áø ¹Ì´Ï°ÔÀÓÀº ¾ø½À´Ï´Ù!");
+				sender.sendMessage(ChatColor.RED + "" + args[0] + " ë¼ëŠ” ì´ë¦„ì„ ê°€ì§„ ë¯¸ë‹ˆê²Œì„ì€ ì—†ìŠµë‹ˆë‹¤!");
 			}
 			return true;
 		}

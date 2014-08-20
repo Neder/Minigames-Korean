@@ -28,7 +28,7 @@ public class InfoCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "¹Ì´Ï°ÔÀÓÀÇ Á¤º¸¸¦ º¾´Ï´Ù.";
+		return "ë¯¸ë‹ˆê²Œì„ì˜ ì •ë³´ë¥¼ ë´…ë‹ˆë‹¤.";
 	}
 
 	
@@ -38,12 +38,12 @@ public class InfoCommand implements ICommand{
 
 	
 	public String[] getUsage() {
-		return new String[] {"/minigame info <¹Ì´Ï°ÔÀÓ> [ÆäÀÌÁö]"};
+		return new String[] {"/minigame info <ë¯¸ë‹ˆê²Œì„> [í˜ì´ì§€]"};
 	}
 
 	
 	public String getPermissionMessage() {
-		return "¹Ì´Ï°ÔÀÓ Á¤º¸¸¦ º¼ ¼ö ÀÖ´Â ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë¯¸ë‹ˆê²Œì„ ì •ë³´ë¥¼ ë³¼ ìˆ˜ ìˆëŠ” ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -61,290 +61,290 @@ public class InfoCommand implements ICommand{
 				//Ten lines per page
 				List<String> lines = new ArrayList<String>();
 				
-				lines.add(ChatColor.GRAY + "°ÔÀÓ Å¸ÀÔ: " + ChatColor.GREEN + mgm.getType());
+				lines.add(ChatColor.GRAY + "ê²Œì„ íƒ€ì…: " + ChatColor.GREEN + mgm.getType());
 				if(!mgm.getType().equals("th")){
-					lines.add(ChatColor.GRAY + "Á¡¼ö Å¸ÀÔ: " + ChatColor.GREEN + mgm.getScoreType());
+					lines.add(ChatColor.GRAY + "ì ìˆ˜ íƒ€ì…: " + ChatColor.GREEN + mgm.getScoreType());
 					if(!mgm.getType().equals("sp")){
-						lines.add(ChatColor.GRAY + "ÃÖ¼Ò ½ºÄÚ¾î: " + ChatColor.GREEN + mgm.getMinScore());
-						lines.add(ChatColor.GRAY + "ÃÖ´ë ½ºÄÚ¾î: " + ChatColor.GREEN + mgm.getMaxScore());
+						lines.add(ChatColor.GRAY + "ìµœì†Œ ìŠ¤ì½”ì–´: " + ChatColor.GREEN + mgm.getMinScore());
+						lines.add(ChatColor.GRAY + "ìµœëŒ€ ìŠ¤ì½”ì–´: " + ChatColor.GREEN + mgm.getMaxScore());
 					}
 					if(mgm.getType().equals("teamdm")){
 						if(mgm.getDefaultWinner().equals("red")){
-							lines.add(ChatColor.GRAY + "±âº» ½Â¸® ÆÀ: " + ChatColor.RED + mgm.getDefaultWinner());
+							lines.add(ChatColor.GRAY + "ê¸°ë³¸ ìŠ¹ë¦¬ íŒ€: " + ChatColor.RED + mgm.getDefaultWinner());
 						}
 						else if(mgm.getDefaultWinner().equals("blue")){
-							lines.add(ChatColor.GRAY + "±âº» ½Â¸® ÆÀ: " + ChatColor.BLUE + mgm.getDefaultWinner());
+							lines.add(ChatColor.GRAY + "ê¸°ë³¸ ìŠ¹ë¦¬ íŒ€: " + ChatColor.BLUE + mgm.getDefaultWinner());
 						}
 						else{
-							lines.add(ChatColor.GRAY + "±âº» ½Â¸® ÆÀ: " + ChatColor.GRAY + mgm.getDefaultWinner());
+							lines.add(ChatColor.GRAY + "ê¸°ë³¸ ìŠ¹ë¦¬ íŒ€: " + ChatColor.GRAY + mgm.getDefaultWinner());
 						}
 					}
 					
 					if(mgm.isEnabled()){
-						lines.add(ChatColor.GRAY + "È°¼ºÈ­: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "í™œì„±í™”: " + ChatColor.GREEN + "ì˜ˆ");
 					}else{
-						lines.add(ChatColor.GRAY + "È°¼ºÈ­: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "í™œì„±í™”: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 					}
 					
 					if(mgm.getUsePermissions()){
-						lines.add(ChatColor.GRAY + "ÆŞ¹Ì¼Ç »ç¿ë: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "í„ë¯¸ì…˜ ì‚¬ìš©: " + ChatColor.GREEN + "ì˜ˆ");
 					}else{
-						lines.add(ChatColor.GRAY + "ÆŞ¹Ì¼Ç »ç¿ë: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "í„ë¯¸ì…˜ ì‚¬ìš©: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 					}
 					
 					if(mgm.getLives() == 0){
-						lines.add(ChatColor.GRAY + "¸ñ¼û: " + ChatColor.GREEN + "¹«ÇÑ");
+						lines.add(ChatColor.GRAY + "ëª©ìˆ¨: " + ChatColor.GREEN + "ë¬´í•œ");
 					}
 					else{
-						lines.add(ChatColor.GRAY + "¸ñ¼û: " + ChatColor.GREEN + mgm.getLives());
+						lines.add(ChatColor.GRAY + "ëª©ìˆ¨: " + ChatColor.GREEN + mgm.getLives());
 					}
 					
 					if(mgm.getStartLocations().size() > 0){
-						lines.add(ChatColor.GRAY + "½ÃÀÛ ÁöÁ¡ °¹¼ö: " + ChatColor.GREEN + mgm.getStartLocations().size());
+						lines.add(ChatColor.GRAY + "ì‹œì‘ ì§€ì  ê°¯ìˆ˜: " + ChatColor.GREEN + mgm.getStartLocations().size());
 					}
 					else{
-						lines.add(ChatColor.GRAY + "½ÃÀÛ ÁöÁ¡ °¹¼ö: " + ChatColor.RED + "0");
+						lines.add(ChatColor.GRAY + "ì‹œì‘ ì§€ì  ê°¯ìˆ˜: " + ChatColor.RED + "0");
 					}
 					if(mgm.getType().equals("teamdm")){
 						if(mgm.getStartLocationsRed().size() > 0){
-							lines.add(ChatColor.GRAY + "·¹µå ÆÀ ½ÃÀÛ ÁöÁ¡ °¹¼ö: " + ChatColor.GREEN + mgm.getStartLocationsRed().size());
+							lines.add(ChatColor.GRAY + "ë ˆë“œ íŒ€ ì‹œì‘ ì§€ì  ê°¯ìˆ˜: " + ChatColor.GREEN + mgm.getStartLocationsRed().size());
 						}
 						else{
-							lines.add(ChatColor.GRAY + "·¹µå ÆÀ ½ÃÀÛ ÁöÁ¡ °¹¼ö: " + ChatColor.RED + "0");
+							lines.add(ChatColor.GRAY + "ë ˆë“œ íŒ€ ì‹œì‘ ì§€ì  ê°¯ìˆ˜: " + ChatColor.RED + "0");
 						}
 						if(mgm.getStartLocationsBlue().size() > 0){
-							lines.add(ChatColor.GRAY + "ºí·ç ÆÀ ½ÃÀÛ ÁöÁ¡ °¹¼ö: " + ChatColor.GREEN + mgm.getStartLocationsBlue().size());
+							lines.add(ChatColor.GRAY + "ë¸”ë£¨ íŒ€ ì‹œì‘ ì§€ì  ê°¯ìˆ˜: " + ChatColor.GREEN + mgm.getStartLocationsBlue().size());
 						}
 						else{
-							lines.add(ChatColor.GRAY + "ºí·ç ÆÀ ½ÃÀÛ ÁöÁ¡ °¹¼ö:" + ChatColor.RED + "0");
+							lines.add(ChatColor.GRAY + "ë¸”ë£¨ íŒ€ ì‹œì‘ ì§€ì  ê°¯ìˆ˜:" + ChatColor.RED + "0");
 						}
 					}
 					
 					if(mgm.getEndPosition() != null){
-						lines.add(ChatColor.GRAY + "½Â¸®ÀÚ ÀÌµ¿ ÁöÁ¡: " + ChatColor.GREEN + "¼³Á¤µÊ");
+						lines.add(ChatColor.GRAY + "ìŠ¹ë¦¬ì ì´ë™ ì§€ì : " + ChatColor.GREEN + "ì„¤ì •ë¨");
 					}
 					else{
-						lines.add(ChatColor.GRAY + "½Â¸®ÀÚ ÀÌµ¿ ÁöÁ¡: " + ChatColor.RED + "¼³Á¤µÇÁö ¾ÊÀ½");
+						lines.add(ChatColor.GRAY + "ìŠ¹ë¦¬ì ì´ë™ ì§€ì : " + ChatColor.RED + "ì„¤ì •ë˜ì§€ ì•ŠìŒ");
 					}
 					
 					if(mgm.getQuitPosition() != null){
-						lines.add(ChatColor.GRAY + "ÆĞ¹èÀÚ ÀÌµ¿ ÁöÁ¡: " + ChatColor.GREEN + "¼³Á¤µÊ");
+						lines.add(ChatColor.GRAY + "íŒ¨ë°°ì ì´ë™ ì§€ì : " + ChatColor.GREEN + "ì„¤ì •ë¨");
 					}
 					else{
-						lines.add(ChatColor.GRAY + "ÆĞ¹èÀÚ ÀÌµ¿ ÁöÁ¡: " + ChatColor.RED + "¼³Á¤µÇÁö ¾ÊÀ½");
+						lines.add(ChatColor.GRAY + "íŒ¨ë°°ì ì´ë™ ì§€ì : " + ChatColor.RED + "ì„¤ì •ë˜ì§€ ì•ŠìŒ");
 					}
 					
 					if(!mgm.getType().equals("sp")){
 						if(mgm.getLobbyPosition() != null){
-							lines.add(ChatColor.GRAY + "·Îºñ ÁöÁ¡: " + ChatColor.GREEN + "¼³Á¤µÊ");
+							lines.add(ChatColor.GRAY + "ë¡œë¹„ ì§€ì : " + ChatColor.GREEN + "ì„¤ì •ë¨");
 						}
 						else{
-							lines.add(ChatColor.GRAY + "·Îºñ ÁöÁ¡: " + ChatColor.RED + "¼³Á¤µÇÁö ¾ÊÀ½");
+							lines.add(ChatColor.GRAY + "ë¡œë¹„ ì§€ì : " + ChatColor.RED + "ì„¤ì •ë˜ì§€ ì•ŠìŒ");
 						}
 						
 						if(mgm.getSpleefFloor1() != null){
-							lines.add(ChatColor.GRAY + "¹Ù´Ú ÆÄ±«±â À§Ä¡ 1: " + ChatColor.GREEN + "³×");
+							lines.add(ChatColor.GRAY + "ë°”ë‹¥ íŒŒê´´ê¸° ìœ„ì¹˜ 1: " + ChatColor.GREEN + "ì˜ˆ");
 						}
 						else{
-							lines.add(ChatColor.GRAY + "¹Ù´Ú ÆÄ±«±â À§Ä¡ 1: " + ChatColor.RED + "¾Æ´Ï¿À");
+							lines.add(ChatColor.GRAY + "ë°”ë‹¥ íŒŒê´´ê¸° ìœ„ì¹˜ 1: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 						}
 						
 						if(mgm.getSpleefFloor2() != null){
-							lines.add(ChatColor.GRAY + "¹Ù´Ú ÆÄ±«±â À§Ä¡ 2: " + ChatColor.GREEN + "³×");
+							lines.add(ChatColor.GRAY + "ë°”ë‹¥ íŒŒê´´ê¸° ìœ„ì¹˜ 2: " + ChatColor.GREEN + "ì˜ˆ");
 						}
 						else{
-							lines.add(ChatColor.GRAY + "¹Ù´Ú ÆÄ±«±â À§Ä¡ 2: " + ChatColor.RED + "¾Æ´Ï¿À");
+							lines.add(ChatColor.GRAY + "ë°”ë‹¥ íŒŒê´´ê¸° ìœ„ì¹˜ 2: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 						}
 					}
 					
 					if(mgm.getRegenArea1() != null){
-						lines.add(ChatColor.GRAY + "¸®Á¨ Áö¿ª À§Ä¡ 1: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "ë¦¬ì   ì§€ì—­ ìœ„ì¹˜ 1: " + ChatColor.GREEN + "ì˜ˆ");
 					}
 					else{
-						lines.add(ChatColor.GRAY + "¸®Á¨ Áö¿ª À§Ä¡ 1: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "ë¦¬ì   ì§€ì—­ ìœ„ì¹˜ 1: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 					}
 					
 					if(mgm.getRegenArea2() != null){
-						lines.add(ChatColor.GRAY + "¸®Á¨ Áö¿ª À§Ä¡ 2: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "ë¦¬ì   ì§€ì—­ ìœ„ì¹˜ 2: " + ChatColor.GREEN + "ì˜ˆ");
 					}
 					else{
-						lines.add(ChatColor.GRAY + "¸®Á¨ Áö¿ª À§Ä¡ 2: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "ë¦¬ì   ì§€ì—­ ìœ„ì¹˜ 2: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 					}
 					
-					lines.add(ChatColor.GRAY + "ÇÃ·¹ÀÌ¾î °ÔÀÓ¸ğµå: " + ChatColor.GREEN + mgm.getDefaultGamemode().name().toLowerCase());
+					lines.add(ChatColor.GRAY + "í”Œë ˆì´ì–´ ê²Œì„ëª¨ë“œ: " + ChatColor.GREEN + mgm.getDefaultGamemode().name().toLowerCase());
 					
 					if(mgm.hasDeathDrops()){
-						lines.add(ChatColor.GRAY + "Á×À» ½Ã ¾ÆÀÌÅÛ µå·Ó: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "ì£½ì„ ì‹œ ì•„ì´í…œ ë“œë¡­: " + ChatColor.GREEN + "ì˜ˆ");
 					}else{
-						lines.add(ChatColor.GRAY + "Á×À» ½Ã ¾ÆÀÌÅÛ µå·Ó: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "ì£½ì„ ì‹œ ì•„ì´í…œ ë“œë¡­: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 					}
 					
 					if(mgm.hasItemDrops()){
-						lines.add(ChatColor.GRAY + "ÇÃ·¹ÀÌ¾î ¾ÆÀÌÅÛ µå·Ó: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "í”Œë ˆì´ì–´ ì•„ì´í…œ ë“œë¡­: " + ChatColor.GREEN + "ì˜ˆ");
 					}else{
-						lines.add(ChatColor.GRAY + "ÇÃ·¹ÀÌ¾î ¾ÆÀÌÅÛ µå·Ó: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "í”Œë ˆì´ì–´ ì•„ì´í…œ ë“œë¡­: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 					}
 					
 					if(mgm.hasItemPickup()){
-						lines.add(ChatColor.GRAY + "ÇÃ·¹ÀÌ¾î ¾ÆÀÌÅÛ ÇÈ¾÷: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "í”Œë ˆì´ì–´ ì•„ì´í…œ í”½ì—…: " + ChatColor.GREEN + "ê°€ëŠ¥");
 					}else{
-						lines.add(ChatColor.GRAY + "ÇÃ·¹ÀÌ¾î ¾ÆÀÌÅÛ ÇÈ¾÷: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "í”Œë ˆì´ì–´ ì•„ì´í…œ í”½ì—…: " + ChatColor.RED + "ë¶ˆê°€ëŠ¥");
 					}
 					
 					if(mgm.canBlockBreak()){
-						lines.add(ChatColor.GRAY + "ºí·Ï ºÎ¼ö±â: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "ë¸”ë¡ ë¶€ìˆ˜ê¸°: " + ChatColor.GREEN + "ê°€ëŠ¥");
 					}else{
-						lines.add(ChatColor.GRAY + "ºí·Ï ºÎ¼ö±â: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "ë¸”ë¡ ë¶€ìˆ˜ê¸°: " + ChatColor.RED + "ë¶ˆê°€ëŠ¥");
 					}
 					
 					if(mgm.canBlockPlace()){
-						lines.add(ChatColor.GRAY + "ºí·Ï ³õ±â: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "ë¸”ë¡ ë†“ê¸°: " + ChatColor.GREEN + "ê°€ëŠ¥");
 					}else{
-						lines.add(ChatColor.GRAY + "ºí·Ï ³õ±â: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "ë¸”ë¡ ë†“ê¸°: " + ChatColor.RED + "ë¶ˆê°€ëŠ¥");
 					}
 					
 					if(mgm.canBlocksdrop()){
-						lines.add(ChatColor.GRAY + "ºí·ÏÀÌ ¾ÆÀÌÅÛ µå·ÓÇÏ±â: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "ë¸”ë¡ì´ ì•„ì´í…œ ë“œë¡­: " + ChatColor.GREEN + "ë“œë¡­í•¨");
 					}else{
-						lines.add(ChatColor.GRAY + "ºí·ÏÀÌ ¾ÆÀÌÅÛ µå·ÓÇÏ±â: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "ë¸”ë¡ì´ ì•„ì´í…œ ë“œë¡­: " + ChatColor.RED + "ë“œë¡­ ì•ˆí•¨");
 					}
 					
 					if(mgm.getBlockRecorder().getWhitelistMode()){
-						lines.add(ChatColor.GRAY + "ºí·Ï ³õ±â/ºÎ¼ö±â: " + ChatColor.GREEN + "È­ÀÌÆ®¸®½ºÆ® ¸ğµå");
+						lines.add(ChatColor.GRAY + "ë¸”ë¡ ë†“ê¸°/ë¶€ìˆ˜ê¸°: " + ChatColor.GREEN + "í™”ì´íŠ¸ë¦¬ìŠ¤íŠ¸ ëª¨ë“œ");
 					}
 					else{
-						lines.add(ChatColor.GRAY + "ºí·Ï ³õ±â/ºÎ¼ö±â: " + ChatColor.RED + "ºí·¢¸®½ºÆ® ¸ğµå");
+						lines.add(ChatColor.GRAY + "ë¸”ë¡ ë†“ê¸°/ë¶€ìˆ˜ê¸°: " + ChatColor.RED + "ë¸”ë™ë¦¬ìŠ¤íŠ¸ ëª¨ë“œ");
 					}
 					
 					if(mgm.hasFlags()){
-						lines.add(ChatColor.GRAY + "±ê¹ß ¼ö: " + ChatColor.GREEN + mgm.getFlags().size());
+						lines.add(ChatColor.GRAY + "ê¹ƒë°œ ìˆ˜: " + ChatColor.GREEN + mgm.getFlags().size());
 					}else{
-						lines.add(ChatColor.GRAY + "±ê¹ß ¼ö: " + ChatColor.RED + "0");
+						lines.add(ChatColor.GRAY + "ê¹ƒë°œ ìˆ˜: " + ChatColor.RED + "0");
 					}
 					
 					if(mgm.hasDefaultLoadout()){
-						lines.add(ChatColor.GRAY + "±âº» ·Îµå¾Æ¿ô ¾ÆÀÌÅÛ ¼ö: " + ChatColor.GREEN + mgm.getDefaultPlayerLoadout().getItems().size() + " ¾ÆÀÌÅÛ");
+						lines.add(ChatColor.GRAY + "ê¸°ë³¸ ë¡œë“œì•„ì›ƒ ì•„ì´í…œ ìˆ˜: " + ChatColor.GREEN + mgm.getDefaultPlayerLoadout().getItems().size() + " ì•„ì´í…œ");
 					}else{
-						lines.add(ChatColor.GRAY + "±âº» ·Îµå¾Æ¿ô ¾ÆÀÌÅÛ ¼ö: " + ChatColor.RED + "0 ¾ÆÀÌÅÛ");
+						lines.add(ChatColor.GRAY + "ê¸°ë³¸ ë¡œë“œì•„ì›ƒ ì•„ì´í…œ ìˆ˜: " + ChatColor.RED + "0 ì•„ì´í…œ");
 					}
 					
 					if(!mgm.getLoadouts().isEmpty()){
-						lines.add(ChatColor.GRAY + "Ãß°¡ ·Îµå¾Æ¿ô ¼ö: " + ChatColor.GREEN + mgm.getLoadouts().size());
+						lines.add(ChatColor.GRAY + "ì¶”ê°€ ë¡œë“œì•„ì›ƒ ìˆ˜: " + ChatColor.GREEN + mgm.getLoadouts().size());
 					}else{
-						lines.add(ChatColor.GRAY + "Ãß°¡ ·Îµå¾Æ¿ô ¼ö: " + ChatColor.RED + "0");
+						lines.add(ChatColor.GRAY + "ì¶”ê°€ ë¡œë“œì•„ì›ƒ ìˆ˜: " + ChatColor.RED + "0");
 					}
 					
 					if(!mgm.getType().equals("sp")){
-						lines.add(ChatColor.GRAY + "ÃÖ´ë ÇÃ·¹ÀÌ¾î: " + ChatColor.GREEN + mgm.getMaxPlayers());
-						lines.add(ChatColor.GRAY + "ÃÖ¼Ò ÇÃ·¹ÀÌ¾î: " + ChatColor.GREEN + mgm.getMinPlayers());
+						lines.add(ChatColor.GRAY + "ìµœëŒ€ í”Œë ˆì´ì–´: " + ChatColor.GREEN + mgm.getMaxPlayers());
+						lines.add(ChatColor.GRAY + "ìµœì†Œ í”Œë ˆì´ì–´: " + ChatColor.GREEN + mgm.getMinPlayers());
 					}
 					
 					if(mgm.getRewardItem() != null){
-						lines.add(ChatColor.GRAY + "¾ÆÀÌÅÛ º¸»ó: " + ChatColor.GREEN + MinigameUtils.getItemStackName(mgm.getRewardItem()) + "(" + mgm.getRewardItem().getAmount() + " °³)");
+						lines.add(ChatColor.GRAY + "ì•„ì´í…œ ë³´ìƒ: " + ChatColor.GREEN + MinigameUtils.getItemStackName(mgm.getRewardItem()) + "(" + mgm.getRewardItem().getAmount() + " ê°œ)");
 					}else{
-						lines.add(ChatColor.GRAY + "¾ÆÀÌÅÛ º¸»ó: " + ChatColor.RED + "¼³Á¤µÇÁö ¾ÊÀ½");
+						lines.add(ChatColor.GRAY + "ì•„ì´í…œ ë³´ìƒ: " + ChatColor.RED + "ì„¤ì •ë˜ì§€ ì•ŠìŒ");
 					}
 					
 					if(mgm.getRewardPrice() != 0){
-						lines.add(ChatColor.GRAY + "µ· º¸»ó: " + ChatColor.GREEN +mgm.getRewardPrice() + "¿ø");
+						lines.add(ChatColor.GRAY + "ëˆ ë³´ìƒ: " + ChatColor.GREEN +mgm.getRewardPrice() + "ì›");
 					}
 					else{
-						lines.add(ChatColor.GRAY + "µ· º¸»ó: " + ChatColor.RED + "¼³Á¤µÇÁö ¾ÊÀ½");
+						lines.add(ChatColor.GRAY + "ëˆ ë³´ìƒ: " + ChatColor.RED + "ì„¤ì •ë˜ì§€ ì•ŠìŒ");
 					}
 					
 					if(mgm.getSecondaryRewardItem() != null){
-						lines.add(ChatColor.GRAY + "µÎ¹øÂ° ¾ÆÀÌÅÛ º¸»ó: " + ChatColor.GREEN + MinigameUtils.getItemStackName(mgm.getSecondaryRewardItem()) + "(" + mgm.getSecondaryRewardItem().getAmount() + " °³)");
+						lines.add(ChatColor.GRAY + "ë‘ ë²ˆì§¸ ì•„ì´í…œ ë³´ìƒ: " + ChatColor.GREEN + MinigameUtils.getItemStackName(mgm.getSecondaryRewardItem()) + "(" + mgm.getSecondaryRewardItem().getAmount() + " ê°œ)");
 					}else{
-						lines.add(ChatColor.GRAY + "µÎ¹øÂ° ¾ÆÀÌÅÛ º¸»ó: " + ChatColor.RED + "¼³Á¤µÇÁö ¾ÊÀ½");
+						lines.add(ChatColor.GRAY + "ë‘ ë²ˆì§¸ ì•„ì´í…œ ë³´ìƒ: " + ChatColor.RED + "ì„¤ì •ë˜ì§€ ì•ŠìŒ");
 					}
 					
 					if(mgm.getSecondaryRewardPrice() != 0){
-						lines.add(ChatColor.GRAY + "µÎ¹øÂ° µ· º¸»ó: " + ChatColor.GREEN + mgm.getSecondaryRewardPrice() + "¿ø");
+						lines.add(ChatColor.GRAY + "ë‘ ë²ˆì§¸ ëˆ ë³´ìƒ: " + ChatColor.GREEN + mgm.getSecondaryRewardPrice() + "ì›");
 					}
 					else{
-						lines.add(ChatColor.GRAY + "µÎ¹øÂ° µ· º¸»ó: " + ChatColor.RED + "¼³Á¤µÇÁö ¾ÊÀ½");
+						lines.add(ChatColor.GRAY + "ë‘ ë²ˆì§¸ ëˆ ë³´ìƒ: " + ChatColor.RED + "ì„¤ì •ë˜ì§€ ì•ŠìŒ");
 					}
 					
 					if(!mgm.getType().equals("sp")){
 						if(mgm.getTimer() != 0){
-							lines.add(ChatColor.GRAY + "°ÔÀÓ Å¸ÀÌ¸Ó: " + ChatColor.GREEN + MinigameUtils.convertTime(mgm.getTimer()));
+							lines.add(ChatColor.GRAY + "ê²Œì„ íƒ€ì´ë¨¸: " + ChatColor.GREEN + MinigameUtils.convertTime(mgm.getTimer()));
 						}
 						else{
-							lines.add(ChatColor.GRAY + "°ÔÀÓ Å¸ÀÌ¸Ó: " + ChatColor.RED + "¼³Á¤µÇÁö ¾ÊÀ½");
+							lines.add(ChatColor.GRAY + "ê²Œì„ íƒ€ì´ë¨¸: " + ChatColor.RED + "ì„¤ì •ë˜ì§€ ì•ŠìŒ");
 						}
 					}
 					
 					if(mgm.hasPaintBallMode()){
-						lines.add(ChatColor.GRAY + "ÆäÀÎÆ®º¼ ¸ğµå: " + ChatColor.GREEN + "³×");
-						lines.add(ChatColor.GRAY + "ÆäÀÎÆ®º¼ µ¥¹ÌÁö: " + ChatColor.GREEN + mgm.getPaintBallDamage());
+						lines.add(ChatColor.GRAY + "í˜ì¸íŠ¸ë³¼ ëª¨ë“œ: " + ChatColor.GREEN + "ì˜ˆ");
+						lines.add(ChatColor.GRAY + "í˜ì¸íŠ¸ë³¼ ë°ë¯¸ì§€: " + ChatColor.GREEN + mgm.getPaintBallDamage());
 					}
 					else{
-						lines.add(ChatColor.GRAY + "ÆäÀÎÆ®º¼ ¸ğµå: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "í˜ì¸íŠ¸ë³¼ ëª¨ë“œ: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 					}
 					
 					if(mgm.hasUnlimitedAmmo()){
-						lines.add(ChatColor.GRAY + "¹«ÇÑ ÃÑ¾Ë: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "ë¬´í•œ ì´ì•Œ: " + ChatColor.GREEN + "ì˜ˆ");
 					}
 					else{
-						lines.add(ChatColor.GRAY + "¹«ÇÑ ÃÑ¾Ë: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "ë¬´í•œ ì´ì•Œ: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 					}
 					
 					if(mgm.isAllowedEnderpearls()) {
-						lines.add(ChatColor.GRAY + "¿£´õ ÁøÁÖ »ç¿ë ¿©ºÎ:" + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "ì—”ë” ì§„ì£¼ ì‚¬ìš© ì—¬ë¶€:" + ChatColor.GREEN + "ì˜ˆ");
 					}
 					else {
-						lines.add(ChatColor.GRAY + "¿£´õ ÁøÁÖ »ç¿ë ¿©ºÎ:" + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "ì—”ë” ì§„ì£¼ ì‚¬ìš© ì—¬ë¶€:" + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 					}
 					
 					if(mgm.getType().equals("sp")){
 						if(mgm.canSaveCheckpoint()){
-							lines.add(ChatColor.GRAY + "Ã¼Å©Æ÷ÀÎÆ® ÀúÀå: " + ChatColor.GREEN + "³×");
+							lines.add(ChatColor.GRAY + "ì²´í¬í¬ì¸íŠ¸ ì €ì¥: " + ChatColor.GREEN + "ì˜ˆ");
 						}
 						else{
-							lines.add(ChatColor.GRAY + "Ã¼Å©Æ÷ÀÎÆ® ÀúÀå: " + ChatColor.RED + "¾Æ´Ï¿À");
+							lines.add(ChatColor.GRAY + "ì²´í¬í¬ì¸íŠ¸ ì €ì¥: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 						}
 					}
 					else{
 						if(mgm.canLateJoin()){
-							lines.add(ChatColor.GRAY + "½ÃÀÛÇÑ ÈÄ µé¾î°¡±â: " + ChatColor.GREEN + "³×");
+							lines.add(ChatColor.GRAY + "ê²Œì„ ì¤‘ì— ì°¸ê°€: " + ChatColor.GREEN + "ê°€ëŠ¥");
 						}
 						else{
-							lines.add(ChatColor.GRAY + "½ÃÀÛÇÑ ÈÄ µé¾î°¡±â: " + ChatColor.RED + "¾Æ´Ï¿À");
+							lines.add(ChatColor.GRAY + "ê²Œì„ ì¤‘ì— ì°¸ê°€: " + ChatColor.RED + "ë¶ˆê°€ëŠ¥");
 						}
 					}
 					
 					if(mgm.isRandomizeChests()){
-						lines.add(ChatColor.GRAY + "·£´ı Ã¼½ºÆ®: " + ChatColor.GREEN + "³×");
+						lines.add(ChatColor.GRAY + "ëœë¤ ì²´ìŠ¤íŠ¸: " + ChatColor.GREEN + "ì˜ˆ");
 					}
 					else{
-						lines.add(ChatColor.GRAY + "·£´ı Ã¼½ºÆ®: " + ChatColor.RED + "¾Æ´Ï¿À");
+						lines.add(ChatColor.GRAY + "ëœë¤ ì²´ìŠ¤íŠ¸: " + ChatColor.RED + "ì•„ë‹ˆì˜¤");
 					}
 				}
 				else{
 					if(mgm.getStartLocations().size() > 0){
-						lines.add(ChatColor.GRAY + "½ÃÀÛ ÁöÁ¡: " + ChatColor.GREEN + mgm.getStartLocations().get(0).getBlockX() + "x, " + 
+						lines.add(ChatColor.GRAY + "ì‹œì‘ ì§€ì : " + ChatColor.GREEN + mgm.getStartLocations().get(0).getBlockX() + "x, " + 
 								mgm.getStartLocations().get(0).getBlockY() + "y, " + 
 								mgm.getStartLocations().get(0).getBlockZ() + "z");
 					}
 					else{
-						lines.add(ChatColor.GRAY + "½ÃÀÛ ÁöÁ¡: " + ChatColor.RED + "¼³Á¤µÇÁö ¾ÊÀ½");
+						lines.add(ChatColor.GRAY + "ì‹œì‘ ì§€ì : " + ChatColor.RED + "ì„¤ì •ë˜ì§€ ì•ŠìŒ");
 					}
 					
 					if(mgm.getLocation() != null){
-						lines.add(ChatColor.GRAY + "À§Ä¡ ÀÌ¸§: " + ChatColor.GREEN + mgm.getLocation());
+						lines.add(ChatColor.GRAY + "ìœ„ì¹˜ ì´ë¦„: " + ChatColor.GREEN + mgm.getLocation());
 					}
 					else{
-						lines.add(ChatColor.GRAY + "À§Ä¡ ÀÌ¸§: " + ChatColor.RED + "¼³Á¤µÇÁö ¾ÊÀ½");
+						lines.add(ChatColor.GRAY + "ìœ„ì¹˜ ì´ë¦„: " + ChatColor.RED + "ì„¤ì •ë˜ì§€ ì•ŠìŒ");
 					}
 					
-					lines.add(ChatColor.GRAY + "ÃÖ´ë °Å¸®: " + ChatColor.GREEN + mgm.getMaxRadius());
-					lines.add(ChatColor.GRAY + "ÃÖ¼Ò º¸¹°: " + ChatColor.GREEN + mgm.getMinTreasure());
-					lines.add(ChatColor.GRAY + "ÃÖ´ë º¸¹°: " + ChatColor.GREEN + mgm.getMaxTreasure());
+					lines.add(ChatColor.GRAY + "ìµœëŒ€ ê±°ë¦¬: " + ChatColor.GREEN + mgm.getMaxRadius());
+					lines.add(ChatColor.GRAY + "ìµœì†Œ ë³´ë¬¼: " + ChatColor.GREEN + mgm.getMinTreasure());
+					lines.add(ChatColor.GRAY + "ìµœëŒ€ ë³´ë¬¼: " + ChatColor.GREEN + mgm.getMaxTreasure());
 					
 					if(mgm.hasDefaultLoadout()){
-						lines.add(ChatColor.GRAY + "±âº» ·Îµå¾Æ¿ô ¾ÆÀÌÅÛ °¹¼ö: " + ChatColor.GREEN + mgm.getDefaultPlayerLoadout().getItems().size() + " ¾ÆÀÌÅÛ");
+						lines.add(ChatColor.GRAY + "ê¸°ë³¸ ë¡œë“œì•„ì›ƒ ì•„ì´í…œ ê°¯ìˆ˜: " + ChatColor.GREEN + mgm.getDefaultPlayerLoadout().getItems().size() + " ì•„ì´í…œ");
 					}else{
-						lines.add(ChatColor.GRAY + "±âº» ·Îµå¾Æ¿ô ¾ÆÀÌÅÛ °¹¼ö: " + ChatColor.RED + "0 ¾ÆÀÌÅÛ");
+						lines.add(ChatColor.GRAY + "ê¸°ë³¸ ë¡œë“œì•„ì›ƒ ì•„ì´í…œ ê°¯ìˆ˜: " + ChatColor.RED + "0 ì•„ì´í…œ");
 					}
 				}
 				
@@ -362,7 +362,7 @@ public class InfoCommand implements ICommand{
 						page = pages;
 					}
 				}
-				sender.sendMessage(ChatColor.GREEN + "-------------------ÆäÀÌÁö " + page + "/" + pages + "-------------------");
+				sender.sendMessage(ChatColor.GREEN + "-------------------í˜ì´ì§€ " + page + "/" + pages + "-------------------");
 				
 				int offset = 0 + (page * 9 - 9);
 				int offsetUpper = offset + 8;
@@ -375,7 +375,7 @@ public class InfoCommand implements ICommand{
 				}
 			}
 			else{
-				sender.sendMessage(ChatColor.RED + args[0] + "¶ó´Â ÀÌ¸§À» °¡Áø ¹Ì´Ï°ÔÀÓÀº ¾ø½À´Ï´Ù!");
+				sender.sendMessage(ChatColor.RED + args[0] + "ë¼ëŠ” ì´ë¦„ì„ ê°€ì§„ ë¯¸ë‹ˆê²Œì„ì€ ì—†ìŠµë‹ˆë‹¤!");
 			}
 			return true;
 		}

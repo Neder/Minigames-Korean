@@ -14,7 +14,7 @@ public class QuitSign implements MinigameSign {
 
 	
 	public String getName() {
-		return "³ª°¡±â";
+		return "ë‚˜ê°€ê¸°";
 	}
 
 	
@@ -24,7 +24,7 @@ public class QuitSign implements MinigameSign {
 
 	
 	public String getCreatePermissionMessage() {
-		return "¹Ì´Ï°ÔÀÓ ³ª°¡±â Ç¥ÁöÆÇÀ» »ç¿ëÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë¯¸ë‹ˆê²Œì„ ë‚˜ê°€ê¸° í‘œì§€íŒì„ ì‚¬ìš©í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -39,7 +39,7 @@ public class QuitSign implements MinigameSign {
 
 	
 	public boolean signCreate(SignChangeEvent event) {
-		event.setLine(1, ChatColor.GREEN + "³ª°¡±â");
+		event.setLine(1, ChatColor.GREEN + "ë‚˜ê°€ê¸°");
 		return true;
 	}
 
@@ -50,7 +50,7 @@ public class QuitSign implements MinigameSign {
 			return true;
 		}
 		else if(player.getPlayer().getItemInHand().getType() != Material.AIR)
-			player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ÀÌ Ç¥ÁöÆÇÀ» »ç¿ëÇÏ·Á¸é ¼ÕÀÌ ºñ¾îÀÖ¾î¾ß ÇÕ´Ï´Ù!");
+			player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì´ í‘œì§€íŒì„ ì‚¬ìš©í•˜ë ¤ë©´ ì†ì´ ë¹„ì–´ìˆì–´ì•¼ í•©ë‹ˆë‹¤!");
 		return false;
 	}
 

@@ -148,7 +148,7 @@ public class MinigameUtils {
 		}
 		
 		if(weeks != 0){
-			msg = weeks + " ¡÷";
+			msg = weeks + " Ï£º";
 		}
 		if(days != 0){
 			if(!msg.equals("")){
@@ -159,7 +159,7 @@ public class MinigameUtils {
 					msg += ", ";
 				}
 			}
-			msg += days + " ¿œ";
+			msg += days + " Ïùº";
 		}
 		if(hours != 0){
 			if(!msg.equals("")){
@@ -170,7 +170,7 @@ public class MinigameUtils {
 					msg += ", ";
 				}
 			}
-			msg += hours + " Ω√∞£";
+			msg += hours + " ÏãúÍ∞Ñ";
 		}
 		if(minutes != 0){
 			if(!msg.equals("")){
@@ -181,13 +181,13 @@ public class MinigameUtils {
 					msg += ", ";
 				}
 			}
-			msg += minutes + " ∫–";
+			msg += minutes + " Î∂Ñ";
 		}
 		if(seconds != 0){
 			if(!msg.equals("")){
 				msg += ", ";
 			}
-			msg += seconds + " √ ";
+			msg += seconds + " Ï¥à";
 		}
 		
 		return msg;

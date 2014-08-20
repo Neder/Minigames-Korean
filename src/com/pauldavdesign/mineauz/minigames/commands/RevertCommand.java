@@ -27,7 +27,7 @@ public class RevertCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "ÇÃ·¹ÀÌ¾îÀÇ ¸¶Áö¸· Ã¼Å©Æ÷ÀÎÆ®·Î µ¹¾Æ°©´Ï´Ù.";
+		return "í”Œë ˆì´ì–´ì˜ ë§ˆì§€ë§‰ ì²´í¬í¬ì¸íŠ¸ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.";
 	}
 
 	
@@ -42,7 +42,7 @@ public class RevertCommand implements ICommand{
 
 	
 	public String getPermissionMessage() {
-		return "´ç½ÅÀº Ã¼Å©Æ÷ÀÎÆ®·Î µ¹¾Æ°¥ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë‹¹ì‹ ì€ ì²´í¬í¬ì¸íŠ¸ë¡œ ëŒì•„ê°ˆ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -65,7 +65,7 @@ public class RevertCommand implements ICommand{
 			}
 		}
 		else {
-			player.sendMessage(ChatColor.RED + "´ç½ÅÀº ¾Æ¹« Ã¼Å©Æ÷ÀÎÆ®µµ ¾ø½À´Ï´Ù!");
+			player.sendMessage(ChatColor.RED + "ì²´í¬í¬ì¸íŠ¸ë¥¼ ë³´ìœ í•˜ê³  ìˆì§€ ì•ŠìŠµë‹ˆë‹¤!");
 		}
 		return true;
 	}

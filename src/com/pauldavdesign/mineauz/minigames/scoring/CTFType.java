@@ -46,8 +46,8 @@ public class CTFType extends ScoreType{
 						minigame.removeBlueTeamPlayer(players.get(i));
 						minigame.addRedTeamPlayer(players.get(i));
 						team = 0;
-						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "´ç½ÅÀº " + ChatColor.RED + "·¹µå ÆÀ" + ChatColor.WHITE + "ÀÌ µÇ¾ú½À´Ï´Ù.");
-						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ´ÔÀº " + ChatColor.RED + "·¹µå ÆÀ" + ChatColor.WHITE + "ÀÌ µÇ¼Ì½À´Ï´Ù.", null, players.get(i));
+						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + ChatColor.RED + "ë ˆë“œ íŒ€" + ChatColor.WHITE + "ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ë‹˜ì€ " + ChatColor.RED + "ë ˆë“œ íŒ€" + ChatColor.WHITE + "ì´ ë˜ì…¨ìŠµë‹ˆë‹¤.", null, players.get(i));
 					}
 				}
 				else if(team == 0){
@@ -56,22 +56,22 @@ public class CTFType extends ScoreType{
 						minigame.removeRedTeamPlayer(players.get(i));
 						minigame.addBlueTeamPlayer(players.get(i));
 						team = 1;
-						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "´ç½ÅÀº " + ChatColor.BLUE + "ºí·ç ÆÀ" + ChatColor.WHITE + "ÀÌ µÇ¾ú½À´Ï´Ù.");
-						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ´ÔÀº " + ChatColor.BLUE + "ºí·ç ÆÀ" + ChatColor.WHITE + "ÀÌ µÇ¾ú½À´Ï´Ù.", null, players.get(i));
+						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + ChatColor.BLUE + "ë¸”ë£¨ íŒ€" + ChatColor.WHITE + "ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ë‹˜ì€ " + ChatColor.BLUE + "ë¸”ë£¨ íŒ€" + ChatColor.WHITE + "ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.", null, players.get(i));
 					}
 				}
 				else{
 					if(minigame.getRedTeam().size() <= minigame.getBlueTeam().size()){
 						minigame.addRedTeamPlayer(players.get(i));
 						team = 0;
-						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "´ç½ÅÀº " + ChatColor.RED + "·¹µå ÆÀ" + ChatColor.WHITE + "ÀÌ µÇ¾ú½À´Ï´Ù.");
-						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ´ÔÀº " + ChatColor.RED + "·¹µå ÆÀ" + ChatColor.WHITE + "ÀÌ µÇ¾ú½À´Ï´Ù.", null, players.get(i));
+						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + ChatColor.RED + "ë ˆë“œ íŒ€" + ChatColor.WHITE + "ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ë‹˜ì€ " + ChatColor.RED + "ë ˆë“œ íŒ€" + ChatColor.WHITE + "ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.", null, players.get(i));
 					}
 					else if(minigame.getBlueTeam().size() <= minigame.getRedTeam().size()){
 						minigame.addBlueTeamPlayer(players.get(i));
 						team = 1;
-						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "´ç½ÅÀº " + ChatColor.BLUE + "ºí·ç ÆÀ" + ChatColor.WHITE + "ÀÌ µÇ¾ú½À´Ï´Ù.");
-						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ´ÔÀº " + ChatColor.BLUE + "ºí·ç ÆÀ" + ChatColor.WHITE + "ÀÌ µÇ¾ú½À´Ï´Ù.", null, players.get(i));
+						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + ChatColor.BLUE + "ë¸”ë£¨ íŒ€" + ChatColor.WHITE + "ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ë‹˜ì€ " + ChatColor.BLUE + "ë¸”ë£¨ íŒ€" + ChatColor.WHITE + "ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.", null, players.get(i));
 					}
 				}
 //				TeamDMMinigame.applyTeam(players.get(i), team);
@@ -86,7 +86,7 @@ public class CTFType extends ScoreType{
 			if(event.getAction() == Action.RIGHT_CLICK_BLOCK && (event.getClickedBlock().getType() == Material.SIGN_POST || event.getClickedBlock().getType() == Material.WALL_SIGN) && ply.getPlayer().getItemInHand().getType() == Material.AIR){
 				Minigame mgm = ply.getMinigame();
 				Sign sign = (Sign) event.getClickedBlock().getState();
-				if(mgm.getScoreType().equals("ctf") && sign.getLine(1).equals(ChatColor.GREEN + "±ê¹ß")){
+				if(mgm.getScoreType().equals("ctf") && sign.getLine(1).equals(ChatColor.GREEN + "ê¹ƒë°œ")){
 					if(!mgm.getBlueTeam().isEmpty() || !mgm.getRedTeam().isEmpty() || !mgm.getType().equals("teamdm")){
 						int team = 0;
 						if(mgm.getBlueTeam().contains(event.getPlayer())){
@@ -99,16 +99,16 @@ public class CTFType extends ScoreType{
 						
 						String sloc = MinigameUtils.createLocationID(event.getClickedBlock().getLocation());
 						
-						if((sign.getLine(2).equalsIgnoreCase(ChatColor.RED + "·¹µå") && team == 1) || 
-								(sign.getLine(2).equalsIgnoreCase(ChatColor.BLUE + "ºí·ç") && team == 0) ||
-								sign.getLine(2).equalsIgnoreCase(ChatColor.GRAY + "ÀÏ¹İ")){
+						if((sign.getLine(2).equalsIgnoreCase(ChatColor.RED + "ë ˆë“œ") && team == 1) || 
+								(sign.getLine(2).equalsIgnoreCase(ChatColor.BLUE + "ë¸”ë£¨") && team == 0) ||
+								sign.getLine(2).equalsIgnoreCase(ChatColor.GRAY + "ì¼ë°˜")){
 							if(mgm.getFlagCarrier(ply) == null){
 								if(!mgm.hasDroppedFlag(sloc)){
 									int oTeam = 1;
 									if(team == 1){
 										oTeam = 0;
 									}
-									if(sign.getLine(2).equalsIgnoreCase(ChatColor.GRAY + "ÀÏ¹İ")){
+									if(sign.getLine(2).equalsIgnoreCase(ChatColor.GRAY + "ì¼ë°˜")){
 										oTeam = -1;
 									}
 									CTFFlag flag = new CTFFlag(event.getClickedBlock().getLocation(), oTeam, event.getPlayer(), mgm);
@@ -125,27 +125,27 @@ public class CTFType extends ScoreType{
 								}
 								
 								if(team == 0 && mgm.getFlagCarrier(ply).getTeam() == 1){
-									String message = ply.getName() + " ´ÔÀÌ " + ChatColor.BLUE + "ºí·ç ÆÀ" + ChatColor.WHITE + " ÀÇ ±ê¹ßÀ» ÈÉÃÆ½À´Ï´Ù!";
+									String message = ply.getName() + " ë‹˜ì´ " + ChatColor.BLUE + "ë¸”ë£¨ íŒ€" + ChatColor.WHITE + " ì˜ ê¹ƒë°œì„ í›”ì³¤ìŠµë‹ˆë‹¤!";
 									mdata.sendMinigameMessage(mgm, message, null, null);
 									mgm.getFlagCarrier(ply).startCarrierParticleEffect(ply.getPlayer());
 								}else if(team == 1 && mgm.getFlagCarrier(ply).getTeam() == 0){
-									String message = ply.getName() + " ´ÔÀÌ " + ChatColor.RED + "·¹µå ÆÀ" + ChatColor.WHITE + " ÀÇ ±ê¹ßÀ» ÈÉÃÆ½À´Ï´Ù!";
+									String message = ply.getName() + " ë‹˜ì´ " + ChatColor.RED + "ë ˆë“œ íŒ€" + ChatColor.WHITE + " ì˜ ê¹ƒë°œì„ í›”ì³¤ìŠµë‹ˆë‹¤!";
 									mdata.sendMinigameMessage(mgm, message, null, null);
 									mgm.getFlagCarrier(ply).startCarrierParticleEffect(ply.getPlayer());
 								}
 								else{
-									String message = ply.getName() + " ´ÔÀÌ " + ChatColor.GRAY + "ÀÏ¹İ" + ChatColor.WHITE + " ±ê¹ßÀ» ÈÉÃÆ½À´Ï´Ù!";
+									String message = ply.getName() + " ë‹˜ì´ " + ChatColor.GRAY + "ì¼ë°˜" + ChatColor.WHITE + " ê¹ƒë°œì„ í›”ì³¤ìŠµë‹ˆë‹¤!";
 									mdata.sendMinigameMessage(mgm, message, null, null);
 									mgm.getFlagCarrier(ply).startCarrierParticleEffect(ply.getPlayer());
 								}
 							}
 							
 						}
-						else if((team == 0 && sign.getLine(2).equalsIgnoreCase(ChatColor.RED + "·¹µå") ||
-								(team == 1 && sign.getLine(2).equalsIgnoreCase(ChatColor.BLUE + "ºí·ç")) || 
-								(team == 0 && sign.getLine(2).equalsIgnoreCase(ChatColor.GREEN + "Ä¸ÃÄ") && sign.getLine(3).equalsIgnoreCase(ChatColor.RED + "·¹µå")) ||
-								(team == 1 && sign.getLine(2).equalsIgnoreCase(ChatColor.GREEN + "Ä¸ÃÄ") && sign.getLine(3).equalsIgnoreCase(ChatColor.BLUE + "ºí·ç")) ||
-								(sign.getLine(2).equalsIgnoreCase(ChatColor.GREEN + "Ä¸ÃÄ") && sign.getLine(3).equalsIgnoreCase(ChatColor.GRAY + "±âº»")))){
+						else if((team == 0 && sign.getLine(2).equalsIgnoreCase(ChatColor.RED + "ë ˆë“œ") ||
+								(team == 1 && sign.getLine(2).equalsIgnoreCase(ChatColor.BLUE + "ë¸”ë£¨")) || 
+								(team == 0 && sign.getLine(2).equalsIgnoreCase(ChatColor.GREEN + "ìº¡ì²˜") && sign.getLine(3).equalsIgnoreCase(ChatColor.RED + "ë ˆë“œ")) ||
+								(team == 1 && sign.getLine(2).equalsIgnoreCase(ChatColor.GREEN + "ìº¡ì²˜") && sign.getLine(3).equalsIgnoreCase(ChatColor.BLUE + "ë¸”ë£¨")) ||
+								(sign.getLine(2).equalsIgnoreCase(ChatColor.GREEN + "ìº¡ì²˜") && sign.getLine(3).equalsIgnoreCase(ChatColor.GRAY + "ê¸°ë³¸")))){
 							
 							String clickID = MinigameUtils.createLocationID(event.getClickedBlock().getLocation());
 							
@@ -175,10 +175,10 @@ public class CTFType extends ScoreType{
 									}
 									
 									if(team == 0){
-										String message = ply.getName() + " ´ÔÀÌ " + ChatColor.RED + "·¹µå ÆÀ" + ChatColor.WHITE + " ÀÇ ±ê¹ßÀ» Ä¸ÃÄ Çß½À´Ï´Ù.";
+										String message = ply.getName() + " ë‹˜ì´ " + ChatColor.RED + "ë ˆë“œ íŒ€" + ChatColor.WHITE + " ì˜ ê¹ƒë°œì„ ìº¡ì²˜í–ˆìŠµë‹ˆë‹¤.";
 										mdata.sendMinigameMessage(mgm, message, null, null);
 									}else{
-										String message = ply.getName() + " ´ÔÀÌ " + ChatColor.BLUE + "ºí·ç ÆÀ" + ChatColor.WHITE + " ÀÇ ±ê¹ßÀ» Ä¸ÃÄ Çß½À´Ï´Ù.";;
+										String message = ply.getName() + " ë‹˜ì´ " + ChatColor.BLUE + "ë¸”ë£¨ íŒ€" + ChatColor.WHITE + " ì˜ ê¹ƒë°œì„ ìº¡ì²˜í–ˆìŠµë‹ˆë‹¤.";;
 										mdata.sendMinigameMessage(mgm, message, null, null);
 									}
 									flag.stopCarrierParticleEffect();
@@ -188,10 +188,10 @@ public class CTFType extends ScoreType{
 									
 									if(end){
 										if(team == 0){
-											mdata.sendMinigameMessage(mgm, ply.getName() + " ´ÔÀÌ " + ChatColor.RED + "·¹µå ÆÀ" + ChatColor.WHITE + " ÀÇ  ¸¶Áö¸· ±ê¹ßÀ» Ä¸ÃÄ Çß½À´Ï´Ù.", null, null);
+											mdata.sendMinigameMessage(mgm, ply.getName() + " ë‹˜ì´ " + ChatColor.RED + "ë ˆë“œ íŒ€" + ChatColor.WHITE + " ì˜  ë§ˆì§€ë§‰ ê¹ƒë°œì„ ìº¡ì²˜í–ˆìŠµë‹ˆë‹¤.", null, null);
 										}
 										else{
-											mdata.sendMinigameMessage(mgm, ply.getName() + " ´ÔÀÌ " + ChatColor.BLUE + "ºí·ç ÆÀ" + ChatColor.WHITE + " ÀÇ  ¸¶Áö¸· ±ê¹ßÀ» Ä¸ÃÄ Çß½À´Ï´Ù.", null, null);
+											mdata.sendMinigameMessage(mgm, ply.getName() + " ë‹˜ì´ " + ChatColor.BLUE + "ë¸”ë£¨ íŒ€" + ChatColor.WHITE + " ì˜  ë§ˆì§€ë§‰ ê¹ƒë°œì„ ìº¡ì²˜í–ˆìŠµë‹ˆë‹¤.", null, null);
 										}
 										if(team == 1){
 											pdata.endTeamMinigame(1, mgm);
@@ -211,11 +211,11 @@ public class CTFType extends ScoreType{
 										end = true;
 									}
 									
-									mdata.sendMinigameMessage(mgm, ply.getName() + " ´ÔÀÌ ±ê¹ßÀ» Ä¸ÃÄ Çß½À´Ï´Ù.", null, null);
+									mdata.sendMinigameMessage(mgm, ply.getName() + " ë‹˜ì´ ê¹ƒë°œì„ ìº¡ì²˜í–ˆìŠµë‹ˆë‹¤.", null, null);
 									flag.stopCarrierParticleEffect();
 									
 									if(end){
-										mdata.sendMinigameMessage(mgm, ChatColor.WHITE + ply.getName() + " ´ÔÀÌ ¸¶Áö¸· ±ê¹ßÀ» Ä¸ÃÄ Çß½À´Ï´Ù.", null, null);
+										mdata.sendMinigameMessage(mgm, ChatColor.WHITE + ply.getName() + " ë‹˜ì´ ë§ˆì§€ë§‰ ê¹ƒë°œì„ ìº¡ì²˜í–ˆìŠµë‹ˆë‹¤.", null, null);
 										
 										pdata.endMinigame(ply);
 										mgm.resetFlags();
@@ -232,17 +232,17 @@ public class CTFType extends ScoreType{
 								flag.respawnFlag();
 								
 								if(flag.getTeam() == 1){
-									mdata.sendMinigameMessage(mgm, ply.getName() + " ´ÔÀÌ " + ChatColor.BLUE + "ºí·ç ÆÀ" + ChatColor.WHITE + " ÀÇ ±ê¹ßÀ» µÇµ¹·È½À´Ï´Ù!", null, null);
+									mdata.sendMinigameMessage(mgm, ply.getName() + " ë‹˜ì´ " + ChatColor.BLUE + "ë¸”ë£¨ íŒ€" + ChatColor.WHITE + " ì˜ ê¹ƒë°œì„ ë˜ëŒë ¸ìŠµë‹ˆë‹¤!", null, null);
 								}else if(flag.getTeam() == 0){
-									mdata.sendMinigameMessage(mgm, ply.getName() + " ´ÔÀÌ " + ChatColor.RED + "·¹µå ÆÀ" + ChatColor.WHITE + " ÀÇ ±ê¹ßÀ» µÇµ¹·È½À´Ï´Ù!", null, null);
+									mdata.sendMinigameMessage(mgm, ply.getName() + " ë‹˜ì´ " + ChatColor.RED + "ë ˆë“œ íŒ€" + ChatColor.WHITE + " ì˜ ê¹ƒë°œì„ ë˜ëŒë ¸ìŠµë‹ˆë‹¤!", null, null);
 								}
 								else{
-									mdata.sendMinigameMessage(mgm, ply.getName() + " ´ÔÀÌ " + ChatColor.GRAY + "±âº»" + ChatColor.WHITE + " ±ê¹ßÀ» µÇµ¹·È½À´Ï´Ù!", null, null);
+									mdata.sendMinigameMessage(mgm, ply.getName() + " ë‹˜ì´ " + ChatColor.GRAY + "ê¸°ë³¸" + ChatColor.WHITE + " ê¹ƒë°œì„ ë˜ëŒë ¸ìŠµë‹ˆë‹¤!", null, null);
 									mgm.getFlagCarrier(ply).startCarrierParticleEffect(ply.getPlayer());
 								}
 							}
 							else if(mgm.getFlagCarrier(ply) != null && mgm.hasDroppedFlag(clickID) && !mgm.getDroppedFlag(clickID).isAtHome()){
-								ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "´ç½ÅÀº ÀÚ½ÅÀÇ ±ê¹ßÀ» µÇµ¹¸± ¼ö ¾ø½À´Ï´Ù!");
+								ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ìì‹ ì˜ ê¹ƒë°œì„ ë˜ëŒë¦´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
 							}
 						}
 					}

@@ -24,7 +24,7 @@ public class StartCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "º¸¹°Ã£±â ¹Ì´Ï°ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù.";
+		return "ë³´ë¬¼ì°¾ê¸° ë¯¸ë‹ˆê²Œì„ì„ ì‹œì‘í•©ë‹ˆë‹¤.";
 	}
 
 	
@@ -34,12 +34,12 @@ public class StartCommand implements ICommand{
 
 	
 	public String[] getUsage() {
-		return new String[] {"/minigame start <¹Ì´Ï°ÔÀÓ>"};
+		return new String[] {"/minigame start <ë¯¸ë‹ˆê²Œì„>"};
 	}
 
 	
 	public String getPermissionMessage() {
-		return "º¸¹°Ã£±â ¹Ì´Ï°ÔÀÓÀ» ½ÃÀÛÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë³´ë¬¼ì°¾ê¸° ë¯¸ë‹ˆê²Œì„ì„ ì‹œì‘í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -59,10 +59,10 @@ public class StartCommand implements ICommand{
 				mgm.saveMinigame();
 			}
 			else if(mgm == null || !mgm.getType().equals("th")){
-				sender.sendMessage(ChatColor.RED + "\"" + args[0] + "\" ¶ó´Â ÀÌ¸§À» °¡Áø º¸¹°Ã£±â ¹Ì´Ï°ÔÀÓÀº ¾ø½À´Ï´Ù!");
+				sender.sendMessage(ChatColor.RED + "\"" + args[0] + "\" ë¼ëŠ” ì´ë¦„ì„ ê°€ì§„ ë³´ë¬¼ì°¾ê¸° ë¯¸ë‹ˆê²Œì„ì€ ì—†ìŠµë‹ˆë‹¤!");
 			}
 			else if(mgm.getThTimer() != null){
-				sender.sendMessage(ChatColor.RED + mgm.getName() + " ¹Ì´Ï°ÔÀÓÀº ÀÌ¹Ì ½ÃÀÛÇÏ¿´½À´Ï´Ù!");
+				sender.sendMessage(ChatColor.RED + mgm.getName() + " ë¯¸ë‹ˆê²Œì„ì€ ì´ë¯¸ ì‹œì‘í•˜ì˜€ìŠµë‹ˆë‹¤!");
 			}
 			return true;
 		}

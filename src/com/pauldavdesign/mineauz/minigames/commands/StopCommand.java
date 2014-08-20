@@ -24,7 +24,7 @@ public class StopCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "º¸¹°Ã£±â ¹Ì´Ï°ÔÀÓÀ» ÁßÁöÇÕ´Ï´Ù.";
+		return "ë³´ë¬¼ì°¾ê¸° ë¯¸ë‹ˆê²Œì„ì„ ì¤‘ì§€í•©ë‹ˆë‹¤.";
 	}
 
 	
@@ -34,12 +34,12 @@ public class StopCommand implements ICommand{
 
 	
 	public String[] getUsage() {
-		return new String[] {"/minigame stop <¹Ì´Ï°ÔÀÓ>"};
+		return new String[] {"/minigame stop <ë¯¸ë‹ˆê²Œì„>"};
 	}
 
 	
 	public String getPermissionMessage() {
-		return "º¸¹°Ã£±â ¹Ì´Ï°ÔÀÓÀ» ÁßÁöÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë³´ë¬¼ì°¾ê¸° ë¯¸ë‹ˆê²Œì„ì„ ì¤‘ì§€í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -55,17 +55,17 @@ public class StopCommand implements ICommand{
 			
 			if(mgm != null && mgm.getThTimer() != null && mgm.getType().equals("th")){
 				if(mgm.getThTimer().getChestInWorld()){
-					plugin.getServer().broadcast(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + mgm.getName() + " ¹Ì´Ï°ÔÀÓÀÇ º¸¹°ÀÌ ¸ğµç ¿ùµå¿¡¼­ ¼º°øÀûÀ¸·Î Á¦°ÅµÇ¾ú½À´Ï´Ù!", "minigame.treasure.announce");
+					plugin.getServer().broadcast(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + mgm.getName() + " ë¯¸ë‹ˆê²Œì„ì˜ ë³´ë¬¼ì´ ëª¨ë“  ì›”ë“œì—ì„œ ì„±ê³µì ìœ¼ë¡œ ì œê±°ë˜ì—ˆìŠµë‹ˆë‹¤!", "minigame.treasure.announce");
 				}
 				mgm.getThTimer().stopTimer();
 				plugin.mdata.removeTreasure(mgm.getName());
 				mgm.setThTimer(null);
 			}
 			else if(mgm == null || !mgm.getType().equals("th")){
-				sender.sendMessage(ChatColor.RED + "\"" + args[0] + "\" ¶ó´Â ÀÌ¸§À» °¡Áø ¹Ì´Ï°ÔÀÓÀº ¾ø½À´Ï´Ù!");
+				sender.sendMessage(ChatColor.RED + "\"" + args[0] + "\" ë¼ëŠ” ì´ë¦„ì„ ê°€ì§„ ë¯¸ë‹ˆê²Œì„ì€ ì—†ìŠµë‹ˆë‹¤!");
 			}
 			else{
-				sender.sendMessage(ChatColor.RED + mgm.getName() + " ¹Ì´Ï°ÔÀÓÀº ½ÇÇàµÇ°í ÀÖÁö ¾Ê½À´Ï´Ù!");
+				sender.sendMessage(ChatColor.RED + mgm.getName() + " ë¯¸ë‹ˆê²Œì„ì€ ì‹¤í–‰ë˜ê³  ìˆì§€ ì•ŠìŠµë‹ˆë‹¤!");
 			}
 			return true;
 		}

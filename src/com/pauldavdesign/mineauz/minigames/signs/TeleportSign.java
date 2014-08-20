@@ -12,7 +12,7 @@ public class TeleportSign implements MinigameSign {
 
 	
 	public String getName() {
-		return "ÅÚ·¹Æ÷Æ®";
+		return "í…”ë ˆí¬íŠ¸";
 	}
 
 	
@@ -22,7 +22,7 @@ public class TeleportSign implements MinigameSign {
 
 	
 	public String getCreatePermissionMessage() {
-		return "ÅÚ·¹Æ÷Æ® Ç¥ÁöÆÇÀ» ¸¸µé ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "í…”ë ˆí¬íŠ¸ í‘œì§€íŒì„ ë§Œë“¤ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -32,12 +32,12 @@ public class TeleportSign implements MinigameSign {
 
 	
 	public String getUsePermissionMessage() {
-		return "ÅÚ·¹Æ÷Æ® Ç¥ÁöÆÇÀ» »ç¿ëÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "í…”ë ˆí¬íŠ¸ í‘œì§€íŒì„ ì‚¬ìš©í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
 	public boolean signCreate(SignChangeEvent event) {
-		event.setLine(1, ChatColor.GREEN + "ÅÚ·¹Æ÷Æ®");
+		event.setLine(1, ChatColor.GREEN + "í…”ë ˆí¬íŠ¸");
 		if(event.getLine(2).isEmpty()){
 			return false;
 		}
@@ -72,7 +72,7 @@ public class TeleportSign implements MinigameSign {
 			Minigames.plugin.pdata.minigameTeleport(player, new Location(player.getPlayer().getWorld(), x + 0.5, y, z + 0.5));
 			return true;
 		}
-		player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "¾Ë¸ÂÁö ¾ÊÀº ÅÚ·¹Æ÷Æ® Ç¥ÁöÆÇÀÔ´Ï´Ù!");
+		player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ì•Œë§ì§€ ì•Šì€ í…”ë ˆí¬íŠ¸ í‘œì§€íŒì…ë‹ˆë‹¤!");
 		return false;
 	}
 

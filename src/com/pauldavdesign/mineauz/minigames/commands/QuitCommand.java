@@ -28,7 +28,7 @@ public class QuitCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "ÀÚ½Å ¶Ç´Â ´Ù¸¥ »ç¶÷À» ¹Ì´Ï°ÔÀÓ¿¡¼­ ³ª°¡°Ô ÇÕ´Ï´Ù.";
+		return "ìì‹  ë˜ëŠ” ë‹¤ë¥¸ ì‚¬ëŒì„ ë¯¸ë‹ˆê²Œì„ì—ì„œ ë‚˜ê°€ê²Œ í•©ë‹ˆë‹¤.";
 	}
 
 	
@@ -38,12 +38,12 @@ public class QuitCommand implements ICommand{
 
 	
 	public String[] getUsage() {
-		return new String[] {"/minigame quit [ÇÃ·¹ÀÌ¾î]"};
+		return new String[] {"/minigame quit [í”Œë ˆì´ì–´]"};
 	}
 
 	
 	public String getPermissionMessage() {
-		return "´ç½ÅÀº ¹Ì´Ï°ÔÀÓ¿¡¼­ ³ª°¥ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë‹¹ì‹ ì€ ë¯¸ë‹ˆê²Œì„ì—ì„œ ë‚˜ê°ˆ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -60,7 +60,7 @@ public class QuitCommand implements ICommand{
 				plugin.pdata.quitMinigame(player, false);
 			}
 			else {
-				sender.sendMessage(ChatColor.RED + "¹Ì´Ï°ÔÀÓ ¾È¿¡ ¾ø½À´Ï´Ù!");
+				sender.sendMessage(ChatColor.RED + "ë¯¸ë‹ˆê²Œì„ ì•ˆì— ì—†ìŠµë‹ˆë‹¤!");
 			}
 			return true;
 		}
@@ -78,11 +78,11 @@ public class QuitCommand implements ICommand{
 							plugin.pdata.quitMinigame(pl, true);
 						}
 					}
-					sender.sendMessage(ChatColor.GRAY + "¸ğµç ÇÃ·¹ÀÌ¾î°¡ ¹Ì´Ï°ÔÀÓ¿¡¼­ ³ª°¡Á³½À´Ï´Ù.");
+					sender.sendMessage(ChatColor.GRAY + "ëª¨ë“  í”Œë ˆì´ì–´ê°€ ë¯¸ë‹ˆê²Œì„ì—ì„œ ë‚˜ê°€ì¡ŒìŠµë‹ˆë‹¤.");
 					return true;
 				}
 				else if(players.isEmpty()){
-					sender.sendMessage(ChatColor.RED + args[0] + "¶ó´Â ÀÌ¸§À» °¡Áø ¹Ì´Ï°ÔÀÓÀº ¾ø½À´Ï´Ù.");
+					sender.sendMessage(ChatColor.RED + args[0] + "ë¼ëŠ” ì´ë¦„ì„ ê°€ì§„ ë¯¸ë‹ˆê²Œì„ì€ ì—†ìŠµë‹ˆë‹¤.");
 					return true;
 				}
 				else{
@@ -91,14 +91,14 @@ public class QuitCommand implements ICommand{
 				
 				if(ply != null && ply.isInMinigame()){
 					plugin.pdata.quitMinigame(ply, false);
-					sender.sendMessage(ChatColor.GRAY + ply.getName() + " ¸¦ °­Á¦·Î ¹Ì´Ï°ÔÀÓ¿¡¼­ ³ª°¡°Ô Çß½À´Ï´Ù.");
+					sender.sendMessage(ChatColor.GRAY + ply.getName() + " ë¥¼ ê°•ì œë¡œ ë¯¸ë‹ˆê²Œì„ì—ì„œ ë‚˜ê°€ê²Œ í–ˆìŠµë‹ˆë‹¤.");
 				}
 				else{
-					sender.sendMessage(ChatColor.RED + "±×·± ÀÌ¸§À» °¡Áø ÇÃ·¹ÀÌ¾î´Â ¾ø½À´Ï´Ù!");
+					sender.sendMessage(ChatColor.RED + "ê·¸ëŸ° ì´ë¦„ì„ ê°€ì§„ í”Œë ˆì´ì–´ëŠ” ì—†ìŠµë‹ˆë‹¤!");
 				}
 			}
 			else if(player != null){
-				sender.sendMessage(ChatColor.RED + "´Ù¸¥ »ç¶÷À» ³ª°¡°Ô ÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!");
+				sender.sendMessage(ChatColor.RED + "ë‹¤ë¥¸ ì‚¬ëŒì„ ë‚˜ê°€ê²Œ í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!");
 				sender.sendMessage(ChatColor.RED + "minigame.quit.other");
 			}
 			return true;

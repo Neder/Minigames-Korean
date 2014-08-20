@@ -48,7 +48,7 @@ public class Minigames extends JavaPlugin{
 	public void onEnable(){
 		plugin = this;
 		PluginDescriptionFile desc = this.getDescription();
-		log.info(desc.getName() + " °¡ ¼º°øÀûÀ¸·Î È°¼ºÈ­ µÇ¾ú½À´Ï´Ù.");
+		log.info(desc.getName() + " ê°€ ì„±ê³µì ìœ¼ë¡œ í™œì„±í™” ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		
 		mdata = new MinigameData();
 		pdata = new PlayerData();
@@ -109,7 +109,7 @@ public class Minigames extends JavaPlugin{
 			}
 		}
 		catch(Exception e){
-			log.log(Level.SEVERE, "ÀúÀåµÈ ÀÎº¥Åä¸®¸¦ ·ÎµåÇÏÁö ¸øÇß½À´Ï´Ù!");
+			log.log(Level.SEVERE, "ì €ì¥ëœ ì¸ë²¤í† ë¦¬ë¥¼ ë¡œë“œí•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤!");
 			e.printStackTrace();
 		}
 		
@@ -142,22 +142,22 @@ public class Minigames extends JavaPlugin{
 			}
 		}
 		catch(FileNotFoundException ex){
-			log.info("ÄÁÇÎ ·Îµå¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù. »õ·Î ¸¸µì´Ï´Ù.");
+			log.info("ì»¨í•‘ ë¡œë“œì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤. ìƒˆë¡œ ë§Œë“­ë‹ˆë‹¤.");
 			try{
 				this.getConfig().save(this.getDataFolder() + "/config.yml");
 			} 
 			catch(IOException e){
-				log.log(Level.SEVERE, "config.yml ¸¦ ÀúÀåÇÒ ¼ö ¾ø½À´Ï´Ù!");
+				log.log(Level.SEVERE, "config.yml ë¥¼ ì €ì¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
 				e.printStackTrace();
 			}
 		}
 		catch(Exception e){
-			log.log(Level.SEVERE, "ÄÁÇÎ ·Îµå¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù!");
+			log.log(Level.SEVERE, "ì»¨í•‘ ë¡œë“œì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤!");
 			e.printStackTrace();
 		}
 		
 		if(!setupEconomy()){
-	        getLogger().info("Vault ÇÃ·¯±×ÀÎÀÌ ¾ø½À´Ï´Ù! ¾ÆÀÌÅÛ¸¸ º¸»óÀ¸·Î ÁÙ ¼ö ÀÖ½À´Ï´Ù.");
+	        getLogger().info("Vault í”ŒëŸ¬ê·¸ì¸ì´ ì—†ìŠµë‹ˆë‹¤! ì•„ì´í…œë§Œ ë³´ìƒìœ¼ë¡œ ì¤„ ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
 		 }
 		
 		getConfig().options().copyDefaults(true);
@@ -170,7 +170,7 @@ public class Minigames extends JavaPlugin{
 		if(cal.get(Calendar.DAY_OF_MONTH) == 21 && cal.get(Calendar.MONTH) == 8 ||
 				cal.get(Calendar.DAY_OF_MONTH) == 25 && cal.get(Calendar.MONTH) == 11 ||
 				cal.get(Calendar.DAY_OF_MONTH) == 1 && cal.get(Calendar.MONTH) == 0){
-			getLogger().info(ChatColor.GREEN.name() + "ÆÄÆ¼ ¸ğµå È°¼ºÈ­µÊ!");
+			getLogger().info(ChatColor.GREEN.name() + "íŒŒí‹° ëª¨ë“œ í™œì„±í™”ë¨!");
 			pdata.setPartyMode(true);
 		}
 		
@@ -222,7 +222,7 @@ public class Minigames extends JavaPlugin{
 
 	public void onDisable(){
 		PluginDescriptionFile desc = this.getDescription();
-		log.info(desc.getName() + " °¡ ¼º°øÀûÀ¸·Î ºñÈ°¼ºÈ­ µÇ¾ú½À´Ï´Ù!");
+		log.info(desc.getName() + " ê°€ ì„±ê³µì ìœ¼ë¡œ ë¹„í™œì„±í™” ë˜ì—ˆìŠµë‹ˆë‹¤!");
 		
 		for(Player p : getServer().getOnlinePlayers()){
 			if(pdata.getMinigamePlayer(p).isInMinigame()){
@@ -324,7 +324,7 @@ public class Minigames extends JavaPlugin{
 			sql.loadSQL();
 		}
 		else{
-			getLogger().info("SQLibrary °¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù! SQL À» ÀÌ¿ëÇÏ¿© µ¥ÀÌÅ¸¸¦ ÀúÀåÇÒ ¼ö ¾ø½À´Ï´Ù!");
+			getLogger().info("SQLibrary ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤! SQL ì„ ì´ìš©í•˜ì—¬ ë°ì´íƒ€ë¥¼ ì €ì¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
 		}
 	}
 	

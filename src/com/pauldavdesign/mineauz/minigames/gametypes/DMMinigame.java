@@ -77,7 +77,7 @@ public class DMMinigame extends MinigameType{
 			mgm.getMpTimer().removeTimer();
 			mgm.setMpTimer(null);
 			for(MinigamePlayer pl : mgm.getPlayers()){
-				pl.sendMessage(ChatColor.BLUE + "ÇÑ¸íÀÇ ÇÃ·¹ÀÌ¾î¸¦ ´õ ±â´Ù¸³´Ï´Ù.");
+				pl.sendMessage(ChatColor.BLUE + "í•œ ëª…ì˜ í”Œë ˆì´ì–´ë¥¼ ë” ê¸°ë‹¤ë¦½ë‹ˆë‹¤.");
 			}
 		}
 		
@@ -114,7 +114,7 @@ public class DMMinigame extends MinigameType{
 			}
 			else{
 				plugin.getEconomy().depositPlayer(player.getName(), mgm.getMpBets().claimMoneyBets());
-				player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "´ç½ÅÀÌ ÀÌ°Ü " + mgm.getMpBets().claimMoneyBets() + " ¿øÀ» ¹ú¾ú½À´Ï´Ù!");
+				player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ë¯¸ë‹ˆê²Œì„ì—ì„œ ì´ê²¨ " + mgm.getMpBets().claimMoneyBets() + " ì„(ë¥¼) ë²„ì…¨ìŠµë‹ˆë‹¤!");
 				mgm.setMpBets(null);
 			}
 		}
@@ -124,14 +124,14 @@ public class DMMinigame extends MinigameType{
 		boolean hascompleted = false;
 		Configuration completion = null;
 		
-		player.sendMessage(ChatColor.GREEN + "" + mgm + " ¹Ì´Ï°ÔÀÓ¿¡¼­ ½Â¸®ÇÏ¼Ì½À´Ï´Ù! ÃàÇÏÇÕ´Ï´Ù!");
+		player.sendMessage(ChatColor.GREEN + "" + mgm + " ë¯¸ë‹ˆê²Œì„ì—ì„œ ìŠ¹ë¦¬í•˜ì…¨ìŠµë‹ˆë‹¤! ì¶•í•˜í•©ë‹ˆë‹¤!");
 		if(plugin.getConfig().getBoolean("multiplayer.broadcastwin")){
 			String score = "";
 			if(player.getScore() != 0) {
-				score = "½ºÄÚ¾î: " + player.getScore();
-				plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.WHITE + player.getName() + " ´ÔÀÌ " + mgm.getName() + " ¹Ì´Ï°ÔÀÓ¿¡¼­ " + score + "Á¡ÀÇ Á¡¼ö·Î ½Â¸®ÇÏ¿´½À´Ï´Ù!");
+				score = "ìŠ¤ì½”ì–´: " + player.getScore();
+				plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.WHITE + player.getName() + " ë‹˜ì´ " + mgm.getName() + " ë¯¸ë‹ˆê²Œì„ì—ì„œ " + score + "ì ì˜ ì ìˆ˜ë¡œ ìŠ¹ë¦¬í•˜ì˜€ìŠµë‹ˆë‹¤!");
 			} else {
-				plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.WHITE + player.getName() + " ´ÔÀÌ " + mgm.getName() + " ¹Ì´Ï°ÔÀÓ¿¡¼­ ½Â¸®ÇÏ¿´½À´Ï´Ù!");
+				plugin.getServer().broadcastMessage(ChatColor.GREEN + "[PMGO-L] " + ChatColor.WHITE + player.getName() + " ë‹˜ì´ " + mgm.getName() + " ë¯¸ë‹ˆê²Œì„ì—ì„œ ìŠ¹ë¦¬í•˜ì˜€ìŠµë‹ˆë‹¤!");
 			}
 		}
 		
@@ -163,7 +163,7 @@ public class DMMinigame extends MinigameType{
 				if(players.get(i) instanceof Player){
 					MinigamePlayer p = players.get(i);
 					if(!p.getName().equals(player.getName())){
-						p.sendMessage(ChatColor.RED + "´ç½ÅÀº Á³½À´Ï´Ù! ¾ÈÅ¸±õ³×¿ä..");
+						p.sendMessage(ChatColor.RED + "ë¯¸ë‹ˆê²Œì„ì—ì„œ ì¡ŒìŠµë‹ˆë‹¤. ì•ˆíƒ€ê¹ë„¤ìš”..");
 						pdata.quitMinigame(p, false);
 					}
 				}

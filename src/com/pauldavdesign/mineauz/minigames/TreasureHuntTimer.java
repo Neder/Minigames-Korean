@@ -54,8 +54,8 @@ public class TreasureHuntTimer{
 						mdata.removeTreasure(minigame);
 						curHints = new ArrayList<String>();
 						if(chestfound == false){
-							plugin.getServer().broadcast(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "½Ã°£ Á¾·á! " + minigame + " ¹Ì´Ï°ÔÀÓÀÇ º¸¹°ÀÌ ¹ß°ßµÇÁö ¾Ê¾Æ »ç¶óÁ³½À´Ï´Ù.", "minigame.treasure.announce");
-							plugin.getServer().broadcast(ChatColor.GRAY + "ÁÂÇ¥: X:" + old.getBlockX() + ", Y:" + old.getBlockY() + ", Z:" + old.getBlockZ(), "minigame.treasure.announce");
+							plugin.getServer().broadcast(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì‹œê°„ ì¢…ë£Œ! " + minigame + " ë¯¸ë‹ˆê²Œì„ì˜ ë³´ë¬¼ì´ ë°œê²¬ë˜ì§€ ì•Šì•„ ì‚¬ë¼ì¡ŒìŠµë‹ˆë‹¤.", "minigame.treasure.announce");
+							plugin.getServer().broadcast(ChatColor.GRAY + "ì¢Œí‘œ: X:" + old.getBlockX() + ", Y:" + old.getBlockY() + ", Z:" + old.getBlockZ(), "minigame.treasure.announce");
 						}
 					}
 					else if(time == hintTime2 && chestfound == false){
@@ -74,19 +74,19 @@ public class TreasureHuntTimer{
 						
 						if(mgm.getStartLocations().get(0).getX() > block.getX()){
 							dfcx = mgm.getStartLocations().get(0).getX() - block.getX();
-							xdir = "¼­ÂÊ";
+							xdir = "ì„œìª½";
 						}
 						else{
 							dfcx = block.getX() - mgm.getStartLocations().get(0).getX();
-							xdir = "µ¿ÂÊ";
+							xdir = "ë™ìª½";
 						}
 						if(mgm.getStartLocations().get(0).getZ() > block.getZ()){
 							dfcz = mgm.getStartLocations().get(0).getZ() - block.getZ();
-							zdir = "ºÏÂÊ";
+							zdir = "ë¶ìª½";
 						}
 						else{
 							dfcz = block.getZ() - mgm.getStartLocations().get(0).getZ();
-							zdir = "³²ÂÊ";
+							zdir = "ë‚¨ìª½";
 						}
 						String dir = null;
 						

@@ -56,18 +56,18 @@ public class TeamDMMinigame extends MinigameType{
 						
 						if(redSize <= blueSize){
 							mgm.addRedTeamPlayer(player);
-							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "´ç½ÅÀº " + ChatColor.RED + "·¹µå ÆÀ" + ChatColor.WHITE + " ¿¡ µé¾î°¡¼Ì½À´Ï´Ù.");
+							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + ChatColor.RED + "ë ˆë“œ íŒ€" + ChatColor.WHITE + " ì— ë“¤ì–´ì˜¤ì…¨ìŠµë‹ˆë‹¤.");
 							
 							team = 0;
 						}
 						else{
 							mgm.addBlueTeamPlayer(player);
-							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "´ç½ÅÀº " + ChatColor.BLUE + "ºí·ç ÆÀ" + ChatColor.WHITE + " ¿¡ µé¾î°¡¼Ì½À´Ï´Ù.");
+							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + ChatColor.BLUE + "ë¸”ë£¨ íŒ€" + ChatColor.WHITE + " ì— ë“¤ì–´ì˜¤ì…¨ìŠµë‹ˆë‹¤.");
 							
 							team = 1;
 						}
 						
-						player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "5ÃÊ ÈÄ¿¡ µé¾î°©´Ï´Ù...");
+						player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "5ì´ˆ í›„ì— ë“¤ì–´ê°‘ë‹ˆë‹¤...");
 //						player.teleport(lobby);
 						pdata.minigameTeleport(player, lobby);
 						
@@ -102,7 +102,7 @@ public class TeamDMMinigame extends MinigameType{
 						mgm.setScore(player, 1);
 						mgm.setScore(player, 0);
 					}
-					player.sendMessage(ChatColor.GREEN + "ÆÀµ¥½º¸ÅÄ¡ ¹Ì´Ï°ÔÀÓÀ» ½ÃÀÛÇÏ¼Ì½À´Ï´Ù. /quit À¸·Î ³ª°¡½Ç ¼ö ÀÖ½À´Ï´Ù.");
+					player.sendMessage(ChatColor.GREEN + "íŒ€ ë°ìŠ¤ë§¤ì¹˜ ë¯¸ë‹ˆê²Œì„ì„ ì‹œì‘í•˜ì…¨ìŠµë‹ˆë‹¤. /quit ìœ¼ë¡œ ë‚˜ê°€ì‹¤ ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
 				
 					if(mgm.getMpTimer() == null && mgm.getPlayers().size() >= mgm.getMinPlayers()){
 						mgm.setMpTimer(new MultiplayerTimer(mgm));
@@ -111,7 +111,7 @@ public class TeamDMMinigame extends MinigameType{
 							mgm.setMpTimer(new MultiplayerTimer(mgm));
 							mgm.getMpTimer().startTimer();
 							mgm.getMpTimer().setPlayerWaitTime(0);
-							mdata.sendMinigameMessage(mgm, "¹Ì´Ï°ÔÀÓÀÌ ²Ë Ã¡½À´Ï´Ù. ±â´Ù¸®Áö ¾Ê°í ¹Ù·Î ½ÃÀÛÇÕ´Ï´Ù.", "info", null);
+							mdata.sendMinigameMessage(mgm, "í’€ë°©ì´ ë˜ì—ˆìœ¼ë¯€ë¡œ ê¸°ë‹¤ë¦¬ì§€ ì•Šê³  ë°”ë¡œ ì‹œì‘í•©ë‹ˆë‹¤.", "info", null);
 						}
 					}
 					else if(mgm.getMpTimer() != null && mgm.getMpTimer().isPaused() && 
@@ -123,26 +123,26 @@ public class TeamDMMinigame extends MinigameType{
 					else{
 						int neededPlayers = mgm.getMinPlayers() - mgm.getPlayers().size();
 						if(neededPlayers == 1){
-							player.sendMessage(ChatColor.BLUE + "1 ¸íÀÇ ÇÃ·¹ÀÌ¾î¸¦ ´õ ±â´Ù¸³´Ï´Ù.");
+							player.sendMessage(ChatColor.BLUE + "1 ëª…ì˜ í”Œë ˆì´ì–´ë¥¼ ë” ê¸°ë‹¤ë¦½ë‹ˆë‹¤.");
 						}
 						else if(neededPlayers > 1){
-							player.sendMessage(ChatColor.BLUE + "" + neededPlayers + " ¸íÀÇ ÇÃ·¹ÀÌ¾î¸¦ ´õ ±â´Ù¸³´Ï´Ù.");
+							player.sendMessage(ChatColor.BLUE + "" + neededPlayers + " ëª…ì˜ í”Œë ˆì´ì–´ë¥¼ ë” ê¸°ë‹¤ë¦½ë‹ˆë‹¤.");
 						}
 					}
 					
 					return true;
 				}
 				else if((mgm.canLateJoin() && mgm.getMpTimer() != null && mgm.getMpTimer().getStartWaitTimeLeft() != 0)){
-					player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + mgm.getMpTimer().getStartWaitTimeLeft() + " ÃÊÈÄ ´Ù½Ã ½ÃµµÇÏ¼¼¿ä.");
+					player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + mgm.getMpTimer().getStartWaitTimeLeft() + " ì´ˆí›„ ë‹¤ì‹œ ì‹œë„í•˜ì„¸ìš”.");
 					return false;
 				}
 				else if(mgm.getMpTimer().getPlayerWaitTimeLeft() == 0){
-					player.sendMessage(ChatColor.RED + "ÀÌ ¹Ì´Ï°ÔÀÓÀº ÀÌ¹Ì ½ÃÀÛÇß½À´Ï´Ù. ³ªÁß¿¡ ´Ù½Ã ½ÃµµÇÏ¼¼¿ä.");
+					player.sendMessage(ChatColor.RED + "ì´ ë¯¸ë‹ˆê²Œì„ì€ ì´ë¯¸ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤. ë‚˜ì¤‘ì— ë‹¤ì‹œ ì‹œë„í•˜ì„¸ìš”.");
 					return false;
 				}
 			}
 			else if(mgm.getPlayers().size() == mgm.getMaxPlayers()){
-				player.sendMessage(ChatColor.RED + "ÁË¼ÛÇÕ´Ï´Ù. ÀÌ ¹Ì´Ï°ÔÀÓÀº ²Ë Ã¡½À´Ï´Ù.");
+				player.sendMessage(ChatColor.RED + "ì£„ì†¡í•©ë‹ˆë‹¤. ì´ ë¯¸ë‹ˆê²Œì„ì€ ì´ë¯¸ í’€ë°©ì…ë‹ˆë‹¤.");
 				return false;
 			}
 		}
@@ -199,7 +199,7 @@ public class TeamDMMinigame extends MinigameType{
 			mgm.getMpTimer().removeTimer();
 			mgm.setMpTimer(null);
 			for(MinigamePlayer pl : mgm.getPlayers()){
-				pl.sendMessage(ChatColor.BLUE + "1 ¸íÀÇ ÇÃ·¹ÀÌ¾î¸¦ ´õ ±â´Ù¸³´Ï´Ù.");
+				pl.sendMessage(ChatColor.BLUE + "1 ëª…ì˜ í”Œë ˆì´ì–´ë¥¼ ë” ê¸°ë‹¤ë¦½ë‹ˆë‹¤.");
 			}
 		}
 		
@@ -221,7 +221,7 @@ public class TeamDMMinigame extends MinigameType{
 		boolean hascompleted = false;
 		Configuration completion = null;
 		
-		player.sendMessage(ChatColor.GREEN + "" + mgm + " ¹Ì´Ï°ÔÀÓÀ» ²£½À´Ï´Ù! ÃàÇÏÇÕ´Ï´Ù!");
+		player.sendMessage(ChatColor.GREEN + "" + mgm + " ë¯¸ë‹ˆê²Œì„ì„ í´ë¦¬ì–´í•˜ì˜€ìŠµë‹ˆë‹¤! ì¶•í•˜í•©ë‹ˆë‹¤!");
 		
 		if(mgm.getEndPosition() != null){
 			if(!player.getPlayer().isDead()){
@@ -365,16 +365,16 @@ public class TeamDMMinigame extends MinigameType{
 				for(MinigamePlayer ply : players){
 					pdata.quitMinigame(ply, true);
 					if(!plugin.getConfig().getBoolean("multiplayer.broadcastwin")){
-						ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.BLUE + "ºí·ç ÆÀ" + ChatColor.WHITE + " °ú " + 
-								ChatColor.RED + "·¹µå ÆÀ" + ChatColor.WHITE + " ÀÌ " + event.getMinigame().getName() + " ¹Ì´Ï°ÔÀÓ¿¡¼­ ºñ°å½À´Ï´Ù, ");
-						ply.sendMessage("Á¡¼ö: " + ChatColor.BLUE + String.valueOf(event.getMinigame().getBlueTeamScore()) + ChatColor.WHITE + " ´ë " + 
+						ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.BLUE + "ë¸”ë£¨ íŒ€" + ChatColor.WHITE + " ê³¼ " + 
+								ChatColor.RED + "ë ˆë“œ íŒ€" + ChatColor.WHITE + " ì´ " + event.getMinigame().getName() + " ë¯¸ë‹ˆê²Œì„ì—ì„œ ë¹„ê²¼ìŠµë‹ˆë‹¤, ");
+						ply.sendMessage("ì ìˆ˜: " + ChatColor.BLUE + String.valueOf(event.getMinigame().getBlueTeamScore()) + ChatColor.WHITE + " : " + 
 								ChatColor.RED + event.getMinigame().getRedTeamScore());
 					}
 				}
 				if(plugin.getConfig().getBoolean("multiplayer.broadcastwin")){
-					plugin.getServer().broadcastMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.BLUE + "ºí·ç ÆÀ" + ChatColor.WHITE + " °ú " + 
-							ChatColor.RED + "·¹µå ÆÀ" + ChatColor.WHITE + " ÀÌ " + event.getMinigame().getName() + " ¹Ì´Ï°ÔÀÓ¿¡¼­ ºñ°å½À´Ï´Ù, ");
-					plugin.getServer().broadcastMessage("Á¡¼ö: " + ChatColor.BLUE + String.valueOf(event.getMinigame().getBlueTeamScore()) + ChatColor.WHITE + " ´ë " + 
+					plugin.getServer().broadcastMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.BLUE + "ë¸”ë£¨ íŒ€" + ChatColor.WHITE + " ê³¼ " + 
+							ChatColor.RED + "ë ˆë“œ íŒ€" + ChatColor.WHITE + " ì´ " + event.getMinigame().getName() + " ë¯¸ë‹ˆê²Œì„ì—ì„œ ë¹„ê²¼ìŠµë‹ˆë‹¤, ");
+					plugin.getServer().broadcastMessage("ì ìˆ˜: " + ChatColor.BLUE + String.valueOf(event.getMinigame().getBlueTeamScore()) + ChatColor.WHITE + " : " + 
 							ChatColor.RED + event.getMinigame().getRedTeamScore());
 				}
 			}

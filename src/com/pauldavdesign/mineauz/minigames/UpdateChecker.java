@@ -17,9 +17,9 @@ public class UpdateChecker extends Thread{
 	public void run(){
 		List<String> update = MinigameUtils.checkForUpdate("http://mineauz.pauldavdesign.com/mgmversion.txt", Minigames.plugin.getDescription().getVersion());
 		if(update != null){
-			ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "¾÷µ¥ÀÌÆ® È®ÀÎµÊ! »õ ¹öÀü: " + update.get(0));
+			ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì—…ë°ì´íŠ¸ í™•ì¸ë¨! ìƒˆ ë²„ì „: " + update.get(0));
 			if(update.size() > 1){
-				ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "¹Ù²ï ºÎºĞ:");
+				ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ë°”ë€ ë¶€ë¶„:");
 				for(int i = 1; i < update.size(); i++){
 					ply.sendMessage("- " + update.get(i));
 				}

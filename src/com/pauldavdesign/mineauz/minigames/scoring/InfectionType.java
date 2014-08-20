@@ -28,7 +28,7 @@ public class InfectionType extends ScoreType{
 			MinigamePlayer ply = players.get(i);
 			if(!minigame.getType().equals("teamdm")){
 				pdata.quitMinigame(ply, true);
-				ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "°¨¿° °ÔÀÓÀº ÆÀµ¥½º¸ÅÄ¡¿¡¼­¸¸ ÇÒ ¼ö ÀÖ½À´Ï´Ù!");
+				ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ê°ì—¼ ê²Œì„ì€ íŒ€ ë°ìŠ¤ë§¤ì¹˜ì—ì„œë§Œ í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤!");
 			}
 			else{
 				int team = -1;
@@ -43,22 +43,22 @@ public class InfectionType extends ScoreType{
 					if(minigame.getRedTeam().size() < Math.ceil(players.size() * 0.18)){
 						minigame.addRedTeamPlayer(players.get(i));
 						team = 0;
-						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "´ç½ÅÀº " + ChatColor.RED + "°¨¿°µÇ¾ú½À´Ï´Ù!");
-						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ´ÔÀº " + ChatColor.RED + "°¨¿°µÇ¾ú½À´Ï´Ù!", null, players.get(i));
+						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + ChatColor.RED + "ê°ì—¼ë˜ì…¨ìŠµë‹ˆë‹¤!");
+						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ë‹˜ì´ " + ChatColor.RED + "ê°ì—¼ë˜ì…¨ìŠµë‹ˆë‹¤!", null, players.get(i));
 					}
 				}
 				else if(team == -1){
 					if(minigame.getRedTeam().size() < Math.ceil(players.size() * 0.18)){
 						minigame.addRedTeamPlayer(players.get(i));
 						team = 0;
-						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "´ç½ÅÀº " + ChatColor.RED + "°¨¿°µÇ¾ú½À´Ï´Ù!");
-						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ´ÔÀº " + ChatColor.RED + "°¨¿°µÇ¾ú½À´Ï´Ù!", null, players.get(i));
+						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + ChatColor.RED + "ê°ì—¼ë˜ì…¨ìŠµë‹ˆë‹¤!");
+						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ë‹˜ì´ " + ChatColor.RED + "ê°ì—¼ë˜ì…¨ìŠµë‹ˆë‹¤!", null, players.get(i));
 					}
 					else{
 						minigame.addBlueTeamPlayer(players.get(i));
 						team = 1;
-						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "´ç½ÅÀº " + ChatColor.BLUE + "»ıÁ¸ÀÚÀÔ´Ï´Ù.");
-						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ´ÔÀº " + ChatColor.BLUE + "»ıÁ¸ÀÚÀÔ´Ï´Ù.", null, players.get(i));
+						players.get(i).sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ë‹¹ì‹ ì€ " + ChatColor.BLUE + "ìƒì¡´ìì…ë‹ˆë‹¤.");
+						mdata.sendMinigameMessage(minigame, players.get(i).getName() + " ë‹˜ì€ " + ChatColor.BLUE + "ìƒì¡´ìì…ë‹ˆë‹¤.", null, players.get(i));
 					}
 				}
 			}
@@ -85,7 +85,7 @@ public class InfectionType extends ScoreType{
 					mgm.setScore(player, player.getScore());
 					
 					if(mgm.getLives() != player.getDeaths()){
-						mdata.sendMinigameMessage(mgm, event.getEntity().getName() + " ´ÔÀº " + ChatColor.RED + "°¨¿°µÇ¾ú½À´Ï´Ù!", "error", null);
+						mdata.sendMinigameMessage(mgm, event.getEntity().getName() + " ë‹˜ì´ " + ChatColor.RED + "ê°ì—¼ë˜ì…¨ìŠµë‹ˆë‹¤!", "error", null);
 					}
 					if(mgm.getBlueTeam().isEmpty()){
 						event.getEntity().setHealth(2);

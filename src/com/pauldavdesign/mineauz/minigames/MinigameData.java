@@ -127,8 +127,8 @@ public class MinigameData {
 			});
 			
 			setTreasureHuntLocation(minigame, rpos.getBlock().getLocation());
-			plugin.getLogger().info(mgm.getName() + " ¹Ì´Ï°ÔÀÓÀÇ º¸¹°ÀÌ ½ºÆùµÇ´Â °÷: " + rpos.getBlockX() + ", " + rpos.getBlockY() + ", " + rpos.getBlockZ());
-			plugin.getServer().broadcast(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "º¸¹°ÀÌ " + maxradius + "¹ÌÅÍ ¾ÈÀÇ " + getMinigame(minigame).getLocation() + " ½ºÆùµÇ¾ú½À´Ï´Ù!", "minigame.treasure.announce");
+			plugin.getLogger().info(mgm.getName() + " ë¯¸ë‹ˆê²Œì„ì˜ ë³´ë¬¼ì´ ìŠ¤í°ë˜ëŠ” ê³³: " + rpos.getBlockX() + ", " + rpos.getBlockY() + ", " + rpos.getBlockZ());
+			plugin.getServer().broadcast(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ë³´ë¬¼ì´ " + maxradius + "ë¯¸í„° ì•ˆì˜ " + getMinigame(minigame).getLocation() + " ìŠ¤í°ë˜ì—ˆìŠµë‹ˆë‹¤!", "minigame.treasure.announce");
 			if(getMinigame(minigame).getThTimer() == null){
 				getMinigame(minigame).setThTimer(new TreasureHuntTimer(minigame));
 				getMinigame(minigame).getThTimer().startTimer();
@@ -296,7 +296,7 @@ public class MinigameData {
 	
 	public void addMinigameType(MinigameType minigameType){
 		minigameTypes.put(minigameType.getLabel(), minigameType);
-		Minigames.log.info(minigameType.getLabel() + " ¹Ì´Ï°ÔÀÓ Å¸ÀÔÀ» ·ÎµåÇÏ¿´½À´Ï´Ù.");
+		Minigames.log.info(minigameType.getLabel() + " ë¯¸ë‹ˆê²Œì„ íƒ€ì…ì„ ë¡œë“œí•˜ì˜€ìŠµë‹ˆë‹¤.");
 	}
 	
 	public MinigameType minigameType(String name){

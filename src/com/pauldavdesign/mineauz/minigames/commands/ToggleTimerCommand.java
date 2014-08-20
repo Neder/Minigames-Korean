@@ -24,7 +24,7 @@ public class ToggleTimerCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "¹Ì´Ï°ÔÀÓ Å¸ÀÌ¸Ó¸¦ ÁßÁö/Àç½ÃÀÛ ÇÕ´Ï´Ù.";
+		return "ë¯¸ë‹ˆê²Œì„ íƒ€ì´ë¨¸ë¥¼ ì¤‘ì§€/ì¬ì‹œì‘ í•©ë‹ˆë‹¤.";
 	}
 
 	
@@ -34,12 +34,12 @@ public class ToggleTimerCommand implements ICommand{
 
 	
 	public String[] getUsage() {
-		return new String[] {"/minigame toggletimer <¹Ì´Ï°ÔÀÓ>"};
+		return new String[] {"/minigame toggletimer <ë¯¸ë‹ˆê²Œì„>"};
 	}
 
 	
 	public String getPermissionMessage() {
-		return "¹Ì´Ï°ÔÀÓÀÇ Å¸ÀÌ¸Ó¸¦ Åä±ÛÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë¯¸ë‹ˆê²Œì„ì˜ íƒ€ì´ë¨¸ë¥¼ í† ê¸€í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -56,19 +56,19 @@ public class ToggleTimerCommand implements ICommand{
 				if(mgm.getMpTimer() != null){
 					if(mgm.getMpTimer().isPaused()){
 						mgm.getMpTimer().resumeTimer();
-						sender.sendMessage(ChatColor.GRAY + "" + mgm.getName() + "¹Ì´Ï°ÔÀÓÀÇ Å¸ÀÌ¸Ó¸¦ Àç½ÃÀÛÇÕ´Ï´Ù.");
+						sender.sendMessage(ChatColor.GRAY + "" + mgm.getName() + "ë¯¸ë‹ˆê²Œì„ì˜ íƒ€ì´ë¨¸ë¥¼ ì¬ì‹œì‘í•©ë‹ˆë‹¤.");
 					}
 					else{
-						mgm.getMpTimer().pauseTimer(sender.getName() + " ´ÔÀÌ Å¸ÀÌ¸Ó¸¦ ÁßÁö½ÃÄ×½À´Ï´Ù.");
-						sender.sendMessage(ChatColor.GRAY + "" + mgm.getName() + " ¹Ì´Ï°ÔÀÓÀÇ Å¸ÀÌ¸Ó¸¦ ÁßÁö½ÃÄ×½À´Ï´Ù. (³²Àº ½Ã°£" + mgm.getMpTimer().getPlayerWaitTimeLeft() + "ÃÊ)");
+						mgm.getMpTimer().pauseTimer(sender.getName() + " ë‹˜ì´ íƒ€ì´ë¨¸ë¥¼ ì¼ì‹œ ì •ì§€ì‹œì¼°ìŠµë‹ˆë‹¤.");
+						sender.sendMessage(ChatColor.GRAY + "" + mgm.getName() + " ë¯¸ë‹ˆê²Œì„ì˜ íƒ€ì´ë¨¸ë¥¼ ì¼ì‹œ ì •ì§€ì‹œì¼°ìŠµë‹ˆë‹¤. (ë‚¨ì€ ì‹œê°„" + mgm.getMpTimer().getPlayerWaitTimeLeft() + "ì´ˆ)");
 					}
 				}
 				else{
-					sender.sendMessage(ChatColor.RED + "±× ¹Ì´Ï°ÔÀÓÀº ½ÇÇàµÈ Å¸ÀÌ¸Ó°¡ ¾ø½À´Ï´Ù!");
+					sender.sendMessage(ChatColor.RED + "ê·¸ ë¯¸ë‹ˆê²Œì„ì—ëŠ” ì‹¤í–‰ ì¤‘ì¸ íƒ€ì´ë¨¸ê°€ ì—†ìŠµë‹ˆë‹¤!");
 				}
 			}
 			else{
-				sender.sendMessage(ChatColor.RED + "" + args[0] + " ¹Ì´Ï°ÔÀÓÀº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù!");
+				sender.sendMessage(ChatColor.RED + "" + args[0] + "(ì´)ë¼ëŠ” ë¯¸ë‹ˆê²Œì„ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤!");
 			}
 			return true;
 		}

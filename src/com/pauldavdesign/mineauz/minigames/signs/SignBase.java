@@ -43,9 +43,9 @@ public class SignBase implements Listener{
 	@EventHandler
 	private void signPlace(SignChangeEvent event){
 		String[] signinfo = event.getLines();
-		if(signinfo[0].equalsIgnoreCase("[¹Ì´Ï°ÔÀÓ]") || signinfo[0].equalsIgnoreCase("[¹Ì°×]") || signinfo[0].equalsIgnoreCase("[¹Ì]")){
+		if(signinfo[0].equalsIgnoreCase("[ë¯¸ë‹ˆê²Œì„]") || signinfo[0].equalsIgnoreCase("[ë¯¸ê²œ]") || signinfo[0].equalsIgnoreCase("[ë¯¸]")){
 			if(minigameSigns.containsKey(signinfo[1].toLowerCase())){
-				event.setLine(0, ChatColor.DARK_BLUE + "[¹Ì´Ï°ÔÀÓ]");
+				event.setLine(0, ChatColor.DARK_BLUE + "[ë¯¸ë‹ˆê²Œì„]");
 				MinigameSign mgSign = minigameSigns.get(signinfo[1].toLowerCase());
 				
 				if(mgSign.getCreatePermission() != null && !event.getPlayer().hasPermission(mgSign.getCreatePermission())){
@@ -58,7 +58,7 @@ public class SignBase implements Listener{
 				if(!mgSign.signCreate(event)){
 					event.setCancelled(true);
 					event.getBlock().breakNaturally();
-					event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "¿Ã¹Ù¸£Áö ¾ÊÀº ¹Ì´Ï°ÔÀÓ Ç¥ÁöÆÇÀÔ´Ï´Ù!");
+					event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ì˜¬ë°”ë¥´ì§€ ì•Šì€ ë¯¸ë‹ˆê²Œì„ í‘œì§€íŒì…ë‹ˆë‹¤!");
 				}
 			}
 			else{
@@ -74,7 +74,7 @@ public class SignBase implements Listener{
 			Block cblock = event.getClickedBlock();
 			if(cblock.getState() instanceof Sign){
 				Sign sign = (Sign) cblock.getState();
-				if(sign.getLine(0).equals(ChatColor.DARK_BLUE + "[¹Ì´Ï°ÔÀÓ]") && 
+				if(sign.getLine(0).equals(ChatColor.DARK_BLUE + "[ë¯¸ë‹ˆê²Œì„]") && 
 						minigameSigns.containsKey(ChatColor.stripColor(sign.getLine(1).toLowerCase()))){
 					MinigameSign mgSign = minigameSigns.get(ChatColor.stripColor(sign.getLine(1).toLowerCase()));
 					

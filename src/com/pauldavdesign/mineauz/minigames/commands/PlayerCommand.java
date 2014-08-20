@@ -32,25 +32,25 @@ public class PlayerCommand implements ICommand {
 
 	
 	public String getDescription() {
-		return "ÇÃ·¹ÀÌ¾îÀÇ Á¤º¸¿¡ ´ëÇØ º¾´Ï´Ù.";
+		return "í”Œë ˆì´ì–´ì˜ ë¯¸ë‹ˆê²Œì„ ì •ë³´ë¥¼ ë´…ë‹ˆë‹¤.";
 	}
 
 	
 	public String[] getParameters() {
-		return new String[] {"<ÇÃ·¹ÀÌ¾î ÀÌ¸§>", "list"};
+		return new String[] {"<í”Œë ˆì´ì–´ ì´ë¦„>", "list"};
 	}
 
 	
 	public String[] getUsage() {
 		return new String[]{
-				"/minigame player <ÇÃ·¹ÀÌ¾î ÀÌ¸§>",
+				"/minigame player <í”Œë ˆì´ì–´ ì´ë¦„>",
 				"/minigame player list"
 		};
 	}
 
 	
 	public String getPermissionMessage() {
-		return "´ç½ÅÀº ¹Ì´Ï°ÔÀÓ ÇÃ·¹ÀÌ¾î¿¡ ´ëÇØ º¼ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë‹¹ì‹ ì€ í”Œë ˆì´ì–´ì˜ ë¯¸ë‹ˆê²Œì„ ì •ë³´ë¥¼ ë³¼ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -70,32 +70,32 @@ public class PlayerCommand implements ICommand {
 					}
 				}
 				
-				sender.sendMessage(ChatColor.AQUA + "-----------¹Ì´Ï°ÔÀÓÀ» ÇÃ·¹ÀÌÁßÀÎ »ç¶÷-----------");
+				sender.sendMessage(ChatColor.AQUA + "-----------ë¯¸ë‹ˆê²Œì„ì„ í”Œë ˆì´ì¤‘ì¸ ì‚¬ëŒ-----------");
 				if(!pls.isEmpty()){
 					for(MinigamePlayer pl : pls){
-						sender.sendMessage(ChatColor.GREEN + pl.getName() + ChatColor.GRAY + " (\"" + pl.getMinigame().getName() + "\" ÇÃ·¹ÀÌ Áß)");
+						sender.sendMessage(ChatColor.GREEN + pl.getName() + ChatColor.GRAY + " (\"" + pl.getMinigame().getName() + "\" í”Œë ˆì´ ì¤‘)");
 					}
 				}
 				else{
-					sender.sendMessage(ChatColor.RED + "¾øÀ½");
+					sender.sendMessage(ChatColor.RED + "ì—†ìŒ");
 				}
 			}
 			else{
 				List<Player> plmatch = Minigames.plugin.getServer().matchPlayer(args[0]);
 				if(!plmatch.isEmpty()){
 					MinigamePlayer pl = Minigames.plugin.getPlayerData().getMinigamePlayer(plmatch.get(0));
-					sender.sendMessage(ChatColor.AQUA + "--------" + pl.getName() + " ÀÇ Á¤º¸--------");
+					sender.sendMessage(ChatColor.AQUA + "--------" + pl.getName() + " ì˜ ì •ë³´--------");
 					if(pl.isInMinigame()){
-						sender.sendMessage(ChatColor.GREEN + "¹Ì´Ï°ÔÀÓ: " + ChatColor.GRAY + pl.getMinigame().getName());
-						sender.sendMessage(ChatColor.GREEN + "½ºÄÚ¾î: " + ChatColor.GRAY + pl.getScore());
-						sender.sendMessage(ChatColor.GREEN + "Å³: "  + ChatColor.GRAY + pl.getKills());
-						sender.sendMessage(ChatColor.GREEN + "µ¥½º: " + ChatColor.GRAY + pl.getDeaths());
-						sender.sendMessage(ChatColor.GREEN + "Ã¼Å©Æ÷ÀÎÆ®·Î µ¹¾Æ¿È: " + ChatColor.GRAY + pl.getReverts());
-						sender.sendMessage(ChatColor.GREEN + "ÇÃ·¹ÀÌ ½Ã°£: " + ChatColor.GRAY + 
+						sender.sendMessage(ChatColor.GREEN + "ë¯¸ë‹ˆê²Œì„: " + ChatColor.GRAY + pl.getMinigame().getName());
+						sender.sendMessage(ChatColor.GREEN + "ìŠ¤ì½”ì–´: " + ChatColor.GRAY + pl.getScore());
+						sender.sendMessage(ChatColor.GREEN + "í‚¬: "  + ChatColor.GRAY + pl.getKills());
+						sender.sendMessage(ChatColor.GREEN + "ë°ìŠ¤: " + ChatColor.GRAY + pl.getDeaths());
+						sender.sendMessage(ChatColor.GREEN + "ì²´í¬í¬ì¸íŠ¸ë¡œ ëŒì•„ì˜´: " + ChatColor.GRAY + pl.getReverts());
+						sender.sendMessage(ChatColor.GREEN + "í”Œë ˆì´ ì‹œê°„: " + ChatColor.GRAY + 
 								MinigameUtils.convertTime((int)((Calendar.getInstance().getTimeInMillis() - pl.getStartTime() + pl.getStoredTime()) / 1000)));
 					}
 					else{
-						sender.sendMessage(ChatColor.GREEN + "¹Ì´Ï°ÔÀÓ: " + ChatColor.RED + "¹Ì´Ï°ÔÀÓ ¾È¿¡ ¾øÀ½");
+						sender.sendMessage(ChatColor.GREEN + "ë¯¸ë‹ˆê²Œì„: " + ChatColor.RED + "ë¯¸ë‹ˆê²Œì„ ì•ˆì— ì—†ìŒ");
 					}
 				}
 				else{

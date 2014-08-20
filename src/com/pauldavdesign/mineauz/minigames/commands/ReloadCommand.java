@@ -32,7 +32,7 @@ public class ReloadCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "¹Ì´Ï°ÔÀÓ ¼³Á¤ ÆÄÀÏÀ» ¸®·ÎµåÇÕ´Ï´Ù.";
+		return "ë¯¸ë‹ˆê²Œì„ ì„¤ì • íŒŒì¼ì„ ë¦¬ë¡œë“œí•©ë‹ˆë‹¤.";
 	}
 
 	
@@ -47,7 +47,7 @@ public class ReloadCommand implements ICommand{
 
 	
 	public String getPermissionMessage() {
-		return "ÇÃ·¯±×ÀÎÀ» ¸®·ÎµåÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "í”ŒëŸ¬ê·¸ì¸ì„ ë¦¬ë¡œë“œí•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -71,17 +71,17 @@ public class ReloadCommand implements ICommand{
 			plugin.getConfig().load(plugin.getDataFolder() + "/config.yml");
 		}
 		catch(FileNotFoundException ex){
-			plugin.getLogger().info("¼³Á¤À» ·ÎµåÇÏ´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù. »õ·Î ¸¸µì´Ï´Ù.");
+			plugin.getLogger().info("ì„¤ì •ì„ ë¡œë“œí•˜ëŠ”ë° ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤. ìƒˆë¡œ ë§Œë“­ë‹ˆë‹¤.");
 			try{
 				plugin.getConfig().save(plugin.getDataFolder() + "/config.yml");
 			} 
 			catch(IOException e){
-				plugin.getLogger().log(Level.SEVERE, "config.yml ¸¦ ÀúÀåÇÒ ¼ö ¾ø½À´Ï´Ù!");
+				plugin.getLogger().log(Level.SEVERE, "config.yml ë¥¼ ì €ì¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
 				e.printStackTrace();
 			}
 		}
 		catch(Exception e){
-			plugin.getLogger().log(Level.SEVERE, "¼³Á¤À» ·ÎµåÇÏ´Âµ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù!");
+			plugin.getLogger().log(Level.SEVERE, "ì„¤ì •ì„ ë¡œë“œí•˜ëŠ”ë° ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤!");
 			e.printStackTrace();
 		}
 		
@@ -100,7 +100,7 @@ public class ReloadCommand implements ICommand{
 			}
 		}
 		
-		sender.sendMessage(ChatColor.GREEN + "¹Ì´Ï°ÔÀÓ ¼³Á¤ÀÌ ¸®·Îµå µÇ¾ú½À´Ï´Ù.");
+		sender.sendMessage(ChatColor.GREEN + "ë¯¸ë‹ˆê²Œì„ ì„¤ì •ì´ ë¦¬ë¡œë“œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		return true;
 	}
 

@@ -72,7 +72,7 @@ public class Events implements Listener{
 				mdata.sendMinigameMessage(mgm, msg, "error", null);
 			}
 			if(mgm.getLives() > 0 && mgm.getLives() <= ply.getDeaths()){
-				ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "¹Ì´Ï°ÔÀÓ¿¡¼­ ³ª°¡Á³½À´Ï´Ù. ¿îÀÌ ³ª»Ú½Ã³×¿ä.");
+				ply.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ë¯¸ë‹ˆê²Œì„ì—ì„œ ë‚˜ê°€ì¡ŒìŠµë‹ˆë‹¤. ìš´ì´ ë‚˜ì˜ì‹œë„¤ìš”.");
 				ply.getPlayer().setHealth(2);
 				if(event.getEntity().getLastDamageCause().getCause() == DamageCause.FALLING_BLOCK) {
 					ply.getMinigame().getBlockRecorder().addBlock(ply.getPlayer().getLocation().getBlock(), null);
@@ -80,7 +80,7 @@ public class Events implements Listener{
 				pdata.quitMinigame(ply,  false);
 			}
 			else if(mgm.getLives() > 0){
-				ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "³²Àº ¸ñ¼û: " + (mgm.getLives() - ply.getDeaths()));
+				ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ë‚¨ì€ ëª©ìˆ¨: " + (mgm.getLives() - ply.getDeaths()));
 			}
 		}
 	}
@@ -229,7 +229,7 @@ public class Events implements Listener{
 								int z1 = mdata.getTreasureHuntLocation(minigame).getBlockZ();
 								int z2 = cblock.getLocation().getBlockZ();
 								if(x2 == x1 && y2 == y1 && z2 == z1){
-									plugin.getServer().broadcast(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + minigame + "º¸¹°À»" + event.getPlayer().getName() + " ´ÔÀÌ Ã£À¸¼Ì½À´Ï´Ù!", "minigame.treasure.announce");
+									plugin.getServer().broadcast(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + minigame + "ë³´ë¬¼ì„" + event.getPlayer().getName() + " ë‹˜ì´ ì°¾ìœ¼ì…¨ìŠµë‹ˆë‹¤!", "minigame.treasure.announce");
 									event.setCancelled(true);
 									Chest chest = (Chest) cblock.getState();
 									event.getPlayer().openInventory(chest.getInventory());
@@ -247,23 +247,23 @@ public class Events implements Listener{
 			if(cblock.getState() instanceof Sign){
 				Sign sign = (Sign) cblock.getState();
 				if(sign.getLine(0).equalsIgnoreCase(ChatColor.DARK_BLUE + "[PMGO-L]")){
-					if((sign.getLine(1).equalsIgnoreCase(ChatColor.GREEN + "µé¾î°¡±â") || sign.getLine(1).equalsIgnoreCase(ChatColor.GREEN + "¹èÆÃ")) && !ply.isInMinigame()){
+					if((sign.getLine(1).equalsIgnoreCase(ChatColor.GREEN + "ë“¤ì–´ê°€ê¸°") || sign.getLine(1).equalsIgnoreCase(ChatColor.GREEN + "ë°°íŒ…")) && !ply.isInMinigame()){
 						Minigame mgm = mdata.getMinigame(sign.getLine(2));
 						if(mgm != null && (!mgm.getUsePermissions() || event.getPlayer().hasPermission("minigame.join." + mgm.getName().toLowerCase()))){
 							if(!mgm.isEnabled()){
-								event.getPlayer().sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ÀÌ ¹Ì´Ï°ÔÀÓÀº ¾ÆÁ÷ È°¼ºÈ­ µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+								event.getPlayer().sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì´ ë¯¸ë‹ˆê²Œì„ì€ ì•„ì§ í™œì„±í™” ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 							}
 							else{
-								event.getPlayer().sendMessage(ChatColor.GREEN + "------------------¹Ì´Ï°ÔÀÓ Á¤º¸------------------");
-								String status = ChatColor.AQUA + "ÇöÀç »óÅÂ: ";
+								event.getPlayer().sendMessage(ChatColor.GREEN + "------------------ë¯¸ë‹ˆê²Œì„ ì •ë³´------------------");
+								String status = ChatColor.AQUA + "í˜„ì¬ ìƒíƒœ: ";
 								if(!mgm.hasPlayers()){
-									status += ChatColor.GREEN + "ºñ¾îÀÖÀ½";
+									status += ChatColor.GREEN + "ë¹„ì–´ìˆìŒ";
 								}
 								else if(mgm.getMpTimer() == null || mgm.getMpTimer().getPlayerWaitTimeLeft() > 0){
-									status += ChatColor.GREEN + "ÇÃ·¹ÀÌ¾î¸¦ ±â´Ù¸®´ÂÁß";
+									status += ChatColor.GREEN + "í”Œë ˆì´ì–´ë¥¼ ê¸°ë‹¤ë¦¬ëŠ”ì¤‘";
 								}
 								else{
-									status += ChatColor.RED + "½ÃÀÛÇÔ";
+									status += ChatColor.RED + "ì‹œì‘í•¨";
 								}
 								
 								if(!mgm.getType().equals("sp"))
@@ -271,18 +271,18 @@ public class Events implements Listener{
 								
 
 								if(mgm.canLateJoin())
-									event.getPlayer().sendMessage(ChatColor.AQUA + "½ÃÀÛÇÑ ÈÄ µé¾î°¡±â: " + ChatColor.WHITE + "ÄÑÁü");
+									event.getPlayer().sendMessage(ChatColor.AQUA + "ì‹œì‘í•œ í›„ ë“¤ì–´ê°€ê¸°: " + ChatColor.WHITE + "ì¼œì§");
 								
 								if(mgm.getMinigameTimer() != null){
-									event.getPlayer().sendMessage(ChatColor.AQUA + "³²Àº ½Ã°£: " + MinigameUtils.convertTime(mgm.getMinigameTimer().getTimeLeft()));
+									event.getPlayer().sendMessage(ChatColor.AQUA + "ë‚¨ì€ ì‹œê°„: " + MinigameUtils.convertTime(mgm.getMinigameTimer().getTimeLeft()));
 								}
 								
 								if(mgm.getType().equals("teamdm")){
-									event.getPlayer().sendMessage(ChatColor.AQUA + "½ºÄÚ¾î: " + ChatColor.RED + mgm.getRedTeamScore() + ChatColor.WHITE + " ´ë " + ChatColor.BLUE + mgm.getBlueTeamScore());
+									event.getPlayer().sendMessage(ChatColor.AQUA + "ìŠ¤ì½”ì–´: " + ChatColor.RED + mgm.getRedTeamScore() + ChatColor.WHITE + " ëŒ€ " + ChatColor.BLUE + mgm.getBlueTeamScore());
 								}
 								
-								String playerCount = ChatColor.AQUA + "ÇÃ·¹ÀÌ¾î  ¼ö: " + ChatColor.GRAY;
-								String players = ChatColor.AQUA + "ÇÃ·¹ÀÌ¾îµé: ";
+								String playerCount = ChatColor.AQUA + "í”Œë ˆì´ì–´  ìˆ˜: " + ChatColor.GRAY;
+								String players = ChatColor.AQUA + "í”Œë ˆì´ì–´ë“¤: ";
 								
 								if(mgm.hasPlayers()){
 									playerCount += mgm.getPlayers().size() ;
@@ -303,7 +303,7 @@ public class Events implements Listener{
 										playerCount += "/" + mgm.getMaxPlayers();
 									}
 									
-									players += ChatColor.GRAY + "¾øÀ½";
+									players += ChatColor.GRAY + "ì—†ìŒ";
 								}
 								
 								event.getPlayer().sendMessage(playerCount);
@@ -311,10 +311,10 @@ public class Events implements Listener{
 							}
 						}
 						else if(mgm == null){
-							event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "±× ¹Ì´Ï°ÔÀÓÀº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù!");
+							event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ê·¸ ë¯¸ë‹ˆê²Œì„ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤!");
 						}
 						else if(mgm.getUsePermissions()){
-							event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "minigame.join." + mgm.getName().toLowerCase() + " ÆŞ¹Ì¼ÇÀÌ ¾ø½À´Ï´Ù!");
+							event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "minigame.join." + mgm.getName().toLowerCase() + " í„ë¯¸ì…˜ì´ ì—†ìŠµë‹ˆë‹¤!");
 						}
 					}
 				}	
@@ -337,7 +337,7 @@ public class Events implements Listener{
 				Location to = event.getTo();
 				if(from.getWorld() != to.getWorld() || from.distance(to) > 2){
 					event.setCancelled(true);
-					event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "¹Ì´Ï°ÔÀÓ ¾È¿¡¼­´Â ÅÚ·¹Æ÷Æ® ÇÒ ¼ö ¾ø½À´Ï´Ù!");
+					event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ë¯¸ë‹ˆê²Œì„ ì•ˆì—ì„œëŠ” í…”ë ˆí¬íŠ¸ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
 				}
 			}
 		}
@@ -348,7 +348,7 @@ public class Events implements Listener{
 		MinigamePlayer ply = pdata.getMinigamePlayer(event.getPlayer());
 		if(ply.isInMinigame() && !ply.getAllowGamemodeChange()){
 			event.setCancelled(true);
-			event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "¹Ì´Ï°ÔÀÓ ¾È¿¡¼­´Â °ÔÀÓ¸ğµå¸¦ º¯°æÇÒ ¼ö ¾ø½À´Ï´Ù!");
+			event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ë¯¸ë‹ˆê²Œì„ ì•ˆì—ì„œëŠ” ê²Œì„ëª¨ë“œë¥¼ ë³€ê²½í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
 		}
 	}
 	
@@ -358,7 +358,7 @@ public class Events implements Listener{
 		if(ply.isInMinigame() && (!ply.getMinigame().isSpectator(ply) || !ply.getMinigame().canSpectateFly())){
 			event.setCancelled(true);
 			pdata.quitMinigame(ply, true);
-			event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "¹Ì´Ï°ÔÀÓ Áß¿¡´Â ³¯ ¼ö ¾ø½À´Ï´Ù!");
+			event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "ë¯¸ë‹ˆê²Œì„ ì¤‘ì—ëŠ” ë‚  ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
 		}
 	}
 	
@@ -366,7 +366,7 @@ public class Events implements Listener{
 	public void playerRevert(RevertCheckpointEvent event){
 		if(event.getMinigamePlayer().isInMinigame() && (event.getMinigamePlayer().getMinigame().getType().equals("lms") || event.getMinigamePlayer().getMinigame().getType().equals("dm") || event.getMinigamePlayer().getMinigame().getType().equals("teamdm"))){
 			event.setCancelled(true);
-			event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + event.getMinigamePlayer().getMinigame().getType() + " À» ÇÃ·¹ÀÌ ÁßÀÏ¶§´Â Ã¼Å©Æ÷ÀÎÆ®·Î µ¹¾Æ°¥ ¼ö ¾ø½À´Ï´Ù!");
+			event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + event.getMinigamePlayer().getMinigame().getType() + " ì„ í”Œë ˆì´ ì¤‘ì¼ë•ŒëŠ” ì²´í¬í¬ì¸íŠ¸ë¡œ ëŒì•„ê°ˆ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
 		}
 	}
 	
@@ -377,7 +377,7 @@ public class Events implements Listener{
 			for(String comd : pdata.getDeniedCommands()){
 				if(event.getMessage().contains(comd)){
 					event.setCancelled(true);
-					event.getPlayer().sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "¹Ì´Ï°ÔÀÓÀ» ÇÃ·¹ÀÌ ÁßÀÏ¶§´Â ±× ¸í·É¾î¸¦ »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù!");
+					event.getPlayer().sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ë¯¸ë‹ˆê²Œì„ì„ í”Œë ˆì´ ì¤‘ì¼ë•ŒëŠ” ê·¸ ëª…ë ¹ì–´ë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
 				}
 			}
 		}

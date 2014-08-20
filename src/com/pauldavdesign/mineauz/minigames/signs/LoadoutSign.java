@@ -15,7 +15,7 @@ public class LoadoutSign implements MinigameSign {
 
 	
 	public String getName() {
-		return "·Îµå¾Æ¿ô";
+		return "ë¡œë“œì•„ì›ƒ";
 	}
 
 	
@@ -25,7 +25,7 @@ public class LoadoutSign implements MinigameSign {
 
 	
 	public String getCreatePermissionMessage() {
-		return "¹Ì´Ï°ÔÀÓ ·Îµå¾Æ¿ô Ç¥ÁöÆÇÀ» ¸¸µé ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë¯¸ë‹ˆê²Œì„ ë¡œë“œì•„ì›ƒ í‘œì§€íŒì„ ë§Œë“¤ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -35,12 +35,12 @@ public class LoadoutSign implements MinigameSign {
 
 	
 	public String getUsePermissionMessage() {
-		return "¹Ì´Ï°ÔÀÓ ·Îµå¾Æ¿ô Ç¥ÁöÆÇÀ» »ç¿ëÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë¯¸ë‹ˆê²Œì„ ë¡œë“œì•„ì›ƒ í‘œì§€íŒì„ ì‚¬ìš©í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
 	public boolean signCreate(SignChangeEvent event) {
-		event.setLine(1, ChatColor.GREEN + "·Îµå¾Æ¿ô");
+		event.setLine(1, ChatColor.GREEN + "ë¡œë“œì•„ì›ƒ");
 		return true;
 	}
 
@@ -55,11 +55,11 @@ public class LoadoutSign implements MinigameSign {
 			if(mgm.hasLoadout(sign.getLine(2))){
 				if(!mgm.getLoadout(sign.getLine(2)).getUsePermissions() || player.getPlayer().hasPermission("minigame.loadout." + sign.getLine(2).toLowerCase())){
 					mgm.setPlayersLoadout(player, mgm.getLoadout(sign.getLine(2)));
-					player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + sign.getLine(2) + " ·Îµå¾Æ¿ôÀ» ÀåÂøÇÏ¿´½À´Ï´Ù.");
+					player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + sign.getLine(2) + " ë¡œë“œì•„ì›ƒì„ ì¥ì°©í•˜ì˜€ìŠµë‹ˆë‹¤.");
 					
 					if(mgm.getType().equals("sp") || (mgm.getMpTimer() != null && mgm.getMpTimer().getStartWaitTimeLeft() == 0)){
-						if(sign.getLine(3).equalsIgnoreCase("¸®½ºÆù")){
-							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ÀÌ ·Îµå¾Æ¿ôÀº ´ÙÀ½¹ø ¸®½ºÆù ¶§ Àû¿ëµË´Ï´Ù.");
+						if(sign.getLine(3).equalsIgnoreCase("ë¦¬ìŠ¤í°")){
+							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì´ ë¡œë“œì•„ì›ƒì€ ë‹¤ìŒë²ˆ ë¦¬ìŠ¤í° ë•Œ ì ìš©ë©ë‹ˆë‹¤.");
 						}
 						else{
 							mgm.getLoadout(sign.getLine(2)).equiptLoadout(player);
@@ -68,17 +68,17 @@ public class LoadoutSign implements MinigameSign {
 					return true;
 				}
 				else{
-					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + sign.getLine(2) + " ·Îµå¾Æ¿ôÀ» »ç¿ëÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù.");
+					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + sign.getLine(2) + " ë¡œë“œì•„ì›ƒì„ ì‚¬ìš©í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤.");
 				}
 			}
 			else if(plugin.mdata.hasLoadout(sign.getLine(2))){
 				if(!plugin.mdata.getLoadout(sign.getLine(2)).getUsePermissions() || player.getPlayer().hasPermission("minigame.loadout." + sign.getLine(2).toLowerCase())){
 					mgm.setPlayersLoadout(player, plugin.mdata.getLoadout(sign.getLine(2)));
-					player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + sign.getLine(2) + " ·Îµå¾Æ¿ôÀ» ÀåÂøÇÏ¿´½À´Ï´Ù.");
+					player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "" + sign.getLine(2) + " ë¡œë“œì•„ì›ƒì„ ì¥ì°©í•˜ì˜€ìŠµë‹ˆë‹¤.");
 
 					if(mgm.getType().equals("sp") || (mgm.getMpTimer() != null && mgm.getMpTimer().getStartWaitTimeLeft() == 0)){
-						if(sign.getLine(3).equalsIgnoreCase("¸®½ºÆù")){
-							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ÀÌ ·Îµå¾Æ¿ôÀº ´ÙÀ½¹ø ¸®½ºÆù ¶§ Àû¿ëµË´Ï´Ù.");
+						if(sign.getLine(3).equalsIgnoreCase("ë¦¬ìŠ¤í°")){
+							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì´ ë¡œë“œì•„ì›ƒì€ ë‹¤ìŒë²ˆ ë¦¬ìŠ¤í° ë•Œ ì ìš©ë©ë‹ˆë‹¤.");
 						}
 						else{
 							plugin.mdata.getLoadout(sign.getLine(2)).equiptLoadout(player);
@@ -87,15 +87,15 @@ public class LoadoutSign implements MinigameSign {
 					return true;
 				}
 				else{
-					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + sign.getLine(2) + " ·Îµå¾Æ¿ôÀ» »ç¿ëÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù.");
+					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + sign.getLine(2) + " ë¡œë“œì•„ì›ƒì„ ì‚¬ìš©í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤.");
 				}
 			}
 			else{
-				player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ÀÌ ·Îµå¾Æ¿ôÀº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù!");
+				player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì´ ë¡œë“œì•„ì›ƒì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤!");
 			}
 		}
 		else if(player.getPlayer().getItemInHand().getType() != Material.AIR)
-			player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ÀÌ Ç¥ÁöÆÇÀ» »ç¿ëÇÏ·Á¸é ¼ÕÀÌ ºñ¾îÀÖ¾î¾ß ÇÕ´Ï´Ù!");
+			player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì´ í‘œì§€íŒì„ ì‚¬ìš©í•˜ë ¤ë©´ ì†ì´ ë¹„ì–´ìˆì–´ì•¼ í•©ë‹ˆë‹¤!");
 		return false;
 	}
 

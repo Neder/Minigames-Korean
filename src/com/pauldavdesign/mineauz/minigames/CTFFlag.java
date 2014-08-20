@@ -188,12 +188,12 @@ public class CTFFlag{
 				respawnFlag();
 				for(MinigamePlayer pl : minigame.getPlayers()){
 					if(getTeam() == 0){
-						pl.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.RED + "·¹µåÆÀÀÇ" + ChatColor.WHITE + " ±ê¹ßÀÌ ±âÁö·Î µ¹¾Æ°¬½À´Ï´Ù!");
+						pl.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.RED + "ë ˆë“œíŒ€ì˜" + ChatColor.WHITE + " ê¹ƒë°œì´ ê¸°ì§€ë¡œ ëŒì•„ê°”ìŠµë‹ˆë‹¤!");
 					}else if(getTeam() == 1){
-						pl.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.BLUE + "ºí·çÆÀÀÇ" + ChatColor.WHITE + " ±ê¹ßÀÌ ±âÁö·Î µ¹¾Æ°¬½À´Ï´Ù!");
+						pl.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.BLUE + "ë¸”ë£¨íŒ€ì˜" + ChatColor.WHITE + " ê¹ƒë°œì´ ê¸°ì§€ë¡œ ëŒì•„ê°”ìŠµë‹ˆë‹¤!");
 					}
 					else{
-						pl.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.GRAY + "ÀÏ¹İ" + ChatColor.WHITE + " ±ê¹ßÀÌ ±âÁö·Î µ¹¾Æ°¬½À´Ï´Ù!");
+						pl.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.GRAY + "ì¼ë°˜" + ChatColor.WHITE + " ê¹ƒë°œì´ ê¸°ì§€ë¡œ ëŒì•„ê°”ìŠµë‹ˆë‹¤!");
 					}
 				}
 				taskID = -1;

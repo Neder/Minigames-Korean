@@ -25,7 +25,7 @@ public class JoinCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "¹Ì´Ï°ÔÀÓ¿¡ °­Á¦·Î µé¾î°¡°Ô  ÇÕ´Ï´Ù.";
+		return "ë¯¸ë‹ˆê²Œì„ì— ê°•ì œë¡œ ë“¤ì–´ê°€ê²Œ í•©ë‹ˆë‹¤.";
 	}
 
 	
@@ -35,12 +35,12 @@ public class JoinCommand implements ICommand{
 
 	
 	public String[] getUsage() {
-		return new String[] {"/minigame join <¹Ì´Ï°ÔÀÓ>"};
+		return new String[] {"/minigame join <ë¯¸ë‹ˆê²Œì„>"};
 	}
 
 	
 	public String getPermissionMessage() {
-		return "¹Ì´Ï°ÔÀÓ¿¡ µé¾î°¥ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë¯¸ë‹ˆê²Œì„ì— ë“¤ì–´ê°ˆ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -56,18 +56,18 @@ public class JoinCommand implements ICommand{
 			Minigame mgm = plugin.mdata.getMinigame(args[0]);
 			if(mgm != null && (!mgm.getUsePermissions() || player.hasPermission("minigame.join." + mgm.getName().toLowerCase()))){
 				if(!plugin.pdata.getMinigamePlayer(player).isInMinigame()){
-					sender.sendMessage(ChatColor.GREEN + "" + mgm + "¹Ì´Ï°ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù!");
+					sender.sendMessage(ChatColor.GREEN + "" + mgm + "ë¯¸ë‹ˆê²Œì„ì„ ì‹œì‘í•©ë‹ˆë‹¤!");
 					plugin.pdata.joinMinigame(plugin.pdata.getMinigamePlayer(player), mgm);
 				}
 				else {
-					player.sendMessage(ChatColor.RED + "ÀÌ¹Ì ¹Ì´Ï°ÔÀÓÀ» ÇÃ·¹ÀÌÇÏ°í ÀÖ½À´Ï´Ù! ³ª°¬´Ù°¡ ´Ù½Ã µé¾î¿À½Ê½Ã¿À!");
+					player.sendMessage(ChatColor.RED + "ì´ë¯¸ ë¯¸ë‹ˆê²Œì„ì„ í”Œë ˆì´í•˜ê³  ìˆìŠµë‹ˆë‹¤! ë‚˜ê°”ë‹¤ê°€ ë‹¤ì‹œ ë“¤ì–´ì˜¤ì„¸ìš”!");
 				}
 			}
 			else if(mgm != null && mgm.getUsePermissions()){
-				player.sendMessage(ChatColor.RED + "minigame.join." + mgm.getName().toLowerCase() + " ÆŞ¹Ì¼ÇÀÌ ¾ø½À´Ï´Ù!");
+				player.sendMessage(ChatColor.RED + "minigame.join." + mgm.getName().toLowerCase() + " í„ë¯¸ì…˜ì´ ì—†ìŠµë‹ˆë‹¤!");
 			}
 			else{
-				player.sendMessage(ChatColor.RED + "±× ¹Ì´Ï°ÔÀÓÀº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù!");
+				player.sendMessage(ChatColor.RED + "ê·¸ ë¯¸ë‹ˆê²Œì„ì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤!");
 			}
 			return true;
 		}

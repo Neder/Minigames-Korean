@@ -26,7 +26,7 @@ public class ListCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "¹Ì´Ï°ÔÀÓ ¸®½ºÆ®¸¦ º¾´Ï´Ù.";
+		return "ë¯¸ë‹ˆê²Œì„ ëª©ë¡ì„ ë´…ë‹ˆë‹¤.";
 	}
 
 	
@@ -41,7 +41,7 @@ public class ListCommand implements ICommand{
 
 	
 	public String getPermissionMessage() {
-		return "´ç½ÅÀº ¸ğµç ¹Ì´Ï°ÔÀÓ ¸®½ºÆ®¸¦ º¼ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë‹¹ì‹ ì€ ëª¨ë“  ë¯¸ë‹ˆê²Œì„ ëª©ë¡ì„ ë³¼ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	

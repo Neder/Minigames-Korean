@@ -24,7 +24,7 @@ public class TeleportCommand implements ICommand{
 	}
 
 	public String getDescription() {
-		return "¹Ì´Ï°ÔÀÓ ³»¿¡¼­ ÅÚ·¹Æ÷Æ®°¡ °¡´ÉÇÑ ¸í·É¾îÀÔ´Ï´Ù. ";
+		return "ë¯¸ë‹ˆê²Œì„ ë‚´ì—ì„œ í…”ë ˆí¬íŠ¸ê°€ ê°€ëŠ¥í•œ ëª…ë ¹ì–´ì…ë‹ˆë‹¤. ";
 	}
 
 	public String[] getUsage() {
@@ -36,7 +36,7 @@ public class TeleportCommand implements ICommand{
 	}
 	
 	public String getPermissionMessage(){
-		return "´ç½ÅÀº ¹Ì´Ï°ÔÀÓ ³»¿¡¼­ ÅÚ·¹Æ÷Æ®ÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë‹¹ì‹ ì€ ë¯¸ë‹ˆê²Œì„ ë‚´ì—ì„œ í…”ë ˆí¬íŠ¸í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 	
 	public String getPermission(){
@@ -55,7 +55,7 @@ public class TeleportCommand implements ICommand{
 				z = Integer.parseInt(args[2]);
 				Minigames.plugin.pdata.minigameTeleport((MinigamePlayer) player, new Location(player.getPlayer().getWorld(), x + 0.5, y, z + 0.5));
 			} else {
-				player.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "°ªÀº ¼ıÀÚ¿©¾ß ÇÕ´Ï´Ù!");
+				player.sendMessage(ChatColor.RED + "[Minigames] " + ChatColor.WHITE + "ê°’ì€ ìˆ«ìì—¬ì•¼ í•©ë‹ˆë‹¤!");
 			}
 		}
 		return false;

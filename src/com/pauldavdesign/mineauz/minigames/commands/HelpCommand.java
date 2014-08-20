@@ -25,7 +25,7 @@ public class HelpCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "µµ¿ò¸» Ä¿¸ÇµåÀÔ´Ï´Ù.";
+		return "ë„ì›€ë§ ì»¤ë§¨ë“œì…ë‹ˆë‹¤.";
 	}
 
 	
@@ -40,7 +40,7 @@ public class HelpCommand implements ICommand{
 
 	
 	public String getPermissionMessage() {
-		return "´ç½ÅÀº µµ¿ò¸» Ä¿¸Çµå¸¦ »ç¿ëÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù!";
+		return "ë‹¹ì‹ ì€ ë„ì›€ë§ ëª…ë ¹ì–´ë¥¼ ì‚¬ìš©í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -55,59 +55,59 @@ public class HelpCommand implements ICommand{
 		if(sender instanceof Player){
 			player = (Player)sender;
 		}
-		sender.sendMessage(ChatColor.GREEN + "¹Ì´Ï°ÔÀÓ Ä¿¸Çµå ¸®½ºÆ®");
+		sender.sendMessage(ChatColor.GREEN + "ë¯¸ë‹ˆê²Œì„ ëª…ë ¹ì–´ ëª©ë¡");
 		sender.sendMessage(ChatColor.BLUE + "/minigame");
-		sender.sendMessage(ChatColor.GRAY + "±âº» Ä¿¸Çµå (ÁÙÀÓ ¸í·É¾î: /mg)");
+		sender.sendMessage(ChatColor.GRAY + "ê¸°ë³¸ ëª…ë ¹ì–´ (ë‹¨ì¶• ëª…ë ¹ì–´: /mg)");
 		if(player == null || player.hasPermission("minigame.join")){
-			sender.sendMessage(ChatColor.BLUE + "/minigame join <¹Ì´Ï°ÔÀÓ>");
-			sender.sendMessage(ChatColor.GRAY + "¹Ì´Ï°ÔÀÓ¿¡ µé¾î°©´Ï´Ù.");
+			sender.sendMessage(ChatColor.BLUE + "/minigame join <ë¯¸ë‹ˆê²Œì„>");
+			sender.sendMessage(ChatColor.GRAY + "ë¯¸ë‹ˆê²Œì„ì— ë“¤ì–´ê°‘ë‹ˆë‹¤.");
 		}
 		if(player == null || player.hasPermission("minigame.quit")){
 			sender.sendMessage(ChatColor.BLUE + "/minigame quit");
-			sender.sendMessage("¹Ì´Ï°ÔÀÓ¿¡¼­ ³ª¿É´Ï´Ù.");
+			sender.sendMessage("ë¯¸ë‹ˆê²Œì„ì—ì„œ ë‚˜ì˜µë‹ˆë‹¤.");
 			if(player == null || player.hasPermission("minigame.quit.other")){
-				sender.sendMessage("´Ù¸¥ ÇÃ·¹ÀÌ¾îµµ ³ª°¡°Ô ÇÒ ¼ö ¾ø½À´Ï´Ù.");
+				sender.sendMessage("ë‹¤ë¥¸ í”Œë ˆì´ì–´ë„ ë‚˜ê°€ê²Œ í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
 			}
 		}
 		if(player == null || player.hasPermission("minigame.end")){
-			sender.sendMessage(ChatColor.BLUE + "/minigame end [ÇÃ·¹ÀÌ¾î]");
-			sender.sendMessage("³ª È¤Àº ´Ù¸¥ »ç¶÷ÀÇ ¹Ì´Ï°ÔÀÓÀ» ³¡³À´Ï´Ù.(µğ¹ö±×¿ë)");
+			sender.sendMessage(ChatColor.BLUE + "/minigame end [í”Œë ˆì´ì–´]");
+			sender.sendMessage("ë‚˜ í˜¹ì€ ë‹¤ë¥¸ ì‚¬ëŒì˜ ë¯¸ë‹ˆê²Œì„ì„ ëëƒ…ë‹ˆë‹¤.(ë””ë²„ê·¸ìš©)");
 		}
 		if(player == null || player.hasPermission("minigame.revert")){
 			sender.sendMessage(ChatColor.BLUE + "/minigame revert");
-			sender.sendMessage("Ã¼Å© Æ÷ÀÎÆ®·Î µ¹¾Æ°©´Ï´Ù. (ÁÙÀÓ ¸í·É¾î: /mg r)");
+			sender.sendMessage("ì²´í¬í¬ì¸íŠ¸ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤. (ì¤„ì„ ëª…ë ¹ì–´: /mg r)");
 		}
 		if(player == null || player.hasPermission("minigame.delete")){
-			sender.sendMessage(ChatColor.BLUE + "/minigame delete <¹Ì´Ï°ÔÀÓ>");
-			sender.sendMessage("¹Ì´Ï°ÔÀÓÀ» Áö¿ó´Ï´Ù.");
+			sender.sendMessage(ChatColor.BLUE + "/minigame delete <ë¯¸ë‹ˆê²Œì„>");
+			sender.sendMessage("ë¯¸ë‹ˆê²Œì„ì„ ì§€ì›ë‹ˆë‹¤.");
 		}
 		if(player == null || player.hasPermission("minigame.restoreinv")){
-			sender.sendMessage(ChatColor.BLUE + "/minigame restoreinv <ÇÃ·¹ÀÌ¾î>");
-			sender.sendMessage("ÇÃ·¹ÀÌ¾îÀÇ ÀÎº¥Åä¸®¸¦ ¿ø·¡´ë·Î µÇµ¹¸³´Ï´Ù.");
+			sender.sendMessage(ChatColor.BLUE + "/minigame restoreinv <í”Œë ˆì´ì–´>");
+			sender.sendMessage("í”Œë ˆì´ì–´ì˜ ì¸ë²¤í† ë¦¬ë¥¼ ì›ë˜ëŒ€ë¡œ ë˜ëŒë¦½ë‹ˆë‹¤.");
 		}
 		if(player == null || player.hasPermission("minigame.hint")){
-			sender.sendMessage(ChatColor.BLUE + "/minigame hint <¹Ì´Ï°ÔÀÓ>");
-			sender.sendMessage("º¸¹°Ã£±â ¹Ì´Ï°ÔÀÓ¿¡¼­ ÈùÆ®¸¦ ¹Ş½À´Ï´Ù.");
+			sender.sendMessage(ChatColor.BLUE + "/minigame hint <ë¯¸ë‹ˆê²Œì„>");
+			sender.sendMessage("ë³´ë¬¼ì°¾ê¸° ë¯¸ë‹ˆê²Œì„ì—ì„œ íŒíŠ¸ë¥¼ ë°›ìŠµë‹ˆë‹¤.");
 		}
 		if(player == null || player.hasPermission("minigame.toggletimer")){
-			sender.sendMessage(ChatColor.BLUE + "/minigame toggletimer <¹Ì´Ï°ÔÀÓ>");
-			sender.sendMessage("ÄğÅ¸ÀÓ Å¸ÀÌ¸Ó¸¦ ÁßÁö/Àç½ÃÀÛ ÇÕ´Ï´Ù.");
+			sender.sendMessage(ChatColor.BLUE + "/minigame toggletimer <ë¯¸ë‹ˆê²Œì„>");
+			sender.sendMessage("ì¿¨íƒ€ì„ íƒ€ì´ë¨¸ë¥¼ ì¤‘ì§€/ì¬ì‹œì‘ í•©ë‹ˆë‹¤.");
 		}
 		if(player == null || player.hasPermission("minigame.list")){
 			sender.sendMessage(ChatColor.BLUE + "/minigame list");
-			sender.sendMessage("¸ğµç ¹Ì´Ï°ÔÀÓÀÇ ¸ñ·ÏÀ» º¾´Ï´Ù.");
+			sender.sendMessage("ëª¨ë“  ë¯¸ë‹ˆê²Œì„ì˜ ëª©ë¡ì„ ë´…ë‹ˆë‹¤.");
 		}
 		if(player == null || player.hasPermission("minigame.reload")){
 			sender.sendMessage(ChatColor.BLUE + "/minigame reload");
-			sender.sendMessage("¹Ì´Ï°ÔÀÓ ÆÄÀÏÀ» ¸®·Îµå ÇÕ´Ï´Ù.");
+			sender.sendMessage("ë¯¸ë‹ˆê²Œì„ íŒŒì¼ì„ ë¦¬ë¡œë“œ í•©ë‹ˆë‹¤.");
 		}
 		if(player == null || player.hasPermission("minigame.teleport")){
 			sender.sendMessage(ChatColor.BLUE + "/minigame teleport <x> <y> <z>");
-			sender.sendMessage("¹Ì´Ï°ÔÀÓ ³»¿¡¼­ ÅÚ·¹Æ÷Æ® ÇÕ´Ï´Ù.");
+			sender.sendMessage("ë¯¸ë‹ˆê²Œì„ ë‚´ì—ì„œ í…”ë ˆí¬íŠ¸ í•©ë‹ˆë‹¤.");
 		}
 		
-		sender.sendMessage(ChatColor.BLUE + "/minigame set <¹Ì´Ï°ÔÀÓ> <ÆÄ¶ó¸ŞÅÍ>...");
-		sender.sendMessage("¹Ì´Ï°ÔÀÓÀ» ¼³Á¤ÇÕ´Ï´Ù. /minigame set À¸·Î ÆÄ¶ó¸ŞÅÍµéÀ» º¼ ¼ö ÀÖ½À´Ï´Ù.");
+		sender.sendMessage(ChatColor.BLUE + "/minigame set <ë¯¸ë‹ˆê²Œì„> <ì˜µì…˜>...");
+		sender.sendMessage("ë¯¸ë‹ˆê²Œì„ì„ ì„¤ì •í•©ë‹ˆë‹¤. /minigame set ìœ¼ë¡œ ì˜µì…˜ ëª©ë¡ì„ ë³¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
 		return true;
 	}
 

@@ -24,7 +24,7 @@ public class PartyModeCommand implements ICommand{
 
 	
 	public String getDescription() {
-		return "ÆÄÆ¼ ¸ğµå¸¦ ²ô°í ÄÕ´Ï´Ù.";
+		return "íŒŒí‹° ëª¨ë“œë¥¼ ë„ê³  ì¼­ë‹ˆë‹¤.";
 	}
 
 	
@@ -39,7 +39,7 @@ public class PartyModeCommand implements ICommand{
 
 	
 	public String getPermissionMessage() {
-		return "´ç½ÅÀº ÆÄÆ¼ ¸ğµå·Î ¹Ù²Ü ¼ö ¾ø½À´Ï´Ù!";
+		return "íŒŒí‹° ëª¨ë“œë¡œ ë°”ê¿€ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!";
 	}
 
 	
@@ -54,10 +54,10 @@ public class PartyModeCommand implements ICommand{
 			boolean bool = Boolean.parseBoolean(args[0]);
 			plugin.pdata.setPartyMode(bool);
 			if(bool){
-				sender.sendMessage(ChatColor.GREEN + "ÆÄÆ¼ ¸ğµå°¡ ÄÑÁ³½À´Ï´Ù! ¾ßÈ£!");
+				sender.sendMessage(ChatColor.GREEN + "íŒŒí‹° ëª¨ë“œê°€ ì¼œì¡ŒìŠµë‹ˆë‹¤! ì•¼í˜¸!");
 			}
 			else{
-				sender.sendMessage(ChatColor.RED + "ÆÄÆ¼ ¸ğµå°¡ ²¨Á³½À´Ï´Ù. ¤Ğ¤Ğ");
+				sender.sendMessage(ChatColor.RED + "íŒŒí‹° ëª¨ë“œê°€ êº¼ì¡ŒìŠµë‹ˆë‹¤. ã… ã… ");
 			}
 			return true;
 		}

@@ -20,7 +20,7 @@ public class SQLDatabase {
 			}
 		}
 		else{
-			plugin.getLogger().info("SQLibrary °¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù! SQL ·Î µ¥ÀÌÅ¸¸¦ ÀúÀåÇÒ ¼ö ¾ø½À´Ï´Ù!");
+			plugin.getLogger().info("SQLibrary ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤! SQL ë¡œ ë°ì´íƒ€ë¥¼ ì €ì¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
 		}
 	}
 

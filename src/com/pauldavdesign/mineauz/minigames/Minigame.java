@@ -580,16 +580,16 @@ public class Minigame {
 	public void setRedTeamScore(int redTeamScore) {
 		this.redTeamScore = redTeamScore;
 		if(redTeamScore != 0){
-			getScoreboardManager().getObjective(name).getScore(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.RED + "·¹µå ÆÀ: ")).setScore(redTeamScore);
+			getScoreboardManager().getObjective(name).getScore(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.RED + "ë ˆë“œ íŒ€: ")).setScore(redTeamScore);
 		}
 		else{
-			getScoreboardManager().resetScores(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.RED + "·¹µå ÆÀ: "));
+			getScoreboardManager().resetScores(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.RED + "ë ˆë“œ íŒ€: "));
 		}
 	}
 	
 	public void incrementRedTeamScore(){
 		redTeamScore++;
-		getScoreboardManager().getObjective(name).getScore(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.RED + "·¹µå ÆÀ: ")).setScore(redTeamScore);
+		getScoreboardManager().getObjective(name).getScore(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.RED + "ë ˆë“œ íŒ€: ")).setScore(redTeamScore);
 	}
 
 	public int getBlueTeamScore() {
@@ -599,16 +599,16 @@ public class Minigame {
 	public void setBlueTeamScore(int blueTeamScore) {
 		this.blueTeamScore = blueTeamScore;
 		if(blueTeamScore != 0){
-			getScoreboardManager().getObjective(name).getScore(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.BLUE + "ºí·ç ÆÀ: ")).setScore(blueTeamScore);
+			getScoreboardManager().getObjective(name).getScore(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.BLUE + "ë¸”ë£¨ íŒ€: ")).setScore(blueTeamScore);
 		}
 		else{
-			getScoreboardManager().resetScores(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.BLUE + "ºí·ç ÆÀ: "));
+			getScoreboardManager().resetScores(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.BLUE + "ë¸”ë£¨ íŒ€: "));
 		}
 	}
 	
 	public void incrementBlueTeamScore(){
 		blueTeamScore++;
-		getScoreboardManager().getObjective(name).getScore(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.BLUE + "ºí·ç ÆÀ: ")).setScore(blueTeamScore);
+		getScoreboardManager().getObjective(name).getScore(Minigames.plugin.getServer().getOfflinePlayer(ChatColor.BLUE + "ë¸”ë£¨ íŒ€: ")).setScore(blueTeamScore);
 	}
 
 	public int getMinScore() {

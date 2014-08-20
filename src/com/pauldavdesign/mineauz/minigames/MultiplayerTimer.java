@@ -33,27 +33,27 @@ public class MultiplayerTimer{
 			public void run() {
 				if(playerWaitTime != 0 && !paused){
 					if(playerWaitTime == plugin.getConfig().getInt("multiplayer.waitforplayers")){
-						sendPlayersMessage(ChatColor.GRAY + "ÇÃ·¹ÀÌ¾î¸¦ ±â´Ù¸³´Ï´Ù..");
-						sendPlayersMessage(ChatColor.GRAY + "" + playerWaitTime + "ÃÊ ³²À½.");
+						sendPlayersMessage(ChatColor.GRAY + "í”Œë ˆì´ì–´ë¥¼ ê¸°ë‹¤ë¦½ë‹ˆë‹¤..");
+						sendPlayersMessage(ChatColor.GRAY + "" + playerWaitTime + "ì´ˆ ë‚¨ìŒ.");
 					}
 					else if(timeMsg.contains(playerWaitTime)){
-						sendPlayersMessage(ChatColor.GRAY + "" + playerWaitTime + "ÃÊ ³²À½.");
+						sendPlayersMessage(ChatColor.GRAY + "" + playerWaitTime + "ì´ˆ ë‚¨ìŒ.");
 					}
 					playerWaitTime -= 1;
 				}
 				else if(playerWaitTime == 0 && startWaitTime !=0 && !paused){
 					if(startWaitTime == plugin.getConfig().getInt("multiplayer.startcountdown")){
-						sendPlayersMessage(ChatColor.GRAY + "¹Ì´Ï°ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù..");
-						sendPlayersMessage(ChatColor.GRAY + "" + startWaitTime + "ÃÊ ³²À½.");
+						sendPlayersMessage(ChatColor.GRAY + "ë¯¸ë‹ˆê²Œì„ì„ ì‹œì‘í•©ë‹ˆë‹¤..");
+						sendPlayersMessage(ChatColor.GRAY + "" + startWaitTime + "ì´ˆ ë‚¨ìŒ.");
 					}
 					else if(timeMsg.contains(startWaitTime)){
-						sendPlayersMessage(ChatColor.GRAY + "" + startWaitTime + "ÃÊ ³²À½.");
+						sendPlayersMessage(ChatColor.GRAY + "" + startWaitTime + "ì´ˆ ë‚¨ìŒ.");
 					}
 					startWaitTime -= 1;
 				}
 				else if(playerWaitTime == 0 && startWaitTime == 0){
 					if(startWaitTime == 0 && playerWaitTime == 0){
-						sendPlayersMessage(ChatColor.GREEN + "½ÃÀÛ!");
+						sendPlayersMessage(ChatColor.GREEN + "ì‹œì‘!");
 						reclearInventories(minigame);
 						pdata.startMPMinigame(minigame);
 					}
@@ -94,14 +94,14 @@ public class MultiplayerTimer{
 	public void pauseTimer(){
 		paused = true;
 		for(MinigamePlayer ply : minigame.getPlayers()){
-			ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "½ÃÀÛ Å¸ÀÌ¸Ó°¡ ÁßÁöµÇ¾ú½À´Ï´Ù.");
+			ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì‹œì‘ íƒ€ì´ë¨¸ê°€ ì¤‘ì§€ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}
 	}
 	
 	public void pauseTimer(String reason){
 		paused = true;
 		for(MinigamePlayer ply : minigame.getPlayers()){
-			ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "½ÃÀÛ Å¸ÀÌ¸Ó°¡ ÁßÁöµÇ¾ú½À´Ï´Ù. ÀÌÀ¯: " + reason);
+			ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì‹œì‘ íƒ€ì´ë¨¸ê°€ ì¤‘ì§€ë˜ì—ˆìŠµë‹ˆë‹¤. ì´ìœ : " + reason);
 		}
 	}
 	
@@ -114,7 +114,7 @@ public class MultiplayerTimer{
 	public void resumeTimer(){
 		paused = false;
 		for(MinigamePlayer ply : minigame.getPlayers()){
-			ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "½ÃÀÛ Å¸ÀÌ¸Ó°¡ ´Ù½Ã ½ÃÀÛÇÏ¿´½À´Ï´Ù.");
+			ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "ì‹œì‘ íƒ€ì´ë¨¸ê°€ ë‹¤ì‹œ ì‹œì‘í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		}
 	}
 	
