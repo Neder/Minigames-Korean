@@ -50,12 +50,12 @@ public class TeamSign implements MinigameSign {
 			else if(event.getLine(2).equalsIgnoreCase("블루") || event.getLine(2).equalsIgnoreCase("ㅂ")){
 				event.setLine(2, ChatColor.BLUE + "블루");
 			}
-			else if(event.getLine(2).equalsIgnoreCase("자연")){
-				event.setLine(2, ChatColor.GRAY + "자연");
+			else if(event.getLine(2).equalsIgnoreCase("중립")){
+				event.setLine(2, ChatColor.GRAY + "중립");
 			}
 			return true;
 		}
-		event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "3번째 라인은 \"레드\", \"블루\" 또는 \"자연\"이여야 합니다!");
+		event.getPlayer().sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "3번째 라인은 \"레드\", \"블루\" 또는 \"중립\"이여야 합니다!");
 		return false;
 	}
 
@@ -80,7 +80,7 @@ public class TeamSign implements MinigameSign {
 							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "팀 벨런스를 망칠 수 없습니다!");
 						}
 					}
-					else if(sign.getLine(2).equals(ChatColor.GRAY + "자연") && !mgm.hasStarted()){
+					else if(sign.getLine(2).equals(ChatColor.GRAY + "중립") && !mgm.hasStarted()){
 						mgm.removeRedTeamPlayer(player);
 						mgm.removeBlueTeamPlayer(player);
 						plugin.mdata.sendMinigameMessage(mgm, player.getName() + " 님은 자동으로 팀이 설정됩니다.", null, player);
@@ -99,7 +99,7 @@ public class TeamSign implements MinigameSign {
 							player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "팀 벨런스를 망칠 수 없습니다!");
 						}
 					}
-					else if(sign.getLine(2).equals(ChatColor.GRAY + "자연") && !mgm.hasStarted()){
+					else if(sign.getLine(2).equals(ChatColor.GRAY + "중립") && !mgm.hasStarted()){
 						mgm.removeRedTeamPlayer(player);
 						mgm.removeBlueTeamPlayer(player);
 						plugin.mdata.sendMinigameMessage(mgm, player.getName() + " 님은 자동으로 팀이 설정됩니다.", null, player);
