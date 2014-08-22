@@ -166,7 +166,7 @@ public class PlayerData {
 						((money != 0 && pbet.canBet(player, money) && plugin.getEconomy().getBalance(player.getName()) >= money) || 
 								(pbet.canBet(player, item) && item.getType() != Material.AIR && pbet.betValue(item.getType()) > 0))){
 					if(minigame.getPlayers().isEmpty() || minigame.getPlayers().size() != minigame.getMaxPlayers()){
-						player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "베팅을 하셨군요! 행운을 빕니다!");
+						player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "배팅을 하셨군요! 행운을 빕니다!");
 						if(money == 0){
 							pbet.addBet(player, item);
 						}
@@ -182,19 +182,19 @@ public class PlayerData {
 					}
 				}
 				else if(item.getType() == Material.AIR && money == 0){
-					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "아무것도 베팅할 수 없습니다!");
+					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "아무것도 배팅할 수 없습니다!");
 				}
 				else if(money != 0 && !pbet.canBet(player, money)){
-					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "이번 라운드에서 알맞은 돈을 베팅하지 않았습니다!");
-					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + minigame.getMpBets().getHighestMoneyBet() + " 원을 베팅하셔야 합니다.");
+					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "이번 라운드에서 알맞은 돈을 배팅하지 않았습니다!");
+					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + minigame.getMpBets().getHighestMoneyBet() + " 원을 배팅하셔야 합니다.");
 				}
 				else if(money != 0 && plugin.getEconomy().getBalance(player.getName()) < money){
 					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "돈이 없습니다!");
-					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + minigame.getMpBets().getHighestMoneyBet() + " 원을 베팅하셔야 합니다.");
+					player.sendMessage(ChatColor.RED + "[PMGO-L] " + ChatColor.WHITE + "" + minigame.getMpBets().getHighestMoneyBet() + " 원을 배팅하셔야 합니다.");
 				}
 				else{
 					player.sendMessage(ChatColor.RED + "이번 라운드에 알맞은 아이템을 베팅하지 않았습니다!");
-					player.sendMessage(ChatColor.RED + "" + minigame.getMpBets().highestBetName() + " 를 베팅하셔야 합니다.");
+					player.sendMessage(ChatColor.RED + "" + minigame.getMpBets().highestBetName() + " 를 배팅하셔야 합니다.");
 				}
 			}
 			else if(minigame != null && minigame.getMpTimer() != null && minigame.getMpTimer().getPlayerWaitTimeLeft() == 0){
@@ -345,7 +345,7 @@ public class PlayerData {
 		if(!event.isCancelled()){
 			minigameTeleport(player, player.getCheckpoint());
 			player.addRevert();
-			player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "체크포인트로 되돌아 왔습니다.");
+			player.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "체크포인트로 되돌아왔습니다.");
 		}
 	}
 	

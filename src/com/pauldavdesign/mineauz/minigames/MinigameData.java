@@ -128,7 +128,7 @@ public class MinigameData {
 			
 			setTreasureHuntLocation(minigame, rpos.getBlock().getLocation());
 			plugin.getLogger().info(mgm.getName() + " 미니게임의 보물이 스폰되는 곳: " + rpos.getBlockX() + ", " + rpos.getBlockY() + ", " + rpos.getBlockZ());
-			plugin.getServer().broadcast(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "보물이 " + maxradius + "미터 안의 " + getMinigame(minigame).getLocation() + " 스폰되었습니다!", "minigame.treasure.announce");
+			plugin.getServer().broadcast(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "보물이 " + getMinigame(minigame).getLocation() + " 지점을 기준으로 " + maxradius + " 미터 안에 스폰되었습니다!", "minigame.treasure.announce");
 			if(getMinigame(minigame).getThTimer() == null){
 				getMinigame(minigame).setThTimer(new TreasureHuntTimer(minigame));
 				getMinigame(minigame).getThTimer().startTimer();

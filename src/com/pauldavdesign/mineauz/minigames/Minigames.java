@@ -48,7 +48,7 @@ public class Minigames extends JavaPlugin{
 	public void onEnable(){
 		plugin = this;
 		PluginDescriptionFile desc = this.getDescription();
-		log.info(desc.getName() + " 가 성공적으로 활성화 되었습니다.");
+		log.info(desc.getName() + " 가 활성화되었습니다.");
 		
 		mdata = new MinigameData();
 		pdata = new PlayerData();
@@ -142,7 +142,7 @@ public class Minigames extends JavaPlugin{
 			}
 		}
 		catch(FileNotFoundException ex){
-			log.info("컨핑 로드에 실패하였습니다. 새로 만듭니다.");
+			log.info("config 로드에 실패하였습니다. 새로 만듭니다.");
 			try{
 				this.getConfig().save(this.getDataFolder() + "/config.yml");
 			} 
@@ -152,7 +152,7 @@ public class Minigames extends JavaPlugin{
 			}
 		}
 		catch(Exception e){
-			log.log(Level.SEVERE, "컨핑 로드에 실패하였습니다!");
+			log.log(Level.SEVERE, "config 로드에 실패하였습니다!");
 			e.printStackTrace();
 		}
 		
@@ -222,7 +222,7 @@ public class Minigames extends JavaPlugin{
 
 	public void onDisable(){
 		PluginDescriptionFile desc = this.getDescription();
-		log.info(desc.getName() + " 가 성공적으로 비활성화 되었습니다!");
+		log.info(desc.getName() + " 가 비활성화되었습니다!");
 		
 		for(Player p : getServer().getOnlinePlayers()){
 			if(pdata.getMinigamePlayer(p).isInMinigame()){
@@ -324,7 +324,7 @@ public class Minigames extends JavaPlugin{
 			sql.loadSQL();
 		}
 		else{
-			getLogger().info("SQLibrary 가 존재하지 않습니다! SQL 을 이용하여 데이타를 저장할 수 없습니다!");
+			getLogger().info("SQLibrary 플러그인이 없습니다! SQL 을 이용하여 데이터를 저장할 수 없습니다!");
 		}
 	}
 	

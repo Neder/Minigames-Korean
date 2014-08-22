@@ -101,7 +101,7 @@ public class MultiplayerTimer{
 	public void pauseTimer(String reason){
 		paused = true;
 		for(MinigamePlayer ply : minigame.getPlayers()){
-			ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "시작 타이머가 중지되었습니다. 이유: " + reason);
+			ply.sendMessage(ChatColor.AQUA + "[PMGO-L] " + ChatColor.WHITE + "시작 타이머가 중지되었습니다. 사유: " + reason);
 		}
 	}
 	

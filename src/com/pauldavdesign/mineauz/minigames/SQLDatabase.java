@@ -20,7 +20,7 @@ public class SQLDatabase {
 			}
 		}
 		else{
-			plugin.getLogger().info("SQLibrary 가 존재하지 않습니다! SQL 로 데이타를 저장할 수 없습니다!");
+			plugin.getLogger().info("SQLibrary 플러그인이 없습니다! SQL 로 데이타를 저장할 수 없습니다!");
 		}
 	}
 
